@@ -1,6 +1,5 @@
 ---
 title:       "Analyse og visualisering af biologiske datasæt – 2027"
-author:      "Sarah Rennie"
 date:        "`r Sys.Date()`"
 site:        bookdown::bookdown_site
 documentclass: book
@@ -31,11 +30,11 @@ knitr::write_bib(c(
 
 # Lidt om kurset {-}
 
-Denne hjemmeside er kursusnotaterne til de indskrevne studerende i 2026/27 studieår. De er skrevet 100% af underviserne i kurset. Jeg håber, det er intuitivt at finde rundt på siden, men har du forslag til forbedringer, skriv meget gerne til mig.
+Denne hjemmeside er kursusnotaterne til de indskrevne studerende i 2026/27 studieår. De er skrevet 100% af underviserne i kurset. Jeg håber, det er intuitivt at finde rundt på siden, men har du forslag til forbedringer, skriv meget gerne til os.
 
 ## Outline {-}
 
-Der er i alt 13 emner i kurset. Foreløbig er introduktionen og det første kapitel, **Grundlæggende R**, tilgængelige her. De øvrige kapitler kommer løbende.
+Der er i alt 12 emner i kurset. Foreløbig er introduktionen og det første kapitel, **Grundlæggende R**, tilgængelige her. De øvrige kapitler kommer løbende.
 
 ## Bedømmelse {-}
 
@@ -50,8 +49,12 @@ Quizzerne gør det nemt at tjekke viden undervejs, men udgør ikke en del af den
 
 Sarah
 
-Jeg er adjunkt på biologiske institut. Jeg kommer oprindeligt fra Storbritannien og flyttede til Danmark i 2015. Jeg bor sammen med min mand og vores 3 børn.
+Jeg er lektor på biologiske institut. Jeg kommer oprindeligt fra Storbritannien og flyttede til Danmark i 2015. Jeg bor sammen med min mand og vores 3 børn.
 
 Robert
 
 Robert er adjunkt på biologiske institut.
+
+Niels
+
+Niels er adjunkt på biologiske institut.

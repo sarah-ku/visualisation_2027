@@ -1,0 +1,9 @@
+bookdown::gitbook:
+  css: assets/style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">Visualisering_2027</a></li>
+      after: |
+        <li><a href="https://bookdown.org/" target="_blank" rel="noopener">Published with bookdown</a></li>
+    download: false

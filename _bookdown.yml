@@ -1,0 +1,9 @@
+book_filename: "visualisation_2027"
+rmd_files:
+  - index.Rmd
+  - 00-basics_v1.Rmd
+delete_merged_file: true
+output_dir: "docs"
+language:
+  ui:
+    chapter_name: "Kapitel "

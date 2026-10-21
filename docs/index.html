@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Analyse og visualisering af biologiske datasæt – 2027</title>
+  <meta name="description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Analyse og visualisering af biologiske datasæt – 2027" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://sarah-ku.github.io/visualisation_2027/plots/ai_cover.jpeg" />
+  <meta property="og:description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Analyse og visualisering af biologiske datasæt – 2027" />
+  
+  <meta name="twitter:description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  <meta name="twitter:image" content="https://sarah-ku.github.io/visualisation_2027/plots/ai_cover.jpeg" />
+
+<meta name="author" content="Sarah Rennie" />
+
+
+<meta name="date" content="2026-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="baser.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Visualisering_2027</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Lidt om kurset</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i>Outline</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bed%C3%B8mmelse"><i class="fa fa-check"></i>Bedømmelse</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bare-lidt-om-underviserne"><i class="fa fa-check"></i>Bare lidt om underviserne</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="baser.html"><a href="baser.html"><i class="fa fa-check"></i><b>1</b> Grundlæggende R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="baser.html"><a href="baser.html#inledning-til-kapitel"><i class="fa fa-check"></i><b>1.1</b> Inledning til kapitel</a></li>
+<li class="chapter" data-level="1.2" data-path="baser.html"><a href="baser.html#rstudio"><i class="fa fa-check"></i><b>1.2</b> RStudio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="baser.html"><a href="baser.html#de-forskellige-vinduer-i-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> De forskellige vinduer i RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="baser.html"><a href="baser.html#working-directory"><i class="fa fa-check"></i><b>1.3</b> Working directory</a></li>
+<li class="chapter" data-level="1.4" data-path="baser.html"><a href="baser.html#r-pakker"><i class="fa fa-check"></i><b>1.4</b> R pakker</a></li>
+<li class="chapter" data-level="1.5" data-path="baser.html"><a href="baser.html#hvor-kommer-vores-data-fra"><i class="fa fa-check"></i><b>1.5</b> Hvor kommer vores data fra?</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="baser.html"><a href="baser.html#indbyggede-datas%C3%A6t"><i class="fa fa-check"></i><b>1.5.1</b> Indbyggede datasæt</a></li>
+<li class="chapter" data-level="1.5.2" data-path="baser.html"><a href="baser.html#importering-af-data-fra-.txt-fil"><i class="fa fa-check"></i><b>1.5.2</b> Importering af data fra .txt fil</a></li>
+<li class="chapter" data-level="1.5.3" data-path="baser.html"><a href="baser.html#importering-af-data-fra-excel"><i class="fa fa-check"></i><b>1.5.3</b> Importering af data fra Excel</a></li>
+<li class="chapter" data-level="1.5.4" data-path="baser.html"><a href="baser.html#kaggle"><i class="fa fa-check"></i><b>1.5.4</b> Kaggle</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="baser.html"><a href="baser.html#beregninger-i-r"><i class="fa fa-check"></i><b>1.6</b> Beregninger i R</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="baser.html"><a href="baser.html#objekter"><i class="fa fa-check"></i><b>1.6.1</b> Objekter</a></li>
+<li class="chapter" data-level="1.6.2" data-path="baser.html"><a href="baser.html#vektorer"><i class="fa fa-check"></i><b>1.6.2</b> Vektorer</a></li>
+<li class="chapter" data-level="1.6.3" data-path="baser.html"><a href="baser.html#datatyper"><i class="fa fa-check"></i><b>1.6.3</b> Datatyper</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="baser.html"><a href="baser.html#dataframes"><i class="fa fa-check"></i><b>1.7</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="baser.html"><a href="baser.html#delm%C3%A6ngder-af-dataframes"><i class="fa fa-check"></i><b>1.7.1</b> Delmængder af dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="baser.html"><a href="baser.html#ifelse"><i class="fa fa-check"></i><b>1.8</b> If/else</a></li>
+<li class="chapter" data-level="1.9" data-path="baser.html"><a href="baser.html#loops"><i class="fa fa-check"></i><b>1.9</b> Loops</a></li>
+<li class="chapter" data-level="1.10" data-path="baser.html"><a href="baser.html#descriptive-statistics-beskrivende-statistik"><i class="fa fa-check"></i><b>1.10</b> Descriptive statistics / beskrivende statistik</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="baser.html"><a href="baser.html#simulere-data-fra-den-normalfordeling"><i class="fa fa-check"></i><b>1.10.1</b> Simulere data fra den normalfordeling</a></li>
+<li class="chapter" data-level="1.10.2" data-path="baser.html"><a href="baser.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>1.10.2</b> Measures of central tendency</a></li>
+<li class="chapter" data-level="1.10.3" data-path="baser.html"><a href="baser.html#tapply"><i class="fa fa-check"></i><b>1.10.3</b> <code>tapply()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="baser.html"><a href="baser.html#statistike-tester"><i class="fa fa-check"></i><b>1.11</b> Statistike tester</a>
+<ul>
+<li class="chapter" data-level="1.11.1" data-path="baser.html"><a href="baser.html#p-v%C3%A6rdien"><i class="fa fa-check"></i><b>1.11.1</b> P-værdien</a></li>
+<li class="chapter" data-level="1.11.2" data-path="baser.html"><a href="baser.html#korrelation"><i class="fa fa-check"></i><b>1.11.2</b> Korrelation</a></li>
+<li class="chapter" data-level="1.11.3" data-path="baser.html"><a href="baser.html#test-for-uafh%C3%A6ngighed-chi-sq-test"><i class="fa fa-check"></i><b>1.11.3</b> Test for uafhængighed (chi-sq test)</a></li>
+<li class="chapter" data-level="1.11.4" data-path="baser.html"><a href="baser.html#sample-t-test"><i class="fa fa-check"></i><b>1.11.4</b> 1 sample t-test</a></li>
+<li class="chapter" data-level="1.11.5" data-path="baser.html"><a href="baser.html#sample-t-test-1"><i class="fa fa-check"></i><b>1.11.5</b> 2-sample t-test</a></li>
+<li class="chapter" data-level="1.11.6" data-path="baser.html"><a href="baser.html#paired-t-test-parret-t-test"><i class="fa fa-check"></i><b>1.11.6</b> Paired t-test / parret t-test</a></li>
+<li class="chapter" data-level="1.11.7" data-path="baser.html"><a href="baser.html#anova-variansanalyse"><i class="fa fa-check"></i><b>1.11.7</b> ANOVA (variansanalyse)</a></li>
+<li class="chapter" data-level="1.11.8" data-path="baser.html"><a href="baser.html#line%C3%A6r-regression-linear-regression"><i class="fa fa-check"></i><b>1.11.8</b> Lineær regression / linear regression</a></li>
+<li class="chapter" data-level="1.11.9" data-path="baser.html"><a href="baser.html#r-squared-bestemmelseskoefficient-koefficient-of-determination"><i class="fa fa-check"></i><b>1.11.9</b> R-squared bestemmelseskoefficient / koefficient of determination</a></li>
+<li class="chapter" data-level="1.11.10" data-path="baser.html"><a href="baser.html#antagelser-ved-brug-af-line%C3%A6r-regression"><i class="fa fa-check"></i><b>1.11.10</b> Antagelser ved brug af lineær regression</a></li>
+<li class="chapter" data-level="1.11.11" data-path="baser.html"><a href="baser.html#multiple-line%C3%A6r-regression"><i class="fa fa-check"></i><b>1.11.11</b> Multiple lineær regression</a></li>
+</ul></li>
+<li class="chapter" data-level="1.12" data-path="baser.html"><a href="baser.html#problemstillinger"><i class="fa fa-check"></i><b>1.12</b> Problemstillinger</a>
+<ul>
+<li class="chapter" data-level="1.12.1" data-path="baser.html"><a href="baser.html#quiz---basics"><i class="fa fa-check"></i><b>1.12.1</b> Quiz - Basics</a></li>
+<li class="chapter" data-level="1.12.2" data-path="baser.html"><a href="baser.html#grundl%C3%A6ggende-r"><i class="fa fa-check"></i><b>1.12.2</b> Grundlæggende R</a></li>
+<li class="chapter" data-level="1.12.3" data-path="baser.html"><a href="baser.html#kort-analyse-med-reaktionstider"><i class="fa fa-check"></i><b>1.12.3</b> Kort analyse med reaktionstider</a></li>
+<li class="chapter" data-level="1.12.4" data-path="baser.html"><a href="baser.html#%C3%B8velse-med-co2"><i class="fa fa-check"></i><b>1.12.4</b> Øvelse med CO2</a></li>
+<li class="chapter" data-level="1.12.5" data-path="baser.html"><a href="baser.html#ekstra-%C3%B8velser-med-andre-statistike-tests"><i class="fa fa-check"></i><b>1.12.5</b> Ekstra øvelser med andre statistike tests</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org/" target="_blank" rel="noopener">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analyse og visualisering af biologiske datasæt – 2027</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Analyse og visualisering af biologiske datasæt – 2027</h1>
+<p class="author"><em>Sarah Rennie</em></p>
+<p class="date"><em>2026-10-21</em></p>
+</div>
+<div id="lidt-om-kurset" class="section level1 unnumbered hasAnchor">
+<h1>Lidt om kurset<a href="index.html#lidt-om-kurset" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Denne hjemmeside er kursusnotaterne til de indskrevne studerende i 2026/27 studieår. De er skrevet 100% af underviserne i kurset. Jeg håber, det er intuitivt at finde rundt på siden, men har du forslag til forbedringer, skriv meget gerne til mig.</p>
+<div id="outline" class="section level2 unnumbered hasAnchor">
+<h2>Outline<a href="index.html#outline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der er i alt 13 emner i kurset. Foreløbig er introduktionen og det første kapitel, <strong>Grundlæggende R</strong>, tilgængelige her. De øvrige kapitler kommer løbende.</p>
+</div>
+<div id="bedømmelse" class="section level2 unnumbered hasAnchor">
+<h2>Bedømmelse<a href="index.html#bed%C3%B8mmelse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Kurset bedømmes således:</p>
+<ul>
+<li>15% løbende (OBS: workshop opgaver, IKKE quizzer)</li>
+<li>85% 4-timer “open-book” eksamen</li>
+</ul>
+<p>Quizzerne gør det nemt at tjekke viden undervejs, men udgør ikke en del af den samlede karakter.</p>
+</div>
+<div id="bare-lidt-om-underviserne" class="section level2 unnumbered hasAnchor">
+<h2>Bare lidt om underviserne<a href="index.html#bare-lidt-om-underviserne" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sarah</p>
+<p>Jeg er adjunkt på biologiske institut. Jeg kommer oprindeligt fra Storbritannien og flyttede til Danmark i 2015. Jeg bor sammen med min mand og vores 3 børn.</p>
+<p>Robert</p>
+<p>Robert er adjunkt på biologiske institut.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="baser.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

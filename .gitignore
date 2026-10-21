@@ -1,0 +1,13 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+/*_cache/
+/*_files/
+_book/
+_bookdown_files/
+visualisation_2027.rds
+visualisation_2027.md
+packages.bib
+/libs/

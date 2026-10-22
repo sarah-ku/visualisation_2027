@@ -11,3 +11,12 @@ visualisation_2027.rds
 visualisation_2027.md
 packages.bib
 /libs/
+/*.chapter-pages
+/*.tex
+/*.log
+/*.aux
+/*.toc
+/*.out
+/*.knit.md
+/*.utf8.md
+/*.synctex.gz

@@ -16,17 +16,33 @@ Initially published: the introduction and **Grundlæggende R**. The chapter cont
    source("render.R")
    ```
 
-4. Preview `docs/index.html`, then commit and push the source changes **and the generated `docs/` files** to `main`.
+4. Preview `docs/index.html` and the PDF downloads, then commit and push the source changes **and all generated `docs/` files** to `main`.
 
 GitHub Pages publishes `main` → `/docs`. It serves the rendered HTML; editing an `.Rmd` source alone does not rebuild the site.
 
 If the required R packages are missing, install them once:
 
 ```r
-install.packages(c("bookdown", "rmarkdown", "knitr", "png", "tidyverse"))
+install.packages(c("bookdown", "rmarkdown", "knitr", "png", "tidyverse", "qpdf"))
 ```
 
-RStudio includes Pandoc, which is also required for rendering.
+RStudio includes Pandoc, which is also required for rendering. PDF generation also needs XeLaTeX. If you do not already have a LaTeX installation, install TinyTeX once and restart RStudio:
+
+```r
+tinytex::install_tinytex()
+```
+
+Install the small LaTeX packages used for wrapping long code lines:
+
+```r
+tinytex::tlmgr_install(c("fvextra", "upquote", "lineno"))
+```
+
+## PDF downloads
+
+The download icon at the top of the website offers **Alle kursusnotater (PDF)** and **Dette emne (PDF)**. The complete PDF includes all currently published topics. Topic PDFs contain only the current topic, with the same chapter numbers and content as the complete PDF.
+
+`source("render.R")` regenerates both the website and these downloads. It builds the complete PDF, extracts each topic at its chapter boundaries, and updates the download menu automatically. Adding a chapter to `_bookdown.yml` therefore adds it to the complete PDF and creates its individual PDF on the next rebuild. Commit the generated PDFs together with the HTML so the versions stay in sync.
 
 ## Add a chapter later
 

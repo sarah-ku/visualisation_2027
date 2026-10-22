@@ -3,6 +3,10 @@ title:       "Analyse og visualisering af biologiske datasæt – 2027"
 date:        "`r Sys.Date()`"
 site:        bookdown::bookdown_site
 documentclass: book
+classoption: [oneside, openany]
+papersize: a4
+fontsize: 11pt
+geometry: margin=25mm
 link-citations: yes
 description: "Course materials for Analyse og visualisering af biologiske datasæt 2027"
 url: "https://sarah-ku.github.io/visualisation_2027/"
@@ -13,11 +17,27 @@ graphics:     yes
 
 
 ```{r setup, include = FALSE}
+set.seed(2027)
+knitr::opts_hooks$set(out.width = function(options) options)
 knitr::opts_chunk$set(
   echo = TRUE, eval = TRUE,
+  message = TRUE, out.width = NULL, out.height = NULL,
   fig.width = 5, fig.height = 5,
   tidy.opts = list(width.cutoff = 60), tidy = FALSE
 )
+options(cli.unicode = knitr::is_html_output(), cli.num_colors = 1L, crayon.enabled = FALSE)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(out.width = "\\linewidth", out.height = NULL, message = FALSE)
+  knitr::opts_hooks$set(out.width = function(options) {
+    options$out.height <- NULL
+    options$out.width <- if (grepl("logo", paste(options$code, collapse = " "))) {
+      "0.18\\linewidth"
+    } else {
+      "0.9\\linewidth"
+    }
+    options
+  })
+}
 ```
 
 ```{r include=FALSE}

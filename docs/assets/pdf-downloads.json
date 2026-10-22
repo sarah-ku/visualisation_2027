@@ -1,0 +1,14 @@
+{
+  "__book": {
+    "path": "visualisation_2027.pdf",
+    "title": "Alle kursusnotater (PDF)"
+  },
+  "index.html": {
+    "path": "pdf/lidt-om-kurset.pdf",
+    "title": "Lidt om kurset"
+  },
+  "baser.html": {
+    "path": "pdf/baser.pdf",
+    "title": "Kapitel 1 Grundlæggende R"
+  }
+}

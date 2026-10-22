@@ -1,0 +1,16 @@
+% Wrap source code and output at the page margin, including long comments.
+\usepackage{fvextra}
+\RecustomVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines=true,breakanywhere=true,fontsize=\small}
+\fvset{breaklines=true,breakanywhere=true,fontsize=\small}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\chaptername}{Kapitel}
+\renewcommand{\contentsname}{Indhold}
+\renewcommand{\figurename}{Figur}
+\renewcommand{\tablename}{Tabel}
+
+% Record physical page numbers when each chapter is shipped to the PDF.
+% These are independent of the book's Roman/Arabic printed page numbering.
+\newwrite\CourseChapterPages
+\immediate\openout\CourseChapterPages=\jobname.chapter-pages
+\newcommand{\CoursePDFPage}[1]{\write\CourseChapterPages{#1|\the\ReadonlyShipoutCounter}}

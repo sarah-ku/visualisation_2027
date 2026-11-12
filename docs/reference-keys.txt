@@ -40,4 +40,3 @@ talrækker-gentagelser-og-tilfældig-udvælgelse
 ifelse-og-if-forskellige-opgaver
 ekstra-problemstillinger
 klar-til-næste-kapitel
-dokumentation-og-datakilder

@@ -6,7 +6,7 @@ knitr::include_graphics("plots/logo_baseR.png")
 
 > “Det er ikke, fordi noget er svært, at vi ikke tør, det er, fordi vi ikke tør, at noget er svært.” - Seneca
 
-## Læringsmål og forberedelse
+## Læringsmål og videoer {#læringsmål-og-forberedelse}
 
 Velkommen til kurset! Dette kapitel dækker det grundlæggende i base R. Vi forventer, at I kommer med forskellige erfaringer med programmering og R. Formålet er at give alle et fælles udgangspunkt, inden vi går videre til tidyverse og de øvrige emner i kurset. Målet er, at du kan følge, hvad koden gør, og selv ændre den, når spørgsmålet eller datasættet ændrer sig.
 
@@ -130,7 +130,7 @@ Tegnet `*` betyder gange, `/` betyder dividere, og `^` betyder opløftet i en po
 Gem dit script løbende. En gemt scriptfil indeholder koden, men ikke automatisk de objekter, du har i hukommelsen. Når du åbner en ny R-session, skal du køre scriptet fra begyndelsen for at genskabe dem. Det er netop sådan, andre kan gentage dit arbejde.
 :::
 
-## Objekter: giv en værdi et navn
+## Objekter i R {#objekter-giv-en-værdi-et-navn}
 
 Et **objekt** er noget, du gemmer i R under et navn. Det kan være et enkelt tal, en række målinger, en hel datatabel eller senere et statistisk resultat. Pilen `<-` betyder her: beregn det, der står til højre, og gem resultatet under navnet til venstre.
 
@@ -244,7 +244,7 @@ help("c")
 
 Læg mærke til forskellen mellem `mean` og `mean(hoejder)`. Det første er selve funktionen; det andet er en instruktion om at anvende funktionen på `hoejder`.
 
-## Datatyper: tal, tekst, logik og kategorier
+## Datatyper {#datatyper-tal-tekst-logik-og-kategorier}
 
 R skal vide, hvilken slags værdier et objekt indeholder. Du kan undersøge det med `class()`. De mest relevante typer i begyndelsen er:
 
@@ -316,7 +316,7 @@ unique(c(0.5, 1, 2, 0.5))
 
 Et ID kan være tekst eller en faktor afhængigt af formålet. Det vigtigste er at forstå, at det identificerer en observation. Et gennemsnit af plante-ID'er fortæller ikke noget om planterne. Undgå også at bruge `as.numeric()` direkte på en faktor for at genskabe oprindelige tal: det giver faktorens interne koder, som ikke nødvendigvis er de viste værdier.
 
-## Dataframes: en tabel med observationer og variabler
+## Dataframes {#dataframes-en-tabel-med-observationer-og-variabler}
 
 En **dataframe** er en tabel, hvor kolonnerne kan have forskellige datatyper. I vores eksempel er hver række én plante, og hver kolonne beskriver en egenskab ved planten. Rækken er en **observation**, og kolonnen er en **variabel**. I andre datasæt kan flere rækker komme fra samme individ, så betydningen af en række skal altid undersøges.
 
@@ -908,7 +908,3 @@ Brug `cars` fra problem 6. Tilføj kolonnen `fartgruppe` med `ifelse()`, så ræ
 ## Klar til næste kapitel?
 
 Du er klar til at arbejde med statistik, når du kan oprette en dataframe, hente en kolonne, vælge en gruppe observationer og forklare, hvad `NA` betyder. Du skal ikke kunne alle funktionerne udenad. I næste kapitel bruger vi disse redskaber til at beskrive biologiske data, forstå variation og vurdere, hvor sikkert en stikprøve kan besvare et spørgsmål.
-
-## Dokumentation og datakilder
-
-Til opslag kan du bruge [R's officielle introduktion](https://stat.ethz.ch/R-manual/R-patched/doc/manual/R-intro.html), [dokumentationen til dataimport](https://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.table.html), [faktorer](https://stat.ethz.ch/R-manual/R-patched/library/base/html/factor.html), [tilfældig udvælgelse](https://stat.ethz.ch/R-manual/R-patched/library/base/html/sample.html) og [RStudios tastaturgenveje](https://docs.posit.co/ide/user/ide/reference/shortcuts.html).

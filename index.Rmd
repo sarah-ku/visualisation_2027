@@ -61,7 +61,7 @@ Kurset er opdelt i 12 emner. Vi lægger kursusnotaterne ud før hvert emne, hels
 * **15 % løbende bedømmelse.** Den løbende bedømmelse bygger på workshopopgaver, hvor I giver hinanden feedback via modulet FruitsFeedback på Absalon. Der er afsat undervisningsgange til at arbejde med opgaverne, og du kan gøre dem færdige hjemme, hvis du har brug for mere tid. Quizzerne bruges til at tjekke din forståelse undervejs og tæller ikke med i karakteren.
 * **85 % afsluttende eksamen.** Eksamen varer fire timer og afholdes som en ITX-eksamen med hjælpemidler (open book). Brug af AI er ikke tilladt. Senere i kurset lægger vi eksempler på tidligere eksamensopgaver ud, så du kan øve dig.
 
-## Bare lidt om underviserne {-}
+## Lidt om underviserne {#bare-lidt-om-underviserne .unnumbered}
 
 Sarah
 

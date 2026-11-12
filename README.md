@@ -4,12 +4,12 @@ Course notes for the 2026/27 academic year, using the same R Bookdown / GitBook 
 
 Website: https://sarah-ku.github.io/visualisation_2027/
 
-Initially published: the introduction and **Grundlæggende R**. The chapter content is carried over from 2026.
+Published topics: the introduction and **Grundlæggende R**.
 
 ## Edit and publish
 
 1. Open `visualisation_2027.Rproj` in RStudio.
-2. Edit `index.Rmd` (introduction) or `00-basics_v1.Rmd` (first chapter). Styling lives in `assets/style.css`.
+2. Edit `index.Rmd` (introduction) or `00-baser.Rmd` (first chapter). Styling lives in `assets/style.css`.
 3. Render the site from the R console:
 
    ```r

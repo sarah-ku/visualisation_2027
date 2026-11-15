@@ -739,7 +739,7 @@ str(maalinger)
 
 ## Dit første plot i base R
 
-Et plot hjælper os med at se, om data ser rimelige ud, og hvilke mønstre det kan være relevant at undersøge. Vi begynder med et **spredningsplot**, hvor hver prik er en observation. Her er det en irisblomst, og vi viser bægerbladets længde på x-aksen og bredde på y-aksen.
+Et plot hjælper os med at se, om data ser rimelige ud, og hvilke mønstre det kan være relevant at undersøge. Vi begynder med et **spredningsplot** (scatter plot), hvor hver prik er en observation. Her er det en irisblomst, og vi viser bægerbladets længde på x-aksen og bredde på y-aksen.
 
 ```{r base-first-plot, fig.width=6, fig.height=4, fig.cap="Hvert punkt viser bægerbladsmålene for én observation i iris-datasættet. Arterne er samlet i dette første plot."}
 plot(
@@ -878,18 +878,20 @@ fugle <- data.frame(
 **c)** Lav et spredningsplot af træernes diameter på x-aksen og højde på y-aksen. Angiv enheder på begge akser.
 :::
 
-### Saml det, du har lært
+### Øvelser til hele emnet {#saml-det-du-har-lært}
 
 [**Problem 6: Hastighed og bremselængde i `cars`**]{#problem-6 .problem-label}
 
 ::: {.problem-parts}
-**a)** Indlæs `cars`, og brug `head()` til at se de første observationer. Slå enhederne op med `?cars`. Lav et spredningsplot med `speed` på x-aksen og `dist` på y-aksen, og angiv enhederne.
+**a)** Indlæs `cars` med `data("cars")`, og se de første observationer med `head()`. Brug `?cars` til at finde enhederne. Lav et spredningsplot (scatter plot) med `speed` på x-aksen og `dist` på y-aksen. Angiv enhederne i aksetitlerne.
 
-**b)** Tilføj en logisk kolonne `hurtig`, der er `TRUE`, når `speed > 15`. Brug `sum()` til at tælle de rækker, der opfylder betingelsen. Gem dem som `hurtige_biler` med kun kolonnerne `speed` og `dist`.
+**b)** Tilføj en logisk kolonne `hurtig` til `cars`. Kolonnen skal have værdien `TRUE`, når `speed > 15`. Brug `sum()` til at tælle de rækker, der opfylder betingelsen.
 
-**c)** Kør `mean(cars$hurtig)`. Når `TRUE` tæller som 1 og `FALSE` som 0, hvad fortæller gennemsnittet så om observationerne?
+**c)** Beregn gennemsnittet af kolonnen `hurtig`. Når `TRUE` tæller som 1 og `FALSE` som 0, hvad fortæller gennemsnittet så om observationerne?
 
 **d)** Læs afsnittet om [betingelser med `ifelse()` og `if`](#ifelse-og-if-forskellige-opgaver). Brug `ifelse()` og den logiske kolonne `hurtig` til at oprette kolonnen `fartgruppe`. Giv rækker med `TRUE` værdien `"hurtig"` og rækker med `FALSE` værdien `"langsom"`. Tæl rækkerne i hver gruppe, og sammenlign antallet i gruppen `"hurtig"` med dit resultat i b).
+
+**e)** Udvælg de rækker, hvor `fartgruppe` er `"hurtig"`, og bremselængden er over 50 fod. Hvor mange biler opfylder begge betingelser?
 :::
 
 [**Problem 7: Indlæs en fil med muslingemålinger**]{#problem-7 .problem-label}

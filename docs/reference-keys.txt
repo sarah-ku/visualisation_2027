@@ -21,10 +21,12 @@ udvælg-værdier-rækker-og-kolonner
 positioner-i-en-vektor
 to-dimensioner-i-en-dataframe
 en-betingelse-giver-true-eller-false
+ifelse-og-if-forskellige-opgaver
 manglende-værdier
 manglende-værdier-i-en-udvælgelse
 hvor-kommer-data-fra
 indbyggede-datasæt
+tilfaeldig-udvaelgelse
 arbejdsmappen-og-relative-filstier
 gem-og-indlæs-en-csv-fil
 skilletegn-og-decimaltal
@@ -35,8 +37,5 @@ når-koden-ikke-virker
 baser-problemer
 øvelser-til-videoerne
 saml-det-du-har-lært
-baser-ekstra
-talrækker-gentagelser-og-tilfældig-udvælgelse
-ifelse-og-if-forskellige-opgaver
 ekstra-problemstillinger
 klar-til-næste-kapitel

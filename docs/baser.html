@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2026-11-12" />
+<meta name="date" content="2026-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -182,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.1" data-path="baser.html"><a href="baser.html#positioner-i-en-vektor"><i class="fa fa-check"></i><b>1.7.1</b> Positioner i en vektor</a></li>
 <li class="chapter" data-level="1.7.2" data-path="baser.html"><a href="baser.html#to-dimensioner-i-en-dataframe"><i class="fa fa-check"></i><b>1.7.2</b> To dimensioner i en dataframe</a></li>
 <li class="chapter" data-level="1.7.3" data-path="baser.html"><a href="baser.html#en-betingelse-giver-true-eller-false"><i class="fa fa-check"></i><b>1.7.3</b> En betingelse giver <code>TRUE</code> eller <code>FALSE</code></a></li>
+<li class="chapter" data-level="1.7.4" data-path="baser.html"><a href="baser.html#ifelse-og-if-forskellige-opgaver"><i class="fa fa-check"></i><b>1.7.4</b> Brug betingelser med <code>ifelse()</code> og <code>if</code></a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="baser.html"><a href="baser.html#manglende-v%C3%A6rdier"><i class="fa fa-check"></i><b>1.8</b> Manglende værdier</a>
 <ul>
@@ -190,10 +191,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="baser.html"><a href="baser.html#hvor-kommer-data-fra"><i class="fa fa-check"></i><b>1.9</b> Hvor kommer data fra?</a>
 <ul>
 <li class="chapter" data-level="1.9.1" data-path="baser.html"><a href="baser.html#indbyggede-datas%C3%A6t"><i class="fa fa-check"></i><b>1.9.1</b> Indbyggede datasæt</a></li>
-<li class="chapter" data-level="1.9.2" data-path="baser.html"><a href="baser.html#arbejdsmappen-og-relative-filstier"><i class="fa fa-check"></i><b>1.9.2</b> Arbejdsmappen og relative filstier</a></li>
-<li class="chapter" data-level="1.9.3" data-path="baser.html"><a href="baser.html#gem-og-indl%C3%A6s-en-csv-fil"><i class="fa fa-check"></i><b>1.9.3</b> Gem og indlæs en CSV-fil</a></li>
-<li class="chapter" data-level="1.9.4" data-path="baser.html"><a href="baser.html#skilletegn-og-decimaltal"><i class="fa fa-check"></i><b>1.9.4</b> Skilletegn og decimaltal</a></li>
-<li class="chapter" data-level="1.9.5" data-path="baser.html"><a href="baser.html#import%C3%A9r-data-fra-excel"><i class="fa fa-check"></i><b>1.9.5</b> Importér data fra Excel</a></li>
+<li class="chapter" data-level="1.9.2" data-path="baser.html"><a href="baser.html#tilfaeldig-udvaelgelse"><i class="fa fa-check"></i><b>1.9.2</b> Tilfældig udvælgelse med <code>sample()</code></a></li>
+<li class="chapter" data-level="1.9.3" data-path="baser.html"><a href="baser.html#arbejdsmappen-og-relative-filstier"><i class="fa fa-check"></i><b>1.9.3</b> Arbejdsmappen og relative filstier</a></li>
+<li class="chapter" data-level="1.9.4" data-path="baser.html"><a href="baser.html#gem-og-indl%C3%A6s-en-csv-fil"><i class="fa fa-check"></i><b>1.9.4</b> Gem og indlæs en CSV-fil</a></li>
+<li class="chapter" data-level="1.9.5" data-path="baser.html"><a href="baser.html#skilletegn-og-decimaltal"><i class="fa fa-check"></i><b>1.9.5</b> Skilletegn og decimaltal</a></li>
+<li class="chapter" data-level="1.9.6" data-path="baser.html"><a href="baser.html#import%C3%A9r-data-fra-excel"><i class="fa fa-check"></i><b>1.9.6</b> Importér data fra Excel</a></li>
 </ul></li>
 <li class="chapter" data-level="1.10" data-path="baser.html"><a href="baser.html#dit-f%C3%B8rste-plot-i-base-r"><i class="fa fa-check"></i><b>1.10</b> Dit første plot i base R</a></li>
 <li class="chapter" data-level="1.11" data-path="baser.html"><a href="baser.html#r-pakker"><i class="fa fa-check"></i><b>1.11</b> R-pakker</a></li>
@@ -203,13 +205,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.13.1" data-path="baser.html"><a href="baser.html#%C3%B8velser-til-videoerne"><i class="fa fa-check"></i><b>1.13.1</b> Øvelser til videoerne</a></li>
 <li class="chapter" data-level="1.13.2" data-path="baser.html"><a href="baser.html#saml-det-du-har-l%C3%A6rt"><i class="fa fa-check"></i><b>1.13.2</b> Saml det, du har lært</a></li>
 </ul></li>
-<li class="chapter" data-level="1.14" data-path="baser.html"><a href="baser.html#baser-ekstra"><i class="fa fa-check"></i><b>1.14</b> Ekstra: funktioner, du snart får glæde af</a>
-<ul>
-<li class="chapter" data-level="1.14.1" data-path="baser.html"><a href="baser.html#talr%C3%A6kker-gentagelser-og-tilf%C3%A6ldig-udv%C3%A6lgelse"><i class="fa fa-check"></i><b>1.14.1</b> Talrækker, gentagelser og tilfældig udvælgelse</a></li>
-<li class="chapter" data-level="1.14.2" data-path="baser.html"><a href="baser.html#ifelse-og-if-forskellige-opgaver"><i class="fa fa-check"></i><b>1.14.2</b> <code>ifelse()</code> og <code>if</code>: forskellige opgaver</a></li>
-</ul></li>
-<li class="chapter" data-level="1.15" data-path="baser.html"><a href="baser.html#ekstra-problemstillinger"><i class="fa fa-check"></i><b>1.15</b> Ekstra problemstillinger</a></li>
-<li class="chapter" data-level="1.16" data-path="baser.html"><a href="baser.html#klar-til-n%C3%A6ste-kapitel"><i class="fa fa-check"></i><b>1.16</b> Klar til næste kapitel?</a></li>
+<li class="chapter" data-level="1.14" data-path="baser.html"><a href="baser.html#ekstra-problemstillinger"><i class="fa fa-check"></i><b>1.14</b> Ekstra problemstillinger</a></li>
+<li class="chapter" data-level="1.15" data-path="baser.html"><a href="baser.html#klar-til-n%C3%A6ste-kapitel"><i class="fa fa-check"></i><b>1.15</b> Klar til næste kapitel?</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org/" target="_blank" rel="noopener">Published with bookdown</a></li>
@@ -239,7 +236,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <div id="læringsmål-og-forberedelse" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Læringsmål og videoer<a href="baser.html#l%C3%A6ringsm%C3%A5l-og-forberedelse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Velkommen til kurset! Dette kapitel dækker det grundlæggende i base R. Vi forventer, at I kommer med forskellige erfaringer med programmering og R. Formålet er at give alle et fælles udgangspunkt, inden vi går videre til tidyverse og de øvrige emner i kurset. Målet er, at du kan følge, hvad koden gør, og selv ændre den, når spørgsmålet eller datasættet ændrer sig.</p>
+<p>Velkommen til kurset! Dette kapitel dækker det grundlæggende i base R.</p>
+<p>Vi forventer, at I kommer med forskellige erfaringer med programmering og R. Fra næste uge går vi videre til pakkerne i tidyverse, hvor vi begynder med <code>ggplot2</code> til at lave pæne visualiseringer og tager de øvrige pakker op derefter. I tidyverse bygger man koden op på en lidt anderledes (og ret intuitiv) måde. Her får vi et overblik over de grundlæggende principper i R, så vi har et fælles udgangspunkt – målet er, at du kan følge, hvad koden gør, og selv ændre den, når spørgsmålet eller datasættet ændrer sig.</p>
 <p><strong>R</strong> er et programmeringssprog, som blandt andet bruges til statistik og visualisering. <strong>RStudio</strong> er det program, vi bruger til at skrive og organisere vores R-kode. Med <strong>base R</strong> mener vi her de funktioner og datasæt, der følger med en almindelig installation af R. Du skal derfor ikke installere ekstra R-pakker for at lave dette kapitels øvelser.</p>
 <div class="goals">
 <p>I RStudio skal du efter kapitlet kunne:</p>
@@ -248,15 +246,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>oprette objekter og vektorer og bruge funktioner med argumenter</li>
 <li>skelne mellem tal, tekst, logiske værdier og faktorer</li>
 <li>undersøge en dataframe og udvælge rækker og kolonner</li>
-<li>genkende manglende værdier og håndtere dem bevidst</li>
-<li>indlæse en enkel datafil og lave et plot med aksebetegnelser</li>
-<li>finde hjælp og undersøge almindelige fejl i din kode.</li>
+<li>genkende manglende værdier</li>
+<li>lave et enkelt plot med tekst på akserne</li>
+<li>undersøge almindelige fejl i din kode.</li>
 </ul>
 </div>
 <div id="sådan-bruger-du-materialerne" class="section level3 hasAnchor" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Sådan bruger du materialerne<a href="baser.html#s%C3%A5dan-bruger-du-materialerne" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Læs et lille afsnit, kør eksemplet, og prøv derefter at ændre én ting. Det er helt normalt at skulle slå funktioner og tegn op mange gange. Programmering handler ikke om at huske hele sproget udenad, men om at kunne formulere et spørgsmål præcist og undersøge, om koden besvarer det.</p>
-<p>Kernestoffet går fra afsnittet om RStudio til og med dit første plot. Under <a href="baser.html#baser-problemer">Problemstillinger</a> finder du øvelser til hver video og opgaver, hvor du bruger flere af kapitlets metoder sammen. De ekstra afsnit kan du vende tilbage til senere.</p>
+<p>Jeg har lavet tjeklisten nedenfor, så du kan komme i gang med udgangspunkt i din erfaring med R.</p>
+<p>Du bestemmer selv, hvordan du bruger materialerne. Nogle foretrækker at se videoerne inden undervisningen. Andre tager høretelefoner med og ser dem, når de arbejder med opgaverne i undervisningen. Videoerne giver en hurtig introduktion til kapitlets vigtigste begreber, så du kan komme i gang med problemstillingerne. Kursusnotaterne gennemgår det samme stof og viser ofte flere funktioner, argumenter eller indstillinger, som du kan bruge i opgaverne.</p>
+<p>Det er helt normalt at skulle slå funktioner og tegn op mange gange. Når du programmerer, øver du dig i at formulere et spørgsmål præcist og undersøge, om koden besvarer det. Du kan bruge kursusnotaterne som opslagsværk under eksamen. Husk dog, at det tager tid at blive fortrolig med at skrive kode og selv finde og rette fejl. Vi anbefaler derfor, at du bruger problemstillingerne og workshops til at øve dig aktivt løbende gennem kurset.</p>
+<p>Under <a href="baser.html#baser-problemer">Problemstillinger</a> finder du øvelser til hver video og opgaver, hvor du bruger flere af kapitlets metoder sammen.</p>
 <div class="checklist">
 <p><strong>Tjekliste</strong></p>
 <ul>
@@ -269,7 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="videoer" class="section level3 hasAnchor" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Videoer<a href="baser.html#videoer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>De fire videoer giver dig en hurtig introduktion til kapitlets vigtigste begreber og varer ca. 27 minutter i alt. I problemstillingerne øver du det, du har set i videoerne, og prøver fx at bruge metoderne på andre datasæt eller at ændre argumenterne i en funktion.</p>
+<p>De fire videoer varer ca. 27 minutter i alt. I problemstillingerne øver du det, du har set i videoerne, og prøver fx at bruge metoderne på andre datasæt eller at ændre argumenterne i en funktion.</p>
 <p><span id="video-1" class="video-label"><strong>Video 1: Fra RStudio til dine første beregninger</strong></span></p>
 <p>Du skriver og kører et script i RStudio og bruger objekter, vektorer og funktioner til enkle beregninger.</p>
 <p>Læs <a href="baser.html#rstudio-skriv-kode-som-du-kan-k%C3%B8re-igen">afsnit 1.2–1.4</a>, og prøv derefter <a href="baser.html#problem-2">problem 2</a>.</p>
@@ -741,31 +741,46 @@ Figure 1.1: Oversigt over panelerne i RStudio. Billedkilde: <a href="https://epi
 ## 8        P8   goedning      16.1           8       161</code></pre>
 <p>Parenteserne omkring hver sammenligning gør betingelsen lettere at læse. Skriv ikke <code>plante_id == "P1" | "P3"</code>: begge sider af <code>|</code> skal være logiske betingelser. <code>%in%</code> er en praktisk måde at spørge, om en værdi er én af flere muligheder.</p>
 </div>
+<div id="ifelse-og-if-forskellige-opgaver" class="section level3 hasAnchor" number="1.7.4">
+<h3><span class="header-section-number">1.7.4</span> Brug betingelser med <code>ifelse()</code> og <code>if</code><a href="baser.html#ifelse-og-if-forskellige-opgaver" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>ifelse()</code> vælger en værdi for hvert element i en logisk vektor. Her får hver plante kategorien <code>"mindst_seks"</code>, hvis den har mindst seks blade, og ellers <code>"under_seks"</code>.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="baser.html#cb77-1" tabindex="-1"></a>bladkategori <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(planter<span class="sc">$</span>antal_blade <span class="sc">&gt;=</span> <span class="dv">6</span>, <span class="st">&quot;mindst_seks&quot;</span>, <span class="st">&quot;under_seks&quot;</span>)</span>
+<span id="cb77-2"><a href="baser.html#cb77-2" tabindex="-1"></a>bladkategori</span></code></pre></div>
+<pre><code>## [1] &quot;under_seks&quot;  &quot;mindst_seks&quot; &quot;under_seks&quot;  &quot;under_seks&quot;  &quot;mindst_seks&quot;
+## [6] &quot;mindst_seks&quot; &quot;mindst_seks&quot; &quot;mindst_seks&quot;</code></pre>
+<p>Med <code>if</code> kan du vælge, hvilken kode der skal køres ud fra én betingelse. Her bruger vi <code>nrow()</code> til at tjekke, om tabellen indeholder observationer.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="baser.html#cb79-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(planter) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb79-2"><a href="baser.html#cb79-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Tabellen indeholder observationer.&quot;</span>)</span>
+<span id="cb79-3"><a href="baser.html#cb79-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb79-4"><a href="baser.html#cb79-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Tabellen er tom.&quot;</span>)</span>
+<span id="cb79-5"><a href="baser.html#cb79-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Tabellen indeholder observationer.&quot;</code></pre>
+</div>
 </div>
 <div id="manglende-værdier" class="section level2 hasAnchor" number="1.8">
 <h2><span class="header-section-number">1.8</span> Manglende værdier<a href="baser.html#manglende-v%C3%A6rdier" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>NA</code> betyder, at en værdi mangler eller ikke er kendt. I vores datasæt mangler højden for plante P4.</p>
 <p>En sammenligning som <code>x == NA</code> giver selv et ukendt resultat. <code>is.na()</code> giver <code>TRUE</code> ved manglende værdier.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="baser.html#cb77-1" tabindex="-1"></a><span class="fu">is.na</span>(planter<span class="sc">$</span>hoejde_cm)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="baser.html#cb81-1" tabindex="-1"></a><span class="fu">is.na</span>(planter<span class="sc">$</span>hoejde_cm)</span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE</code></pre>
 <p>Når <code>sum()</code> anvendes på en logisk vektor uden manglende værdier, tælles <code>TRUE</code> som 1 og <code>FALSE</code> som 0. Her tæller vi derfor antallet af manglende højder.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="baser.html#cb79-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(planter<span class="sc">$</span>hoejde_cm))</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="baser.html#cb83-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(planter<span class="sc">$</span>hoejde_cm))</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>Uden yderligere instruktion bliver gennemsnittet <code>NA</code>, fordi en højde er ukendt.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="baser.html#cb81-1" tabindex="-1"></a><span class="fu">mean</span>(planter<span class="sc">$</span>hoejde_cm)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="baser.html#cb85-1" tabindex="-1"></a><span class="fu">mean</span>(planter<span class="sc">$</span>hoejde_cm)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Argumentet <code>na.rm = TRUE</code> beder funktionen om at beregne gennemsnittet af de <strong>kendte</strong> højder. Det indsætter ikke en højde for P4 og sletter ikke en række i tabellen. Vi beregner blot et gennemsnit af syv målinger i stedet for otte.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="baser.html#cb83-1" tabindex="-1"></a><span class="fu">mean</span>(planter<span class="sc">$</span>hoejde_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="baser.html#cb87-1" tabindex="-1"></a><span class="fu">mean</span>(planter<span class="sc">$</span>hoejde_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 13.81429</code></pre>
 <p>Hvis manglende målinger hænger sammen med eksempelvis plantens tilstand, kan de resterende planter give et skævt billede. Derfor skal vi altid vide, hvad der er udeladt.</p>
 <div id="manglende-værdier-i-en-udvælgelse" class="section level3 hasAnchor" number="1.8.1">
 <h3><span class="header-section-number">1.8.1</span> Manglende værdier i en udvælgelse<a href="baser.html#manglende-v%C3%A6rdier-i-en-udv%C3%A6lgelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vi vil udvælge de planter, der er mindst 14 cm høje. Først ser vi, hvad betingelsen giver for hver plante.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="baser.html#cb85-1" tabindex="-1"></a>planter<span class="sc">$</span>hoejde_cm <span class="sc">&gt;=</span> <span class="dv">14</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="baser.html#cb89-1" tabindex="-1"></a>planter<span class="sc">$</span>hoejde_cm <span class="sc">&gt;=</span> <span class="dv">14</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE    NA  TRUE  TRUE FALSE  TRUE</code></pre>
 <p>Betingelsen giver <code>NA</code> for P4, fordi højden mangler. Bruger vi betingelsen direkte til at vælge rækker, får vi en række med manglende værdier. Med <code>!is.na()</code> kræver vi en kendt højde. Med <code>&amp;</code> kræver vi samtidig, at højden er mindst 14 cm.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="baser.html#cb87-1" tabindex="-1"></a>kendt_og_hoej <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(planter<span class="sc">$</span>hoejde_cm) <span class="sc">&amp;</span> (planter<span class="sc">$</span>hoejde_cm <span class="sc">&gt;=</span> <span class="dv">14</span>)</span>
-<span id="cb87-2"><a href="baser.html#cb87-2" tabindex="-1"></a>planter[kendt_og_hoej, ]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="baser.html#cb91-1" tabindex="-1"></a>kendt_og_hoej <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(planter<span class="sc">$</span>hoejde_cm) <span class="sc">&amp;</span> (planter<span class="sc">$</span>hoejde_cm <span class="sc">&gt;=</span> <span class="dv">14</span>)</span>
+<span id="cb91-2"><a href="baser.html#cb91-2" tabindex="-1"></a>planter[kendt_og_hoej, ]</span></code></pre></div>
 <pre><code>##   plante_id behandling hoejde_cm antal_blade hoejde_mm
 ## 5        P5   goedning      15.2           7       152
 ## 6        P6   goedning      14.8           7       148
@@ -781,8 +796,8 @@ Figure 1.1: Oversigt over panelerne i RStudio. Billedkilde: <a href="https://epi
 <div id="indbyggede-datasæt" class="section level3 hasAnchor" number="1.9.1">
 <h3><span class="header-section-number">1.9.1</span> Indbyggede datasæt<a href="baser.html#indbyggede-datas%C3%A6t" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R indeholder flere små datasæt, som er velegnede til undervisning. Du kan indlæse dem med <code>data()</code> og læse dokumentationen i hjælpevinduet. Vi bruger blandt andet <code>iris</code>, der indeholder blomstermålinger for tre irisarter.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="baser.html#cb89-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
-<span id="cb89-2"><a href="baser.html#cb89-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="baser.html#cb93-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb93-2"><a href="baser.html#cb93-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -790,90 +805,106 @@ Figure 1.1: Oversigt over panelerne i RStudio. Billedkilde: <a href="https://epi
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="baser.html#cb91-1" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="baser.html#cb95-1" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 ##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
 ##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
 ##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
 ##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="baser.html#cb93-1" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="baser.html#cb97-1" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>## 
 ##     setosa versicolor  virginica 
 ##         50         50         50</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="baser.html#cb95-1" tabindex="-1"></a>?iris</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="baser.html#cb99-1" tabindex="-1"></a>?iris</span></code></pre></div>
 <p>Undersøg altid, hvad en variabel betyder, og hvilken enhed den er målt i. I <code>iris</code> er bægerblads- og kronbladsmål angivet i cm. Et kolonnenavn er ikke altid tilstrækkeligt til at forklare indholdet.</p>
 </div>
-<div id="arbejdsmappen-og-relative-filstier" class="section level3 hasAnchor" number="1.9.2">
-<h3><span class="header-section-number">1.9.2</span> Arbejdsmappen og relative filstier<a href="baser.html#arbejdsmappen-og-relative-filstier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tilfaeldig-udvaelgelse" class="section level3 hasAnchor" number="1.9.2">
+<h3><span class="header-section-number">1.9.2</span> Tilfældig udvælgelse med <code>sample()</code><a href="baser.html#tilfaeldig-udvaelgelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>sample()</code> trækker tilfældigt blandt de værdier, du giver funktionen. Her trækker vi to plante-ID’er. Med <code>replace = FALSE</code> trækker vi uden tilbagelægning, så det samme ID kun kan vælges én gang. Med <code>replace = TRUE</code> kan et ID blive trukket flere gange.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="baser.html#cb100-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;P1&quot;</span>, <span class="st">&quot;P2&quot;</span>, <span class="st">&quot;P3&quot;</span>, <span class="st">&quot;P4&quot;</span>), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;P4&quot; &quot;P3&quot;</code></pre>
+<p>For at udvælge observationer fra en dataframe trækker vi først rækkenumre og bruger dem derefter til at hente rækkerne. Hvis du kalder <code>set.seed()</code> med det samme tal før udvælgelsen, kan du genskabe resultatet.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="baser.html#cb102-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2027</span>)</span>
+<span id="cb102-2"><a href="baser.html#cb102-2" tabindex="-1"></a>valgte_raekker <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(iris), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb102-3"><a href="baser.html#cb102-3" tabindex="-1"></a>iris[valgte_raekker, ]</span></code></pre></div>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 112          6.4         2.7          5.3         1.9  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor</code></pre>
+</div>
+<div id="arbejdsmappen-og-relative-filstier" class="section level3 hasAnchor" number="1.9.3">
+<h3><span class="header-section-number">1.9.3</span> Arbejdsmappen og relative filstier<a href="baser.html#arbejdsmappen-og-relative-filstier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R’s <strong>working directory</strong>, eller arbejdsmappe, er den mappe, hvor R leder efter og gemmer filer, når du kun angiver et filnavn. Brug <code>getwd()</code> til at se, hvilken mappe du arbejder i, og <code>list.files()</code> til at se, hvad der ligger i den. Med <code>list.dirs()</code> og <code>recursive = FALSE</code> får du kun vist undermapperne på første niveau.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="baser.html#cb96-1" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb96-2"><a href="baser.html#cb96-2" tabindex="-1"></a><span class="fu">list.files</span>()</span>
-<span id="cb96-3"><a href="baser.html#cb96-3" tabindex="-1"></a><span class="fu">list.dirs</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="baser.html#cb104-1" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb104-2"><a href="baser.html#cb104-2" tabindex="-1"></a><span class="fu">list.files</span>()</span>
+<span id="cb104-3"><a href="baser.html#cb104-3" tabindex="-1"></a><span class="fu">list.dirs</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Hvis R leder i den forkerte mappe, kan du skifte arbejdsmappe med <code>setwd()</code>. Vælg ét af eksemplerne nedenfor, og erstat stien med stien til din egen mappe. Brug derefter <code>getwd()</code> til at kontrollere, hvor R leder efter filer.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="baser.html#cb97-1" tabindex="-1"></a><span class="co"># Mac og Linux</span></span>
-<span id="cb97-2"><a href="baser.html#cb97-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Documents&quot;</span>)</span>
-<span id="cb97-3"><a href="baser.html#cb97-3" tabindex="-1"></a></span>
-<span id="cb97-4"><a href="baser.html#cb97-4" tabindex="-1"></a><span class="co"># Windows: fremadrettede skråstreger</span></span>
-<span id="cb97-5"><a href="baser.html#cb97-5" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/navn/Documents&quot;</span>)</span>
-<span id="cb97-6"><a href="baser.html#cb97-6" tabindex="-1"></a></span>
-<span id="cb97-7"><a href="baser.html#cb97-7" tabindex="-1"></a><span class="co"># Windows: dobbelte omvendte skråstreger i R-koden</span></span>
-<span id="cb97-8"><a href="baser.html#cb97-8" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">navn</span><span class="sc">\\</span><span class="st">Documents&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="baser.html#cb105-1" tabindex="-1"></a><span class="co"># Mac og Linux</span></span>
+<span id="cb105-2"><a href="baser.html#cb105-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Documents&quot;</span>)</span>
+<span id="cb105-3"><a href="baser.html#cb105-3" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="baser.html#cb105-4" tabindex="-1"></a><span class="co"># Windows: fremadrettede skråstreger</span></span>
+<span id="cb105-5"><a href="baser.html#cb105-5" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/navn/Documents&quot;</span>)</span>
+<span id="cb105-6"><a href="baser.html#cb105-6" tabindex="-1"></a></span>
+<span id="cb105-7"><a href="baser.html#cb105-7" tabindex="-1"></a><span class="co"># Windows: dobbelte omvendte skråstreger i R-koden</span></span>
+<span id="cb105-8"><a href="baser.html#cb105-8" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">navn</span><span class="sc">\\</span><span class="st">Documents&quot;</span>)</span></code></pre></div>
 <p>En relativ filsti som <code>"planter_oevelse.csv"</code> betyder en fil i den aktuelle arbejdsmappe. Stien <code>"data/planter_oevelse.csv"</code> betyder en fil i undermappen <code>data</code>. Relative stier gør det nemmere at flytte øvelsesmappen til en anden computer. Undgå derfor at bygge dine scripts op omkring en bestemt brugers personlige mapper.</p>
 </div>
-<div id="gem-og-indlæs-en-csv-fil" class="section level3 hasAnchor" number="1.9.3">
-<h3><span class="header-section-number">1.9.3</span> Gem og indlæs en CSV-fil<a href="baser.html#gem-og-indl%C3%A6s-en-csv-fil" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="gem-og-indlæs-en-csv-fil" class="section level3 hasAnchor" number="1.9.4">
+<h3><span class="header-section-number">1.9.4</span> Gem og indlæs en CSV-fil<a href="baser.html#gem-og-indl%C3%A6s-en-csv-fil" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En <strong>CSV-fil</strong> er en almindelig tekstfil med en tabel. Den har typisk én linje pr. observation, en linje med kolonnenavne øverst og et skilletegn mellem værdierne. Her opretter vi selv en fil fra vores fiktive planter, så du ikke skal hente en ekstern øvelsesfil.</p>
 <p>Kør følgende i RStudio. Filen gemmes i din aktuelle arbejdsmappe. Brug et nyt filnavn, hvis der allerede ligger en fil med samme navn, da <code>write.csv()</code> kan overskrive den.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="baser.html#cb98-1" tabindex="-1"></a><span class="fu">write.csv</span>(planter, <span class="at">file =</span> <span class="st">&quot;planter_oevelse.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="baser.html#cb106-1" tabindex="-1"></a><span class="fu">write.csv</span>(planter, <span class="at">file =</span> <span class="st">&quot;planter_oevelse.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><code>row.names = FALSE</code> undgår en ekstra kolonne med R’s rækkenumre. Find filen i RStudios Files-panel. Hvis du åbner den som tekst, kan du se kolonnenavnene, kommaerne og <code>NA</code> ved den manglende måling. Indlæs nu filen som et nyt objekt:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="baser.html#cb99-1" tabindex="-1"></a>planter_fra_fil <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;planter_oevelse.csv&quot;</span>)</span>
-<span id="cb99-2"><a href="baser.html#cb99-2" tabindex="-1"></a><span class="fu">head</span>(planter_fra_fil)</span>
-<span id="cb99-3"><a href="baser.html#cb99-3" tabindex="-1"></a><span class="fu">str</span>(planter_fra_fil)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="baser.html#cb107-1" tabindex="-1"></a>planter_fra_fil <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;planter_oevelse.csv&quot;</span>)</span>
+<span id="cb107-2"><a href="baser.html#cb107-2" tabindex="-1"></a><span class="fu">head</span>(planter_fra_fil)</span>
+<span id="cb107-3"><a href="baser.html#cb107-3" tabindex="-1"></a><span class="fu">str</span>(planter_fra_fil)</span></code></pre></div>
 <p>CSV gemmer værdierne og kolonnenavnene, men ikke alle R’s oplysninger om objekterne. Derfor bliver kategorikolonnen normalt læst som tekst, og vi angiver faktorniveauerne igen. Tjek altid strukturen efter import; en fil kan godt blive indlæst uden en fejlmeddelelse og alligevel være fortolket forkert.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="baser.html#cb100-1" tabindex="-1"></a>planter_fra_fil<span class="sc">$</span>behandling <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb100-2"><a href="baser.html#cb100-2" tabindex="-1"></a>  planter_fra_fil<span class="sc">$</span>behandling,</span>
-<span id="cb100-3"><a href="baser.html#cb100-3" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;kontrol&quot;</span>, <span class="st">&quot;goedning&quot;</span>)</span>
-<span id="cb100-4"><a href="baser.html#cb100-4" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="baser.html#cb108-1" tabindex="-1"></a>planter_fra_fil<span class="sc">$</span>behandling <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb108-2"><a href="baser.html#cb108-2" tabindex="-1"></a>  planter_fra_fil<span class="sc">$</span>behandling,</span>
+<span id="cb108-3"><a href="baser.html#cb108-3" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;kontrol&quot;</span>, <span class="st">&quot;goedning&quot;</span>)</span>
+<span id="cb108-4"><a href="baser.html#cb108-4" tabindex="-1"></a>)</span></code></pre></div>
 </div>
-<div id="skilletegn-og-decimaltal" class="section level3 hasAnchor" number="1.9.4">
-<h3><span class="header-section-number">1.9.4</span> Skilletegn og decimaltal<a href="baser.html#skilletegn-og-decimaltal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="skilletegn-og-decimaltal" class="section level3 hasAnchor" number="1.9.5">
+<h3><span class="header-section-number">1.9.5</span> Skilletegn og decimaltal<a href="baser.html#skilletegn-og-decimaltal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Filendelsen alene fortæller ikke sikkert, hvordan tabellen er gemt. <code>read.csv()</code> forventer komma mellem kolonnerne og punktum som decimaltegn. <code>read.csv2()</code> forventer semikolon mellem kolonnerne og komma som decimaltegn, hvilket er almindeligt ved eksport fra nogle danske regnearksindstillinger. En tabulatorsepareret tekstfil kan læses med <code>read.delim()</code>.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="baser.html#cb101-1" tabindex="-1"></a><span class="co"># Opslagsværk: vælg kun den linje, der passer til din faktiske fil.</span></span>
-<span id="cb101-2"><a href="baser.html#cb101-2" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;maalinger.csv&quot;</span>)</span>
-<span id="cb101-3"><a href="baser.html#cb101-3" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;maalinger_med_semikolon.csv&quot;</span>)</span>
-<span id="cb101-4"><a href="baser.html#cb101-4" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;maalinger.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb101-5"><a href="baser.html#cb101-5" tabindex="-1"></a></span>
-<span id="cb101-6"><a href="baser.html#cb101-6" tabindex="-1"></a><span class="co"># De samme valg kan angives eksplicit med read.table():</span></span>
-<span id="cb101-7"><a href="baser.html#cb101-7" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
-<span id="cb101-8"><a href="baser.html#cb101-8" tabindex="-1"></a>  <span class="st">&quot;maalinger.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span></span>
-<span id="cb101-9"><a href="baser.html#cb101-9" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="baser.html#cb109-1" tabindex="-1"></a><span class="co"># Opslagsværk: vælg kun den linje, der passer til din faktiske fil.</span></span>
+<span id="cb109-2"><a href="baser.html#cb109-2" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;maalinger.csv&quot;</span>)</span>
+<span id="cb109-3"><a href="baser.html#cb109-3" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;maalinger_med_semikolon.csv&quot;</span>)</span>
+<span id="cb109-4"><a href="baser.html#cb109-4" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;maalinger.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb109-5"><a href="baser.html#cb109-5" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="baser.html#cb109-6" tabindex="-1"></a><span class="co"># De samme valg kan angives eksplicit med read.table():</span></span>
+<span id="cb109-7"><a href="baser.html#cb109-7" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
+<span id="cb109-8"><a href="baser.html#cb109-8" tabindex="-1"></a>  <span class="st">&quot;maalinger.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span></span>
+<span id="cb109-9"><a href="baser.html#cb109-9" tabindex="-1"></a>)</span></code></pre></div>
 <p><code>header = TRUE</code> betyder, at første linje indeholder kolonnenavne. <code>sep</code> angiver skilletegnet, og <code>dec</code> angiver decimaltegnet. Hvis alle data havner i én kolonne, er det ofte skilletegnet, du skal undersøge. Hvis tallene bliver tekst, kan det skyldes decimaltegnet eller tekstværdier i den samme kolonne.</p>
 </div>
-<div id="importér-data-fra-excel" class="section level3 hasAnchor" number="1.9.5">
-<h3><span class="header-section-number">1.9.5</span> Importér data fra Excel<a href="baser.html#import%C3%A9r-data-fra-excel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="importér-data-fra-excel" class="section level3 hasAnchor" number="1.9.6">
+<h3><span class="header-section-number">1.9.6</span> Importér data fra Excel<a href="baser.html#import%C3%A9r-data-fra-excel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En <code>.xlsx</code>-fil bevarer sit Excel-format, selvom du ændrer filendelsen. Du kan læse filen direkte med <code>readxl::read_excel()</code>. Hvis du mangler pakken, kan du installere den én gang ved at køre <code>install.packages("readxl")</code> i konsollen.</p>
 <p>Funktionen læser det første ark som standard. Brug <code>sheet</code> til at vælge et ark efter nummer, fx <code>sheet = 2</code>, eller efter navn, fx <code>sheet = "Målinger"</code>. Erstat filnavnet med navnet på din egen fil, vælg den linje, der passer, og kontrollér resultatet med <code>str()</code>.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="baser.html#cb102-1" tabindex="-1"></a><span class="co"># Læs det første ark.</span></span>
-<span id="cb102-2"><a href="baser.html#cb102-2" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;maalinger.xlsx&quot;</span>)</span>
-<span id="cb102-3"><a href="baser.html#cb102-3" tabindex="-1"></a></span>
-<span id="cb102-4"><a href="baser.html#cb102-4" tabindex="-1"></a><span class="co"># Vælg i stedet det andet ark.</span></span>
-<span id="cb102-5"><a href="baser.html#cb102-5" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;maalinger.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span>
-<span id="cb102-6"><a href="baser.html#cb102-6" tabindex="-1"></a></span>
-<span id="cb102-7"><a href="baser.html#cb102-7" tabindex="-1"></a><span class="fu">str</span>(maalinger)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="baser.html#cb110-1" tabindex="-1"></a><span class="co"># Læs det første ark.</span></span>
+<span id="cb110-2"><a href="baser.html#cb110-2" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;maalinger.xlsx&quot;</span>)</span>
+<span id="cb110-3"><a href="baser.html#cb110-3" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="baser.html#cb110-4" tabindex="-1"></a><span class="co"># Vælg i stedet det andet ark.</span></span>
+<span id="cb110-5"><a href="baser.html#cb110-5" tabindex="-1"></a>maalinger <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;maalinger.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span>
+<span id="cb110-6"><a href="baser.html#cb110-6" tabindex="-1"></a></span>
+<span id="cb110-7"><a href="baser.html#cb110-7" tabindex="-1"></a><span class="fu">str</span>(maalinger)</span></code></pre></div>
 </div>
 </div>
 <div id="dit-første-plot-i-base-r" class="section level2 hasAnchor" number="1.10">
 <h2><span class="header-section-number">1.10</span> Dit første plot i base R<a href="baser.html#dit-f%C3%B8rste-plot-i-base-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Et plot hjælper os med at se, om data ser rimelige ud, og hvilke mønstre det kan være relevant at undersøge. Vi begynder med et <strong>spredningsplot</strong>, hvor hver prik er en observation. Her er det en irisblomst, og vi viser bægerbladets længde på x-aksen og bredde på y-aksen.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="baser.html#cb103-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb103-2"><a href="baser.html#cb103-2" tabindex="-1"></a>  iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width,</span>
-<span id="cb103-3"><a href="baser.html#cb103-3" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Bægerbladets længde (cm)&quot;</span>,</span>
-<span id="cb103-4"><a href="baser.html#cb103-4" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Bægerbladets bredde (cm)&quot;</span>,</span>
-<span id="cb103-5"><a href="baser.html#cb103-5" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Bægerbladenes størrelse hos iris&quot;</span>,</span>
-<span id="cb103-6"><a href="baser.html#cb103-6" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb103-7"><a href="baser.html#cb103-7" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">&quot;steelblue&quot;</span></span>
-<span id="cb103-8"><a href="baser.html#cb103-8" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="baser.html#cb111-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb111-2"><a href="baser.html#cb111-2" tabindex="-1"></a>  iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width,</span>
+<span id="cb111-3"><a href="baser.html#cb111-3" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Bægerbladets længde (cm)&quot;</span>,</span>
+<span id="cb111-4"><a href="baser.html#cb111-4" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Bægerbladets bredde (cm)&quot;</span>,</span>
+<span id="cb111-5"><a href="baser.html#cb111-5" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Bægerbladenes størrelse hos iris&quot;</span>,</span>
+<span id="cb111-6"><a href="baser.html#cb111-6" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb111-7"><a href="baser.html#cb111-7" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">&quot;steelblue&quot;</span></span>
+<span id="cb111-8"><a href="baser.html#cb111-8" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:base-first-plot"></span>
 <img src="visualisation_2027_files/figure-html/base-first-plot-1.png" alt="Hvert punkt viser bægerbladsmålene for én observation i iris-datasættet. Arterne er samlet i dette første plot." width="576" />
 <p class="caption">
@@ -888,9 +919,9 @@ Figure 1.2: Hvert punkt viser bægerbladsmålene for én observation i iris-data
 <p>En <strong>R-pakke</strong> er en samling af funktioner og nogle gange også datasæt, der udvider det, du kan gøre med base R. Mange pakker kan hentes fra <a href="https://cran.r-project.org/">CRAN</a>. Til analyse af biologiske data findes der også pakker på <a href="https://bioconductor.org/">Bioconductor</a>, og nogle pakker kan installeres direkte fra GitHub.</p>
 <p>Senere i kurset arbejder vi med <strong>tidyverse</strong>, en samling af R-pakker. Den omfatter bl.a. <code>ggplot2</code> til at lave figurer og <code>dplyr</code> til at arbejde med data. Øvelserne i dette kapitel bruger base R.</p>
 <p>Kør <code>install.packages()</code> i konsollen for at installere pakken på din computer. Det gør du normalt kun én gang. Du kan installere <code>tidyverse</code> på forhånd, da det kan tage lidt tid at hente de pakker, den afhænger af.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="baser.html#cb104-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="baser.html#cb112-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 <p>Kør <code>library()</code> i hver ny R-session, hvor du skal bruge pakken. <code>library(tidyverse)</code> indlæser de centrale pakker i samlingen på én gang. Skriv dine <code>library()</code>-kald øverst i dit script, så du hurtigt kan se, hvilke pakker koden bruger.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="baser.html#cb105-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="baser.html#cb113-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>Nogle pakker har funktioner med samme navn. For eksempel findes <code>filter()</code> både i <code>dplyr</code> og i <code>stats</code>. Hvis du bare skriver <code>filter()</code>, bruger R den første funktion med det navn, den finder. Skriv <code>dplyr::filter()</code> eller <code>stats::filter()</code> for at vælge funktionen fra den pakke, du mener.</p>
 </div>
 <div id="når-koden-ikke-virker" class="section level2 hasAnchor" number="1.12">
@@ -958,12 +989,12 @@ Figure 1.2: Hvert punkt viser bægerbladsmålene for én observation i iris-data
 <p>Efter <a href="baser.html#video-1">video 1</a> skal du prøve beregningerne i dit script.</p>
 <div class="problem-parts">
 <p><strong>a)</strong> Kør koden én linje ad gangen. Forudsig, hvad de sidste to linjer giver, før du kører dem.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="baser.html#cb106-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb106-2"><a href="baser.html#cb106-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb106-3"><a href="baser.html#cb106-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb106-4"><a href="baser.html#cb106-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb106-5"><a href="baser.html#cb106-5" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb106-6"><a href="baser.html#cb106-6" tabindex="-1"></a><span class="fu">sqrt</span>(x)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="baser.html#cb114-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb114-2"><a href="baser.html#cb114-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb114-3"><a href="baser.html#cb114-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb114-4"><a href="baser.html#cb114-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb114-5"><a href="baser.html#cb114-5" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb114-6"><a href="baser.html#cb114-6" tabindex="-1"></a><span class="fu">sqrt</span>(x)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <p><strong>b)</strong> Opret vektoren <code>y &lt;- c(1, 4, 6, 4, 3)</code>. Find antallet af værdier, summen og gennemsnittet.</p>
 <p><strong>c)</strong> Slå <code>round()</code> op i R’s hjælp, og vis gennemsnittet med én decimal.</p>
 </div>
@@ -976,11 +1007,11 @@ Figure 1.2: Hvert punkt viser bægerbladsmålene for én observation i iris-data
 </div>
 <p><span id="problem-4" class="problem-label"><strong>Problem 4: Vælg rækker i en tabel med fugleobservationer</strong></span></p>
 <p>Efter <a href="baser.html#video-3">video 3</a> skal du bruge betingelser på et lille fiktivt datasæt. Kopiér koden til dit script, og kør den først.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="baser.html#cb107-1" tabindex="-1"></a>fugle <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb107-2"><a href="baser.html#cb107-2" tabindex="-1"></a>  <span class="at">sted =</span> <span class="fu">c</span>(<span class="st">&quot;sø&quot;</span>, <span class="st">&quot;skov&quot;</span>, <span class="st">&quot;skov&quot;</span>, <span class="st">&quot;sø&quot;</span>, <span class="st">&quot;skov&quot;</span>, <span class="st">&quot;sø&quot;</span>),</span>
-<span id="cb107-3"><a href="baser.html#cb107-3" tabindex="-1"></a>  <span class="at">art =</span> <span class="fu">c</span>(<span class="st">&quot;solsort&quot;</span>, <span class="st">&quot;musvit&quot;</span>, <span class="st">&quot;solsort&quot;</span>, <span class="st">&quot;bogfinke&quot;</span>, <span class="st">&quot;musvit&quot;</span>, <span class="st">&quot;solsort&quot;</span>),</span>
-<span id="cb107-4"><a href="baser.html#cb107-4" tabindex="-1"></a>  <span class="at">antal =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="dt">L</span>, <span class="cn">NA</span>, <span class="dv">2</span><span class="dt">L</span>, <span class="dv">5</span><span class="dt">L</span>, <span class="dv">4</span><span class="dt">L</span>, <span class="cn">NA</span>)</span>
-<span id="cb107-5"><a href="baser.html#cb107-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="baser.html#cb115-1" tabindex="-1"></a>fugle <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb115-2"><a href="baser.html#cb115-2" tabindex="-1"></a>  <span class="at">sted =</span> <span class="fu">c</span>(<span class="st">&quot;sø&quot;</span>, <span class="st">&quot;skov&quot;</span>, <span class="st">&quot;skov&quot;</span>, <span class="st">&quot;sø&quot;</span>, <span class="st">&quot;skov&quot;</span>, <span class="st">&quot;sø&quot;</span>),</span>
+<span id="cb115-3"><a href="baser.html#cb115-3" tabindex="-1"></a>  <span class="at">art =</span> <span class="fu">c</span>(<span class="st">&quot;solsort&quot;</span>, <span class="st">&quot;musvit&quot;</span>, <span class="st">&quot;solsort&quot;</span>, <span class="st">&quot;bogfinke&quot;</span>, <span class="st">&quot;musvit&quot;</span>, <span class="st">&quot;solsort&quot;</span>),</span>
+<span id="cb115-4"><a href="baser.html#cb115-4" tabindex="-1"></a>  <span class="at">antal =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="dt">L</span>, <span class="cn">NA</span>, <span class="dv">2</span><span class="dt">L</span>, <span class="dv">5</span><span class="dt">L</span>, <span class="dv">4</span><span class="dt">L</span>, <span class="cn">NA</span>)</span>
+<span id="cb115-5"><a href="baser.html#cb115-5" tabindex="-1"></a>)</span></code></pre></div>
 <div class="problem-parts">
 <p><strong>a)</strong> Vis de første to rækker med kun kolonnerne <code>art</code> og <code>antal</code>.</p>
 <p><strong>b)</strong> Brug <code>is.na()</code> til at finde rækkerne, hvor antallet af fugle mangler. Hvor mange er der?</p>
@@ -1019,63 +1050,20 @@ Figure 1.2: Hvert punkt viser bægerbladsmålene for én observation i iris-data
 <p><span id="problem-9" class="problem-label"><strong>Problem 9: Find fejlen, og kør scriptet igen</strong></span></p>
 <div class="problem-parts">
 <p><strong>a)</strong> Prøv linjen nedenfor i Console. Brug <code>class()</code> til at undersøge vektoren, og ret linjen, så R afrunder tallene til én decimal.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="baser.html#cb108-1" tabindex="-1"></a>rundede <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="st">&quot;4.26&quot;</span>, <span class="st">&quot;5.83&quot;</span>), <span class="at">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="baser.html#cb116-1" tabindex="-1"></a>rundede <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="st">&quot;4.26&quot;</span>, <span class="st">&quot;5.83&quot;</span>), <span class="at">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><strong>b)</strong> Gem den rettede kode i dit script. Genstart R, og kør scriptet fra begyndelsen. Kan du genskabe dine resultater?</p>
 </div>
 </div>
 </div>
-<div id="baser-ekstra" class="section level2 hasAnchor" number="1.14">
-<h2><span class="header-section-number">1.14</span> Ekstra: funktioner, du snart får glæde af<a href="baser.html#baser-ekstra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dette afsnit er ikke nødvendigt for at nå problem 1–9. Det er et sted at vende tilbage til, når du møder gentagne beregninger eller mere avancerede øvelser senere i kurset.</p>
-<div id="talrækker-gentagelser-og-tilfældig-udvælgelse" class="section level3 hasAnchor" number="1.14.1">
-<h3><span class="header-section-number">1.14.1</span> Talrækker, gentagelser og tilfældig udvælgelse<a href="baser.html#talr%C3%A6kker-gentagelser-og-tilf%C3%A6ldig-udv%C3%A6lgelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="baser.html#cb109-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb109-2"><a href="baser.html#cb109-2" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
-<span id="cb109-3"><a href="baser.html#cb109-3" tabindex="-1"></a><span class="fu">rep</span>(<span class="st">&quot;kontrol&quot;</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5
-## [1]  0  2  4  6  8 10
-## [1] &quot;kontrol&quot; &quot;kontrol&quot; &quot;kontrol&quot;</code></pre>
-<p><code>seq()</code> giver større kontrol over talrækken end <code>:</code>, og <code>rep()</code> gentager en værdi. <code>sample()</code> udvælger derimod tilfældigt blandt de værdier, du giver den.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="baser.html#cb111-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2027</span>)</span>
-<span id="cb111-2"><a href="baser.html#cb111-2" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;P1&quot;</span>, <span class="st">&quot;P2&quot;</span>, <span class="st">&quot;P3&quot;</span>, <span class="st">&quot;P4&quot;</span>), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;P4&quot; &quot;P3&quot;</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="baser.html#cb113-1" tabindex="-1"></a>valgte_raekker <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(iris), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb113-2"><a href="baser.html#cb113-2" tabindex="-1"></a>iris[valgte_raekker, ]</span></code></pre></div>
-<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 112          6.4         2.7          5.3         1.9  virginica
-## 143          5.8         2.7          5.1         1.9  virginica
-## 59           6.6         2.9          4.6         1.3 versicolor
-## 78           6.7         3.0          5.0         1.7 versicolor
-## 40           5.1         3.4          1.5         0.2     setosa</code></pre>
-<p><code>replace = FALSE</code> betyder uden tilbagelægning: den samme position kan ikke vælges to gange. Med <code>replace = TRUE</code> kan den vælges igen. I det sidste eksempel udvælger vi <strong>rækkenumre</strong> og bruger dem derefter til at hente hele observationer. Hvis du anvender <code>sample()</code> direkte på en dataframe, får du ikke på denne måde en tilfældig stikprøve af rækker.</p>
-<p><code>set.seed()</code> fastlægger startpunktet for R’s generator af pseudotilfældige tal, så du kan gentage et eksempel med samme indstillinger. Det gør ikke en stikprøve mere repræsentativ. Vi bruger den samme idé, når vi simulerer data i næste kapitel. Sæt typisk seed én gang før en samlet simulering, ikke på ny før hver gentagelse.</p>
-</div>
-<div id="ifelse-og-if-forskellige-opgaver" class="section level3 hasAnchor" number="1.14.2">
-<h3><span class="header-section-number">1.14.2</span> <code>ifelse()</code> og <code>if</code>: forskellige opgaver<a href="baser.html#ifelse-og-if-forskellige-opgaver" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><code>ifelse()</code> vælger mellem to værdier <strong>for hvert element</strong> i en logisk vektor. Her får hver plante en tekstkategori ud fra antallet af blade.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="baser.html#cb115-1" tabindex="-1"></a>bladkategori <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(planter<span class="sc">$</span>antal_blade <span class="sc">&gt;=</span> <span class="dv">6</span>, <span class="st">&quot;mindst_seks&quot;</span>, <span class="st">&quot;under_seks&quot;</span>)</span>
-<span id="cb115-2"><a href="baser.html#cb115-2" tabindex="-1"></a>bladkategori</span></code></pre></div>
-<pre><code>## [1] &quot;under_seks&quot;  &quot;mindst_seks&quot; &quot;under_seks&quot;  &quot;under_seks&quot;  &quot;mindst_seks&quot;
-## [6] &quot;mindst_seks&quot; &quot;mindst_seks&quot; &quot;mindst_seks&quot;</code></pre>
-<p>Det almindelige <code>if</code> vælger derimod, om et stykke kode skal udføres ud fra <strong>én</strong> sand/falsk-betingelse. Her spørger vi, om der overhovedet er en manglende højde. Funktionen <code>any()</code> samler de mange logiske værdier til ét svar.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="baser.html#cb117-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">is.na</span>(planter<span class="sc">$</span>hoejde_cm))) {</span>
-<span id="cb117-2"><a href="baser.html#cb117-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Mindst én plante mangler en højdemåling.&quot;</span>)</span>
-<span id="cb117-3"><a href="baser.html#cb117-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb117-4"><a href="baser.html#cb117-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Alle planter har en kendt højde.&quot;</span>)</span>
-<span id="cb117-5"><a href="baser.html#cb117-5" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## [1] &quot;Mindst én plante mangler en højdemåling.&quot;</code></pre>
-<p>Brug derfor ikke en hel målevektor som betingelse i <code>if</code>. Til rækkeudvælgelse har vi brugt <code>[betingelse, ]</code>; til en ny værdi pr. række kan <code>ifelse()</code> være relevant.</p>
-</div>
-</div>
-<div id="ekstra-problemstillinger" class="section level2 hasAnchor" number="1.15">
-<h2><span class="header-section-number">1.15</span> Ekstra problemstillinger<a href="baser.html#ekstra-problemstillinger" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ekstra-problemstillinger" class="section level2 hasAnchor" number="1.14">
+<h2><span class="header-section-number">1.14</span> Ekstra problemstillinger<a href="baser.html#ekstra-problemstillinger" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span id="problem-10" class="problem-label"><strong>Problem 10: Tilfældige observationer</strong></span></p>
 <p>Brug <code>set.seed(2027)</code> og vælg ti rækkenumre fra <code>iris</code> uden tilbagelægning. Gem de tilhørende rækker. Hvorfor kan en udvælgelse med tilbagelægning indeholde den samme observation flere gange? Hvad skal du gøre for at gentage præcis den samme tilfældige udvælgelse?</p>
 <p><span id="problem-11" class="problem-label"><strong>Problem 11: Fra betingelse til kategori</strong></span></p>
 <p>Brug <code>cars</code> fra problem 6. Tilføj kolonnen <code>fartgruppe</code> med <code>ifelse()</code>, så rækker med <code>speed &gt; 15</code> får værdien <code>"hurtig"</code>, og de øvrige får <code>"langsom"</code>. Tæl rækkerne i hver kategori. Hvorfor passer <code>ifelse()</code> til opgaven?</p>
 </div>
-<div id="klar-til-næste-kapitel" class="section level2 hasAnchor" number="1.16">
-<h2><span class="header-section-number">1.16</span> Klar til næste kapitel?<a href="baser.html#klar-til-n%C3%A6ste-kapitel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="klar-til-næste-kapitel" class="section level2 hasAnchor" number="1.15">
+<h2><span class="header-section-number">1.15</span> Klar til næste kapitel?<a href="baser.html#klar-til-n%C3%A6ste-kapitel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Du er klar til at arbejde med statistik, når du kan oprette en dataframe, hente en kolonne, vælge en gruppe observationer og forklare, hvad <code>NA</code> betyder. Du skal ikke kunne alle funktionerne udenad. I næste kapitel bruger vi disse redskaber til at beskrive biologiske data, forstå variation og vurdere, hvor sikkert en stikprøve kan besvare et spørgsmål.</p>
 
 </div>

@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2026-11-12" />
+<meta name="date" content="2026-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -182,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.1" data-path="baser.html"><a href="baser.html#positioner-i-en-vektor"><i class="fa fa-check"></i><b>1.7.1</b> Positioner i en vektor</a></li>
 <li class="chapter" data-level="1.7.2" data-path="baser.html"><a href="baser.html#to-dimensioner-i-en-dataframe"><i class="fa fa-check"></i><b>1.7.2</b> To dimensioner i en dataframe</a></li>
 <li class="chapter" data-level="1.7.3" data-path="baser.html"><a href="baser.html#en-betingelse-giver-true-eller-false"><i class="fa fa-check"></i><b>1.7.3</b> En betingelse giver <code>TRUE</code> eller <code>FALSE</code></a></li>
+<li class="chapter" data-level="1.7.4" data-path="baser.html"><a href="baser.html#ifelse-og-if-forskellige-opgaver"><i class="fa fa-check"></i><b>1.7.4</b> Brug betingelser med <code>ifelse()</code> og <code>if</code></a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="baser.html"><a href="baser.html#manglende-v%C3%A6rdier"><i class="fa fa-check"></i><b>1.8</b> Manglende værdier</a>
 <ul>
@@ -190,10 +191,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="baser.html"><a href="baser.html#hvor-kommer-data-fra"><i class="fa fa-check"></i><b>1.9</b> Hvor kommer data fra?</a>
 <ul>
 <li class="chapter" data-level="1.9.1" data-path="baser.html"><a href="baser.html#indbyggede-datas%C3%A6t"><i class="fa fa-check"></i><b>1.9.1</b> Indbyggede datasæt</a></li>
-<li class="chapter" data-level="1.9.2" data-path="baser.html"><a href="baser.html#arbejdsmappen-og-relative-filstier"><i class="fa fa-check"></i><b>1.9.2</b> Arbejdsmappen og relative filstier</a></li>
-<li class="chapter" data-level="1.9.3" data-path="baser.html"><a href="baser.html#gem-og-indl%C3%A6s-en-csv-fil"><i class="fa fa-check"></i><b>1.9.3</b> Gem og indlæs en CSV-fil</a></li>
-<li class="chapter" data-level="1.9.4" data-path="baser.html"><a href="baser.html#skilletegn-og-decimaltal"><i class="fa fa-check"></i><b>1.9.4</b> Skilletegn og decimaltal</a></li>
-<li class="chapter" data-level="1.9.5" data-path="baser.html"><a href="baser.html#import%C3%A9r-data-fra-excel"><i class="fa fa-check"></i><b>1.9.5</b> Importér data fra Excel</a></li>
+<li class="chapter" data-level="1.9.2" data-path="baser.html"><a href="baser.html#tilfaeldig-udvaelgelse"><i class="fa fa-check"></i><b>1.9.2</b> Tilfældig udvælgelse med <code>sample()</code></a></li>
+<li class="chapter" data-level="1.9.3" data-path="baser.html"><a href="baser.html#arbejdsmappen-og-relative-filstier"><i class="fa fa-check"></i><b>1.9.3</b> Arbejdsmappen og relative filstier</a></li>
+<li class="chapter" data-level="1.9.4" data-path="baser.html"><a href="baser.html#gem-og-indl%C3%A6s-en-csv-fil"><i class="fa fa-check"></i><b>1.9.4</b> Gem og indlæs en CSV-fil</a></li>
+<li class="chapter" data-level="1.9.5" data-path="baser.html"><a href="baser.html#skilletegn-og-decimaltal"><i class="fa fa-check"></i><b>1.9.5</b> Skilletegn og decimaltal</a></li>
+<li class="chapter" data-level="1.9.6" data-path="baser.html"><a href="baser.html#import%C3%A9r-data-fra-excel"><i class="fa fa-check"></i><b>1.9.6</b> Importér data fra Excel</a></li>
 </ul></li>
 <li class="chapter" data-level="1.10" data-path="baser.html"><a href="baser.html#dit-f%C3%B8rste-plot-i-base-r"><i class="fa fa-check"></i><b>1.10</b> Dit første plot i base R</a></li>
 <li class="chapter" data-level="1.11" data-path="baser.html"><a href="baser.html#r-pakker"><i class="fa fa-check"></i><b>1.11</b> R-pakker</a></li>
@@ -203,13 +205,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.13.1" data-path="baser.html"><a href="baser.html#%C3%B8velser-til-videoerne"><i class="fa fa-check"></i><b>1.13.1</b> Øvelser til videoerne</a></li>
 <li class="chapter" data-level="1.13.2" data-path="baser.html"><a href="baser.html#saml-det-du-har-l%C3%A6rt"><i class="fa fa-check"></i><b>1.13.2</b> Saml det, du har lært</a></li>
 </ul></li>
-<li class="chapter" data-level="1.14" data-path="baser.html"><a href="baser.html#baser-ekstra"><i class="fa fa-check"></i><b>1.14</b> Ekstra: funktioner, du snart får glæde af</a>
-<ul>
-<li class="chapter" data-level="1.14.1" data-path="baser.html"><a href="baser.html#talr%C3%A6kker-gentagelser-og-tilf%C3%A6ldig-udv%C3%A6lgelse"><i class="fa fa-check"></i><b>1.14.1</b> Talrækker, gentagelser og tilfældig udvælgelse</a></li>
-<li class="chapter" data-level="1.14.2" data-path="baser.html"><a href="baser.html#ifelse-og-if-forskellige-opgaver"><i class="fa fa-check"></i><b>1.14.2</b> <code>ifelse()</code> og <code>if</code>: forskellige opgaver</a></li>
-</ul></li>
-<li class="chapter" data-level="1.15" data-path="baser.html"><a href="baser.html#ekstra-problemstillinger"><i class="fa fa-check"></i><b>1.15</b> Ekstra problemstillinger</a></li>
-<li class="chapter" data-level="1.16" data-path="baser.html"><a href="baser.html#klar-til-n%C3%A6ste-kapitel"><i class="fa fa-check"></i><b>1.16</b> Klar til næste kapitel?</a></li>
+<li class="chapter" data-level="1.14" data-path="baser.html"><a href="baser.html#ekstra-problemstillinger"><i class="fa fa-check"></i><b>1.14</b> Ekstra problemstillinger</a></li>
+<li class="chapter" data-level="1.15" data-path="baser.html"><a href="baser.html#klar-til-n%C3%A6ste-kapitel"><i class="fa fa-check"></i><b>1.15</b> Klar til næste kapitel?</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org/" target="_blank" rel="noopener">Published with bookdown</a></li>

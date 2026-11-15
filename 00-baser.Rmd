@@ -8,7 +8,9 @@ knitr::include_graphics("plots/logo_baseR.png")
 
 ## Læringsmål og videoer {#læringsmål-og-forberedelse}
 
-Velkommen til kurset! Dette kapitel dækker det grundlæggende i base R. Vi forventer, at I kommer med forskellige erfaringer med programmering og R. Formålet er at give alle et fælles udgangspunkt, inden vi går videre til tidyverse og de øvrige emner i kurset. Målet er, at du kan følge, hvad koden gør, og selv ændre den, når spørgsmålet eller datasættet ændrer sig.
+Velkommen til kurset! Dette kapitel dækker det grundlæggende i base R.
+
+Vi forventer, at I kommer med forskellige erfaringer med programmering og R. Fra næste uge går vi videre til pakkerne i tidyverse, hvor vi begynder med `ggplot2` til at lave pæne visualiseringer og tager de øvrige pakker op derefter. I tidyverse bygger man koden op på en lidt anderledes (og ret intuitiv) måde. Her får vi et overblik over de grundlæggende principper i R, så vi har et fælles udgangspunkt -- målet er, at du kan følge, hvad koden gør, og selv ændre den, når spørgsmålet eller datasættet ændrer sig.
 
 **R** er et programmeringssprog, som blandt andet bruges til statistik og visualisering. **RStudio** er det program, vi bruger til at skrive og organisere vores R-kode. Med **base R** mener vi her de funktioner og datasæt, der følger med en almindelig installation af R. Du skal derfor ikke installere ekstra R-pakker for at lave dette kapitels øvelser.
 
@@ -19,16 +21,20 @@ I RStudio skal du efter kapitlet kunne:
 * oprette objekter og vektorer og bruge funktioner med argumenter
 * skelne mellem tal, tekst, logiske værdier og faktorer
 * undersøge en dataframe og udvælge rækker og kolonner
-* genkende manglende værdier og håndtere dem bevidst
-* indlæse en enkel datafil og lave et plot med aksebetegnelser
-* finde hjælp og undersøge almindelige fejl i din kode.
+* genkende manglende værdier
+* lave et enkelt plot med tekst på akserne
+* undersøge almindelige fejl i din kode.
 :::
 
 ### Sådan bruger du materialerne
 
-Læs et lille afsnit, kør eksemplet, og prøv derefter at ændre én ting. Det er helt normalt at skulle slå funktioner og tegn op mange gange. Programmering handler ikke om at huske hele sproget udenad, men om at kunne formulere et spørgsmål præcist og undersøge, om koden besvarer det.
+Jeg har lavet tjeklisten nedenfor, så du kan komme i gang med udgangspunkt i din erfaring med R.
 
-Kernestoffet går fra afsnittet om RStudio til og med dit første plot. Under [Problemstillinger](#baser-problemer) finder du øvelser til hver video og opgaver, hvor du bruger flere af kapitlets metoder sammen. De ekstra afsnit kan du vende tilbage til senere.
+Du bestemmer selv, hvordan du bruger materialerne. Nogle foretrækker at se videoerne inden undervisningen. Andre tager høretelefoner med og ser dem, når de arbejder med opgaverne i undervisningen. Videoerne giver en hurtig introduktion til kapitlets vigtigste begreber, så du kan komme i gang med problemstillingerne. Kursusnotaterne gennemgår det samme stof og viser ofte flere funktioner, argumenter eller indstillinger, som du kan bruge i opgaverne.
+
+Det er helt normalt at skulle slå funktioner og tegn op mange gange. Når du programmerer, øver du dig i at formulere et spørgsmål præcist og undersøge, om koden besvarer det. Du kan bruge kursusnotaterne som opslagsværk under eksamen. Husk dog, at det tager tid at blive fortrolig med at skrive kode og selv finde og rette fejl. Vi anbefaler derfor, at du bruger problemstillingerne og workshops til at øve dig aktivt løbende gennem kurset.
+
+Under [Problemstillinger](#baser-problemer) finder du øvelser til hver video og opgaver, hvor du bruger flere af kapitlets metoder sammen.
 
 :::checklist
 **Tjekliste**
@@ -41,7 +47,7 @@ Kernestoffet går fra afsnittet om RStudio til og med dit første plot. Under [P
 
 ### Videoer
 
-De fire videoer giver dig en hurtig introduktion til kapitlets vigtigste begreber og varer ca. 27 minutter i alt. I problemstillingerne øver du det, du har set i videoerne, og prøver fx at bruge metoderne på andre datasæt eller at ændre argumenterne i en funktion.
+De fire videoer varer ca. 27 minutter i alt. I problemstillingerne øver du det, du har set i videoerne, og prøver fx at bruge metoderne på andre datasæt eller at ændre argumenterne i en funktion.
 
 [**Video 1: Fra RStudio til dine første beregninger**]{#video-1 .video-label}
 
@@ -504,6 +510,25 @@ planter[planter$plante_id %in% c("P1", "P3", "P8"), ]
 
 Parenteserne omkring hver sammenligning gør betingelsen lettere at læse. Skriv ikke `plante_id == "P1" | "P3"`: begge sider af `|` skal være logiske betingelser. `%in%` er en praktisk måde at spørge, om en værdi er én af flere muligheder.
 
+### Brug betingelser med `ifelse()` og `if` {#ifelse-og-if-forskellige-opgaver}
+
+`ifelse()` vælger en værdi for hvert element i en logisk vektor. Her får hver plante kategorien `"mindst_seks"`, hvis den har mindst seks blade, og ellers `"under_seks"`.
+
+```{r base-ifelse}
+bladkategori <- ifelse(planter$antal_blade >= 6, "mindst_seks", "under_seks")
+bladkategori
+```
+
+Med `if` kan du vælge, hvilken kode der skal køres ud fra én betingelse. Her bruger vi `nrow()` til at tjekke, om tabellen indeholder observationer.
+
+```{r base-if}
+if (nrow(planter) > 0) {
+  print("Tabellen indeholder observationer.")
+} else {
+  print("Tabellen er tom.")
+}
+```
+
 ## Manglende værdier
 
 `NA` betyder, at en værdi mangler eller ikke er kendt. I vores datasæt mangler højden for plante P4.
@@ -573,6 +598,22 @@ table(iris$Species)
 ```
 
 Undersøg altid, hvad en variabel betyder, og hvilken enhed den er målt i. I `iris` er bægerblads- og kronbladsmål angivet i cm. Et kolonnenavn er ikke altid tilstrækkeligt til at forklare indholdet.
+
+### Tilfældig udvælgelse med `sample()` {#tilfaeldig-udvaelgelse}
+
+`sample()` trækker tilfældigt blandt de værdier, du giver funktionen. Her trækker vi to plante-ID'er. Med `replace = FALSE` trækker vi uden tilbagelægning, så det samme ID kun kan vælges én gang. Med `replace = TRUE` kan et ID blive trukket flere gange.
+
+```{r base-sampling}
+sample(c("P1", "P2", "P3", "P4"), size = 2, replace = FALSE)
+```
+
+For at udvælge observationer fra en dataframe trækker vi først rækkenumre og bruger dem derefter til at hente rækkerne. Hvis du kalder `set.seed()` med det samme tal før udvælgelsen, kan du genskabe resultatet.
+
+```{r base-sample-rows}
+set.seed(2027)
+valgte_raekker <- sample(1:nrow(iris), size = 5, replace = FALSE)
+iris[valgte_raekker, ]
+```
 
 ### Arbejdsmappen og relative filstier
 
@@ -847,53 +888,6 @@ rundede <- round(c("4.26", "5.83"), digits = 1)
 
 **b)** Gem den rettede kode i dit script. Genstart R, og kør scriptet fra begyndelsen. Kan du genskabe dine resultater?
 :::
-
-## Ekstra: funktioner, du snart får glæde af {#baser-ekstra}
-
-Dette afsnit er ikke nødvendigt for at nå problem 1–9. Det er et sted at vende tilbage til, når du møder gentagne beregninger eller mere avancerede øvelser senere i kurset.
-
-### Talrækker, gentagelser og tilfældig udvælgelse
-
-```{r base-sequences, results="hold"}
-1:5
-seq(from = 0, to = 10, by = 2)
-rep("kontrol", times = 3)
-```
-
-`seq()` giver større kontrol over talrækken end `:`, og `rep()` gentager en værdi. `sample()` udvælger derimod tilfældigt blandt de værdier, du giver den.
-
-```{r base-sampling}
-set.seed(2027)
-sample(c("P1", "P2", "P3", "P4"), size = 2, replace = FALSE)
-
-valgte_raekker <- sample(1:nrow(iris), size = 5, replace = FALSE)
-iris[valgte_raekker, ]
-```
-
-`replace = FALSE` betyder uden tilbagelægning: den samme position kan ikke vælges to gange. Med `replace = TRUE` kan den vælges igen. I det sidste eksempel udvælger vi **rækkenumre** og bruger dem derefter til at hente hele observationer. Hvis du anvender `sample()` direkte på en dataframe, får du ikke på denne måde en tilfældig stikprøve af rækker.
-
-`set.seed()` fastlægger startpunktet for R's generator af pseudotilfældige tal, så du kan gentage et eksempel med samme indstillinger. Det gør ikke en stikprøve mere repræsentativ. Vi bruger den samme idé, når vi simulerer data i næste kapitel. Sæt typisk seed én gang før en samlet simulering, ikke på ny før hver gentagelse.
-
-### `ifelse()` og `if`: forskellige opgaver
-
-`ifelse()` vælger mellem to værdier **for hvert element** i en logisk vektor. Her får hver plante en tekstkategori ud fra antallet af blade.
-
-```{r base-ifelse}
-bladkategori <- ifelse(planter$antal_blade >= 6, "mindst_seks", "under_seks")
-bladkategori
-```
-
-Det almindelige `if` vælger derimod, om et stykke kode skal udføres ud fra **én** sand/falsk-betingelse. Her spørger vi, om der overhovedet er en manglende højde. Funktionen `any()` samler de mange logiske værdier til ét svar.
-
-```{r base-if}
-if (any(is.na(planter$hoejde_cm))) {
-  print("Mindst én plante mangler en højdemåling.")
-} else {
-  print("Alle planter har en kendt højde.")
-}
-```
-
-Brug derfor ikke en hel målevektor som betingelse i `if`. Til rækkeudvælgelse har vi brugt `[betingelse, ]`; til en ny værdi pr. række kan `ifelse()` være relevant.
 
 ## Ekstra problemstillinger
 

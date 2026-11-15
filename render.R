@@ -1,3 +1,36 @@
+# Give each published revision of the base R page its own browser cache entry.
+version_baser_links <- function(html_dir, html_files) {
+  chapter <- file.path(html_dir, "baser.html")
+  if (!file.exists(chapter)) return(invisible(NULL))
+
+  revision <- substr(tools::md5sum(chapter), 1L, 12L)
+  # The .html suffix keeps GitBook's keyboard search navigation working.
+  target <- paste0('href="baser.html?v=', revision, '.html')
+
+  # GitBook uses href to highlight and toggle the current chapter in the
+  # sidebar. Read the link with its version from the entry for this data-path.
+  script <- list.files(file.path(html_dir, "libs"), "^plugin-bookdown\\.js$",
+                       recursive = TRUE, full.names = TRUE)
+  stopifnot(length(script) == 1L)
+  lines <- readLines(script, warn = FALSE)
+  marker <- "    if (href === '') href = 'index.html';"
+  stopifnot(sum(lines == marker) == 1L)
+  lines <- append(lines, c(
+    "    var chapter = $('ul.summary li.chapter[data-path=\"' + href + '\"] > a').first();",
+    "    href = chapter.attr('href') || href;"
+  ), after = match(marker, lines))
+  writeLines(lines, script, useBytes = TRUE)
+
+  script_revision <- substr(tools::md5sum(script), 1L, 12L)
+  for (file in html_files) {
+    html <- readLines(file, warn = FALSE, encoding = "UTF-8")
+    html <- gsub('href="baser\\.html(?=[#"])', target, html, perl = TRUE)
+    html <- sub('plugin-bookdown.js"', paste0('plugin-bookdown.js?v=', script_revision, '"'),
+                html, fixed = TRUE)
+    writeLines(html, file, useBytes = TRUE)
+  }
+}
+
 # Rebuild the website, the complete PDF, and one PDF per published topic.
 render_course <- function() {
   packages <- c("bookdown", "qpdf", "jsonlite", "xml2")
@@ -72,6 +105,7 @@ render_course <- function() {
   file.copy(c("assets/downloads.js", "assets/downloads.css"), file.path(html_dir, "assets"), overwrite = TRUE)
   jsonlite::write_json(manifest, file.path(html_dir, "assets/pdf-downloads.json"),
                        auto_unbox = TRUE, pretty = TRUE)
+  version_baser_links(html_dir, html_files)
   # Publish generated files only after every PDF and link has been built.
   # Merge into docs/ so uploaded materials such as PDFs and datasets survive.
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)

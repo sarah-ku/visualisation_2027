@@ -12,10 +12,9 @@ vektorer-og-funktioner
 en-vektor-indeholder-flere-værdier
 funktioner-har-input-og-giver-et-resultat
 find-hjælp
-datatyper-tal-tekst-logik-og-kategorier
-faktorer-repræsenterer-kategorier
 dataframes-en-tabel-med-observationer-og-variabler
 få-overblik-før-du-regner
+datatyper-tal-tekst-logik-og-kategorier
 hent-en-kolonne-med
 udvælg-værdier-rækker-og-kolonner
 positioner-i-en-vektor
@@ -37,5 +36,4 @@ når-koden-ikke-virker
 baser-problemer
 øvelser-til-videoerne
 saml-det-du-har-lært
-ekstra-problemstillinger
 klar-til-næste-kapitel

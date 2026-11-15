@@ -41,7 +41,7 @@ Under [Problemstillinger](#baser-problemer) finder du øvelser til hver video og
 
 - Sørg for, at både [R](https://cran.r-project.org/) og [RStudio Desktop](https://docs.posit.co/ide/user/download.html#rstudio-desktop) er installeret.
 - **Hvis R er nyt for dig**, så start med [video 1–4](#videoer), og arbejd med de tilhørende problemstillinger.
-- **Hvis du har arbejdet med R før**, så brug [problem 6–9](#problem-6) til at tjekke dit grundlag (du kan bruge kursusnotaterne som opslagsværk). Fortsæt eventuelt med [problem 10–11](#ekstra-problemstillinger).
+- **Hvis du har arbejdet med R før**, så brug [problem 6–9](#problem-6) til at tjekke dit grundlag (du kan bruge kursusnotaterne som opslagsværk).
 - **Alle skal lave** “Quiz - Grundlæggende” på Absalon. Quizzen bliver tilgængelig kort før kursusstart. I næste lektion følger vi op på eventuelle huller i forståelsen.
 :::
 
@@ -65,7 +65,7 @@ Læs [afsnit 1.2–1.4](#rstudio-skriv-kode-som-du-kan-køre-igen), og prøv der
 
 Du undersøger plantedata i en dataframe, ser på kolonnernes datatyper og tilføjer en beregnet kolonne.
 
-Læs [afsnit 1.5–1.6](#datatyper-tal-tekst-logik-og-kategorier), og prøv derefter [problem 3](#problem-3).
+Læs [afsnit 1.5](#dataframes-en-tabel-med-observationer-og-variabler), og prøv derefter [problem 3](#problem-3).
 
 <div class="course-video">
 <iframe src="https://player.vimeo.com/video/1245430275" title="Video 2: En dataframe med biologiske data" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -77,7 +77,7 @@ Læs [afsnit 1.5–1.6](#datatyper-tal-tekst-logik-og-kategorier), og prøv dere
 
 Du udvælger rækker og kolonner, filtrerer med betingelser og håndterer manglende værdier (`NA`).
 
-Læs [afsnit 1.7–1.8](#udvælg-værdier-rækker-og-kolonner), og prøv derefter [problem 4](#problem-4).
+Læs [afsnit 1.6–1.7](#udvælg-værdier-rækker-og-kolonner), og prøv derefter [problem 4](#problem-4).
 
 <div class="course-video">
 <iframe src="https://player.vimeo.com/video/1245430273" title="Video 3: Vælg rækker og forstå manglende værdier" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -89,7 +89,7 @@ Læs [afsnit 1.7–1.8](#udvælg-værdier-rækker-og-kolonner), og prøv derefte
 
 Du gemmer og læser en CSV-fil, kontrollerer de indlæste data og laver et spredningsplot.
 
-Læs [afsnit 1.9–1.10](#hvor-kommer-data-fra), og prøv derefter [problem 5](#problem-5).
+Læs [afsnit 1.8–1.9](#hvor-kommer-data-fra), og prøv derefter [problem 5](#problem-5).
 
 <div class="course-video">
 <iframe src="https://player.vimeo.com/video/1245430272" title="Video 4: Fra datafil til et plot" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -125,7 +125,13 @@ Skriv følgende i dit script. Placér markøren på en linje, og tryk **Ctrl + E
 (2 + 3) * 4
 ```
 
-Tegnet `*` betyder gange, `/` betyder dividere, og `^` betyder opløftet i en potens. R bruger punktum i decimaltal, så to en halv skrives `2.5`. Et komma har en anden funktion i koden: det adskiller eksempelvis argumenter eller elementer.
+- `*` betyder gange
+- `/` betyder dividere
+- `^` betyder opløftet i en potens
+
+R bruger punktum i decimaltal, så to og en halv skrives `2.5` i stedet for 2,5. I koden adskiller kommaet eksempelvis argumenter eller elementer.
+
+Du kan også skrive kommentarer i din kode med tegnet `#`:
 
 ```{r base-comments}
 # Dette er en kommentar. R udfører ikke teksten efter #.
@@ -148,11 +154,17 @@ hoejde_mm <- hoejde * 10
 hoejde_mm
 ```
 
-Den første linje opretter objektet `hoejde`. Linjen med objektets navn viser indholdet. Når en linje kun tildeler en værdi med `<-`, bliver resultatet normalt ikke skrevet i konsollen; det betyder ikke, at linjen ikke blev udført.
+Den første linje opretter objektet `hoejde`, som du også kan se i **Environment** i RStudio. Linjen med objektets navn viser indholdet. Når en linje kun tildeler en værdi med `<-`, bliver resultatet normalt ikke skrevet i konsollen, men linjen bliver stadig udført.
 
-Vælg navne, der fortæller, hvad objektet indeholder, eksempelvis `hoejde_cm` frem for `x1`. Brug gerne bogstaver, tal og understregninger, men begynd ikke med et tal. I eksemplerne bruger vi `ae`, `oe` og `aa` i objektnavne, så de er lette at skrive på forskellige tastaturer. Tekst og kommentarer kan sagtens indeholde æ, ø og å. R skelner mellem store og små bogstaver: `hoejde` og `Hoejde` er forskellige navne.
+:::tip
+Vælg navne, der fortæller, hvad objektet indeholder, eksempelvis `hoejde_cm` frem for `x1`.
 
-### R udfører instruktioner i den rækkefølge, du kører dem
+Brug gerne bogstaver, tal og understregninger, men begynd ikke med et tal. I eksemplerne bruger vi `ae`, `oe` og `aa` i objektnavne, så de er lette at skrive på forskellige tastaturer. Tekst og kommentarer kan sagtens indeholde æ, ø og å.
+
+R skelner mellem store og små bogstaver: `hoejde` og `Hoejde` er forskellige navne.
+:::
+
+### R kører koden i rækkefølge {#r-udfører-instruktioner-i-den-rækkefølge-du-kører-dem}
 
 Et gemt resultat opdateres ikke automatisk, når et tidligere objekt ændres. R fungerer på dette punkt anderledes end en celleformel i et regneark. Lad os tage et eksempel, hvor vi omregner en højde fra cm til mm.
 
@@ -250,81 +262,9 @@ help("c")
 
 Læg mærke til forskellen mellem `mean` og `mean(hoejder)`. Det første er selve funktionen; det andet er en instruktion om at anvende funktionen på `hoejder`.
 
-## Datatyper {#datatyper-tal-tekst-logik-og-kategorier}
-
-R skal vide, hvilken slags værdier et objekt indeholder. Du kan undersøge det med `class()`. De mest relevante typer i begyndelsen er:
-
-| Det, du vil gemme | Eksempel | Typisk resultat fra `class()` |
-|:--|:--|:--|
-| Målinger som tal | `c(11.2, 13.4)` | `"numeric"` |
-| Heltal (angivet eksplicit med `L`) | `c(5L, 6L)` | `"integer"` |
-| Tekst | `c("P1", "P2")` | `"character"` |
-| Sandt eller falsk | `c(TRUE, FALSE)` | `"logical"` |
-| Kategorier med bestemte niveauer | `factor(c("kontrol", "goedning"))` | `"factor"` |
-
-Almindelige tal som `5` gemmes normalt som typen `numeric`; du behøver ikke skrive `5L` for at kunne tælle blade eller planter. Vi viser `integer`, fordi du vil møde typen i output fra `str()`.
-
-```{r base-types, results="hold"}
-class(hoejder)
-class(plante_id)
-class(c(TRUE, FALSE))
-class(c(5L, 6L))
-```
-
-En almindelig vektor har én grundlæggende datatype. Hvis du blander tal og tekst, omdanner R tallene til tekst for at kunne gemme elementerne sammen.
-
-```{r base-coercion, results="hold"}
-blandet <- c(11.2, "ukendt", 13.4)
-blandet
-class(blandet)
-```
-
-Her bliver også `11.2` og `13.4` tekst. Derfor er det en dårlig idé at skrive `"ukendt"` inde i en målekolonne, som skal behandles som tal. Til manglende værdier bruger vi `NA`, som vi ser på nedenfor.
-
-### Faktorer repræsenterer kategorier
-
-En behandling er en kategori, selvom den nogle gange er kodet med tal. Kategorien 2 er eksempelvis ikke nødvendigvis dobbelt så meget behandling som kategorien 1. En **faktor** fortæller R, hvilke kategorier, eller **niveauer**, der findes, og i hvilken rækkefølge de skal bruges.
-
-```{r base-factors}
-behandling <- factor(
-  c("kontrol", "kontrol", "goedning", "goedning"),
-  levels = c("kontrol", "goedning")
-)
-behandling
-```
-
-`levels()` viser kategoriernes navne:
-
-```{r base-factor-levels}
-levels(behandling)
-```
-
-`nlevels()` tæller antallet af niveauer:
-
-```{r base-factor-nlevels}
-nlevels(behandling)
-```
-
-`table()` tæller observationerne i hver kategori:
-
-```{r base-factor-table}
-table(behandling)
-```
-
-R kan også bruge tekstkolonner som grupper i mange funktioner, men en faktor gør kategorierne og deres rækkefølge eksplicitte. Det bliver nyttigt, når vi laver figurer og statistiske modeller.
-
-Funktionen `unique()` viser de forskellige værdier, der faktisk findes i en vektor. Den virker også på tal og tekst og er nyttig, når du vil undersøge indholdet i en ukendt kolonne.
-
-```{r base-unique, results="hold"}
-unique(c("lys", "moerke", "lys"))
-unique(c(0.5, 1, 2, 0.5))
-```
-
-Et ID kan være tekst eller en faktor afhængigt af formålet. Det vigtigste er at forstå, at det identificerer en observation. Et gennemsnit af plante-ID'er fortæller ikke noget om planterne. Undgå også at bruge `as.numeric()` direkte på en faktor for at genskabe oprindelige tal: det giver faktorens interne koder, som ikke nødvendigvis er de viste værdier.
-
 ## Dataframes {#dataframes-en-tabel-med-observationer-og-variabler}
 
-En **dataframe** er en tabel, hvor kolonnerne kan have forskellige datatyper. I vores eksempel er hver række én plante, og hver kolonne beskriver en egenskab ved planten. Rækken er en **observation**, og kolonnen er en **variabel**. I andre datasæt kan flere rækker komme fra samme individ, så betydningen af en række skal altid undersøges.
+En **dataframe** er en tabel, hvor kolonnerne kan have forskellige datatyper (som vi gennemgår nedenfor). I vores eksempel er hver række én plante, og hver kolonne beskriver en egenskab ved planten. Rækken er en **observation**, og kolonnen er en **variabel**. I andre datasæt kan flere rækker komme fra samme individ, så det er vigtigt at afklare, hvad hver række repræsenterer.
 
 ```{r base-plant-data-for-diagram, ref.label="base-plant-data", include=FALSE}
 ```
@@ -368,7 +308,7 @@ local({
 ```
 :::
 
-Vi bruger følgende **fiktive undervisningsdata**. De er lavet til at øve programmering og dokumenterer ikke et virkeligt forsøg eller en effekt af gødning. Højden er målt i cm. For plante P4 mangler højdemålingen.
+Vi bruger følgende fiktive datasæt og forklarer de forskellige dele i underafsnittene nedenfor. Højden er målt i cm. For plante P4 mangler højdemålingen.
 
 ```{r base-plant-data}
 planter <- data.frame(
@@ -384,40 +324,136 @@ planter <- data.frame(
 planter
 ```
 
+### Overblik over dataframen {#få-overblik-før-du-regner}
+
 Vi giver hver kolonne et navn inde i `data.frame()`. Kolonnerne beskriver de samme otte planter i samme rækkefølge. Hver kolonne skal derfor have en passende værdi for hver række, eventuelt en manglende værdi som `NA`.
 
-### Få overblik, før du regner
+Både `names()` og `colnames()` viser kolonnenavnene i en dataframe.
+
+```{r base-column-names, results="hold"}
+names(planter)
+colnames(planter)
+```
+
+`head()` viser normalt de første seks rækker af tabellen.
 
 ```{r base-inspect}
 head(planter)
-str(planter)
-dim(planter)
-names(planter)
 ```
 
-`head()` viser normalt de første seks rækker, og `str()` viser tabellens struktur og kolonnetyper. `dim()` giver to tal: antal rækker og derefter antal kolonner. `names()` viser kolonnenavnene. Du kan også bruge `nrow()` og `ncol()`, når du kun vil have den ene dimension.
+`dim()` viser først antallet af rækker og derefter antallet af kolonner. Brug `nrow()` eller `ncol()`, når du kun skal bruge det ene tal.
 
 ```{r base-row-column-count, results="hold"}
+dim(planter)
 nrow(planter)
 ncol(planter)
 ```
 
-```{r base-summary}
-summary(planter)
+### Datatyper {#datatyper-tal-tekst-logik-og-kategorier}
+
+`str()` viser tabellens struktur. For hver kolonne får du dens navn, datatype og nogle af værdierne.
+
+```{r base-structure}
+str(planter)
 ```
 
-`summary()` tilpasser sit output til kolonnens type. En numerisk kolonne opsummeres med blandt andet minimum, maksimum og gennemsnit; en faktor opsummeres med antallet i hver kategori. Vi forklarer de statistiske størrelser i næste kapitel. Lige nu skal du især kontrollere, om kolonnerne har de forventede typer, og om der mangler værdier.
+I outputtet står `chr` for `character`, `num` for `numeric` og `int` for `integer`. Her ser vi på, hvordan hver kolonne er skrevet i kaldet til `data.frame()` ovenfor.
+
+**Tekst (`character`)**
+
+`plante_id` indeholder ID'er skrevet som tekst i anførselstegn. Hvert ID identificerer én plante.
+
+```r
+plante_id = c("P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"),
+```
+
+[**Faktor (`factor`)**]{#faktorer-repræsenterer-kategorier}
+
+`behandling` angiver, hvilken gruppe hver plante tilhører. Vi bruger `factor()` til at gemme grupperne som kategorier. Med argumentet `levels` angiver vi kategorierne og deres rækkefølge.
+
+```r
+behandling = factor(
+  c("kontrol", "kontrol", "kontrol", "kontrol",
+    "goedning", "goedning", "goedning", "goedning"),
+  levels = c("kontrol", "goedning")
+),
+```
+
+Selv hvis kategorierne er skrevet som tal, kan de fungere som navne. For eksempel kan 1 og 2 være koder for to behandlinger. På en faktor giver `as.numeric()` de interne koder, som kan afvige fra tallene i kategorinavnene.
+
+**Tal (`numeric`)**
+
+`hoejde_cm` indeholder målinger, som kan have decimaler. `NA` markerer den manglende måling for P4.
+
+```r
+hoejde_cm = c(11.2, 13.4, 12.1, NA, 15.2, 14.8, 13.9, 16.1),
+```
+
+**Heltal (`integer`)**
+
+`antal_blade` gemmes som heltal ved at sætte `L` efter hvert tal. Skriver du fx `5` uden `L`, gemmer R det normalt som `numeric`.
+
+```r
+antal_blade = c(5L, 6L, 5L, 4L, 7L, 7L, 6L, 8L)
+```
+
+**Logiske værdier (`logical`)**
+
+En logisk vektor som `c(TRUE, FALSE)` indeholder værdier for sandt og falsk. I [afsnittet om udvælgelse](#udvælg-værdier-rækker-og-kolonner) bruger vi logiske værdier til at vælge rækker.
+
+En almindelig vektor har én grundlæggende datatype. Hvis du blander tal og tekst, omdanner R tallene til tekst for at kunne gemme elementerne sammen.
+
+```{r base-coercion, results="hold"}
+blandet <- c(11.2, "ukendt", 13.4)
+blandet
+class(blandet)
+```
+
+Her bliver også `11.2` og `13.4` tekst. Derfor er det en dårlig idé at skrive `"ukendt"` inde i en målekolonne, som skal behandles som tal. Til manglende værdier bruger vi `NA`, som vi ser på nedenfor.
+
+| Datatype | Vises i `str()` | Bruges til | Eksempel |
+|:--|:--|:--|:--|
+| Tekst (`character`) | `chr` | Navne og anden tekst | `"P1"` i `plante_id` |
+| Faktor (`factor`) | `Factor` | Kategorier | `"kontrol"` i `behandling` |
+| Tal (`numeric`) | `num` | Målinger og beregninger | `11.2` i `hoejde_cm` |
+| Heltal (`integer`) | `int` | Optællinger | `5L` i `antal_blade` |
+| Logiske værdier (`logical`) | `logi` | Betingelser | `c(TRUE, FALSE)` |
 
 ### Hent en kolonne med `$`
+
+`planter$hoejde_cm` betyder “kolonnen `hoejde_cm` i tabellen `planter`”. På samme måde henter `planter$behandling` kolonnen `behandling`. Resultatet er en vektor, som du kan bruge direkte i en funktion.
 
 ```{r base-columns, results="hold"}
 planter$hoejde_cm
 planter$behandling
 ```
 
-`planter$hoejde_cm` betyder “kolonnen `hoejde_cm` i tabellen `planter`”. Resultatet er en vektor. Det gør, at du kan bruge de funktioner, du allerede kender, direkte på en kolonne.
+`levels()` viser kategoriernes navne:
 
-Du kan oprette en ny kolonne på samme måde, som du opretter et andet objekt:
+```{r base-factor-levels}
+levels(planter$behandling)
+```
+
+`nlevels()` tæller antallet af niveauer:
+
+```{r base-factor-nlevels}
+nlevels(planter$behandling)
+```
+
+`table()` tæller observationerne i hver kategori:
+
+```{r base-factor-table}
+table(planter$behandling)
+```
+
+Funktionen `unique()` viser de forskellige værdier, der faktisk findes i en vektor. Den virker også på tal og tekst og er nyttig, når du vil undersøge indholdet i en ukendt kolonne.
+
+```{r base-unique, results="hold"}
+unique(c("lys", "moerke", "lys"))
+unique(c(0.5, 1, 2, 0.5))
+```
+
+Du kan oprette en ny kolonne ved at tildele den en værdi. Her omregner vi højderne fra cm til mm.
 
 ```{r base-new-column}
 planter$hoejde_mm <- planter$hoejde_cm * 10
@@ -426,7 +462,7 @@ head(planter)
 
 Den oprindelige kolonne i cm findes stadig. For plante P4 bliver den nye værdi også `NA`, fordi R ikke kender højden. Bemærk, at tabellen nu har fem kolonner. Hvis du starter forfra og kører oprettelsen af `planter` igen, erstatter du tabellen med versionen med fire kolonner.
 
-## Udvælg værdier, rækker og kolonner
+## Udvælgelse {#udvælg-værdier-rækker-og-kolonner}
 
 ### Positioner i en vektor
 
@@ -759,7 +795,7 @@ Hvis koden kun virker efter mange forsøg i konsollen, så prøv at genstarte R 
 
 ## Problemstillinger {#baser-problemer}
 
-Lav et nyt script i RStudio via **File > New File > R Script**, og gem det som `emne1_oevelser.R`.
+Lav et nyt script i RStudio via **File > New File > R Script**.
 
 :::checklist
 **Hvilke opgaver skal du lave?**
@@ -767,21 +803,18 @@ Lav et nyt script i RStudio via **File > New File > R Script**, og gem det som `
 - **Alle** laver [problem 1](#problem-1) og arbejder med [problem 6–9](#problem-6), hvor du bruger flere af kapitlets metoder sammen.
 - **Hvis R er nyt for dig**, så arbejd med [problem 2–5](#problem-2) efter de tilhørende videoer, før du går videre.
 - **Hvis du har arbejdet med R før**, kan du gå direkte fra quizzen til [problem 6–9](#problem-6) og slå op i videoerne og noterne undervejs.
-- **Hvis du vil prøve mere**, kan du fortsætte med [problem 10–11](#ekstra-problemstillinger).
 :::
 
 [**Problem 1: Quiz på Absalon**]{#problem-1 .problem-label}
 
-Lav quizzen “Quiz - Grundlæggende” på Absalon.
+Lav quizzen “Quiz - Grundlæggende” på Absalon. Du kan tage den flere gange, hvis du har lyst.
 
 ### Øvelser til videoerne
 
-[**Problem 2: Kør koden linje for linje**]{#problem-2 .problem-label}
-
-Efter [video 1](#video-1) skal du prøve beregningerne i dit script.
+[**Problem 2: Øvelse til** [video 1](#video-1)]{#problem-2 .problem-label}
 
 ::: {.problem-parts}
-**a)** Kør koden én linje ad gangen. Forudsig, hvad de sidste to linjer giver, før du kører dem.
+**a)** Kør koden én linje ad gangen og forstå outputtet.
 
 ```{r base-exercise-calculations, eval=FALSE}
 2 + 2
@@ -792,26 +825,32 @@ sqrt(x)
 sqrt(x)^2
 ```
 
-**b)** Opret vektoren `y <- c(1, 4, 6, 4, 3)`. Find antallet af værdier, summen og gennemsnittet.
+**b)** Opret vektoren `y <- c(1, 4, 6, 4, 3)`. Brug hensigtsmæssige funktioner til at finde antallet af værdier, summen og gennemsnittet.
 
 **c)** Slå `round()` op i R's hjælp, og vis gennemsnittet med én decimal.
+
+**d)** Gem `250` i objektet `masse_g`. Beregn massen i kg, gem resultatet som `masse_kg` og vis værdien. Ændr derefter `masse_g` til `500`, og vis `masse_kg` igen. Hvilken linje skal du køre igen for at opdatere `masse_kg`?
+
+**e)** Ved tre søer har du talt ænder og gæs. Gem antallet af ænder som `aender <- c(3, 5, 2)` og antallet af gæs som `gaes <- c(4, 3, 2)`. Søerne står i samme rækkefølge i begge vektorer. Læg vektorerne sammen, og gem det samlede antal fugle ved hver sø som et passende objektnavn.
+
+**f)** Tre planter blev målt mandag og fredag. Mandag var højderne `c(8, 11, 9)` cm, og fredag var de `c(11, 12, 13)` cm. Planterne står i samme rækkefølge i begge vektorer. Gem målingerne i to vektorer, og beregn, hvor meget hver plante er vokset. Gem resultatet som `vaekst_cm`, og beregn den gennemsnitlige vækst.
 :::
 
-[**Problem 3: Lav din egen dataframe**]{#problem-3 .problem-label}
-
-Efter [video 2](#video-2) skal du selv vælge værdierne til en lille tabel.
+[**Problem 3: Øvelse til** [video 2](#video-2)]{#problem-3 .problem-label}
 
 ::: {.problem-parts}
-**a)** Brug `data.frame()` til at lave tabellen `personer` med fire fiktive personer og tre kolonner: `navn`, `alder` og `yndlingsfarve`. Brug tekst til navn og farve og tal til alder i år. Lad mindst to personer have samme yndlingsfarve. Tjek dimensioner og datatyper med `dim()` og `str()`.
+**a)** Brug `data.frame()` til at lave tabellen `personer` med fem fiktive personer og tre kolonner: `navn`, `alder` og `yndlingsfarve`. Brug tekst til navn og farve og tal til alder i år. Yndlingsfarven skal være enten `"rød"` eller `"grøn"`. Tjek dimensioner og datatyper med `dim()` og `str()`.
 
 **b)** Lav `yndlingsfarve` om til en faktor. Vis niveauerne, og tæl, hvor mange personer der har hver farve som yndlingsfarve.
 
-**c)** Tilføj en kolonne `alder_maaneder` ved at gange alderen i år med 12. Hvor mange kolonner har tabellen nu?
+**c)** Tilføj en kolonne `alder_maaneder` ved at gange alderen i år med 12. Hvor mange kolonner har tabellen nu, og hvad er deres datatyper?
+
+**d)** Brug dataframen til at beregne gennemsnitsalderen i måneder.
 :::
 
-[**Problem 4: Vælg rækker i en tabel med fugleobservationer**]{#problem-4 .problem-label}
+[**Problem 4: Øvelse til** [video 3](#video-3)]{#problem-4 .problem-label}
 
-Efter [video 3](#video-3) skal du bruge betingelser på et lille fiktivt datasæt. Kopiér koden til dit script, og kør den først.
+Kopiér koden til dit script, og kør den først.
 
 ```{r base-exercise-bird-data, eval=FALSE}
 fugle <- data.frame(
@@ -822,16 +861,14 @@ fugle <- data.frame(
 ```
 
 ::: {.problem-parts}
-**a)** Vis de første to rækker med kun kolonnerne `art` og `antal`.
+**a)** Vis de første to rækker af `fugle` med kun kolonnerne `art` og `antal`.
 
-**b)** Brug `is.na()` til at finde rækkerne, hvor antallet af fugle mangler. Hvor mange er der?
+**b)** Brug `is.na()` til at finde de rækker, hvor antallet af fugle mangler. Lav en ny dataframe, `fugle2`, hvor disse rækker er fjernet.
 
-**c)** Gem de observationer fra skoven, hvor antallet er kendt og mindst 3. Vis resultatet.
+**c)** Udvælg de observationer fra `fugle2`, hvor stedet er skov, og antallet er mindst 3.
 :::
 
-[**Problem 5: Gem, indlæs og plot træmålinger**]{#problem-5 .problem-label}
-
-Efter [video 4](#video-4) skal du prøve filimport og plot på et indbygget datasæt.
+[**Problem 5: Øvelse til** [video 4](#video-4)]{#problem-5 .problem-label}
 
 ::: {.problem-parts}
 **a)** Indlæs `trees` med `data("trees")`. Brug `?trees` til at finde ud af, hvad `Girth` og `Height` betyder, og hvilke enheder de har.
@@ -849,9 +886,11 @@ Efter [video 4](#video-4) skal du prøve filimport og plot på et indbygget data
 **a)** Indlæs `cars`, og brug `head()` til at se de første observationer. Slå enhederne op med `?cars`. Lav et spredningsplot med `speed` på x-aksen og `dist` på y-aksen, og angiv enhederne.
 
 **b)** Tilføj en logisk kolonne `hurtig`, der er `TRUE`, når `speed > 15`. Brug `sum()` til at tælle de rækker, der opfylder betingelsen. Gem dem som `hurtige_biler` med kun kolonnerne `speed` og `dist`.
-:::
 
-**Ekstra.** Kør `mean(cars$hurtig)`. Når `TRUE` tæller som 1 og `FALSE` som 0, hvad fortæller gennemsnittet så om observationerne?
+**c)** Kør `mean(cars$hurtig)`. Når `TRUE` tæller som 1 og `FALSE` som 0, hvad fortæller gennemsnittet så om observationerne?
+
+**d)** Læs afsnittet om [betingelser med `ifelse()` og `if`](#ifelse-og-if-forskellige-opgaver). Brug `ifelse()` og den logiske kolonne `hurtig` til at oprette kolonnen `fartgruppe`. Giv rækker med `TRUE` værdien `"hurtig"` og rækker med `FALSE` værdien `"langsom"`. Tæl rækkerne i hver gruppe, og sammenlign antallet i gruppen `"hurtig"` med dit resultat i b).
+:::
 
 [**Problem 7: Indlæs en fil med muslingemålinger**]{#problem-7 .problem-label}
 
@@ -867,6 +906,10 @@ Filen indeholder fiktive målinger af muslinger.
 
 [**Problem 8: Fra udvælgelse til plot i `ToothGrowth`**]{#problem-8 .problem-label}
 
+```{=latex}
+\nopagebreak[4]
+```
+
 ::: {.problem-parts}
 **a)** Indlæs `ToothGrowth`, og læs `?ToothGrowth`. Hvad betyder `supp`, `dose` og `len`? Hvilke forskellige værdier har `dose`?
 
@@ -875,6 +918,8 @@ Filen indeholder fiktive målinger af muslinger.
 **c)** Gem rækker med `supp == "VC"`, hvor dosis er enten 0.5 eller 2. Brug `%in%` til at vælge doserne.
 
 **d)** Beregn gennemsnittet af `len` for delmængden i c. Lav et spredningsplot af `len` mod `dose` for samme delmængde. Angiv dosis i mg pr. dag, og brug “Længdemål for tandvækst (datasættets skala)” som titel på y-aksen.
+
+**e)** Læs afsnittet om [tilfældig udvælgelse med `sample()`](#tilfaeldig-udvaelgelse). Brug `set.seed(2027)`, og udvælg tilfældigt ti rækker fra den dataframe, du gemte i c), uden tilbagelægning. Gem de udvalgte rækker i en ny dataframe. Hvordan kan du gentage præcis den samme udvælgelse? Hvorfor kan den samme række optræde flere gange, hvis du vælger med tilbagelægning?
 :::
 
 [**Problem 9: Find fejlen, og kør scriptet igen**]{#problem-9 .problem-label}
@@ -888,16 +933,6 @@ rundede <- round(c("4.26", "5.83"), digits = 1)
 
 **b)** Gem den rettede kode i dit script. Genstart R, og kør scriptet fra begyndelsen. Kan du genskabe dine resultater?
 :::
-
-## Ekstra problemstillinger
-
-[**Problem 10: Tilfældige observationer**]{#problem-10 .problem-label}
-
-Brug `set.seed(2027)` og vælg ti rækkenumre fra `iris` uden tilbagelægning. Gem de tilhørende rækker. Hvorfor kan en udvælgelse med tilbagelægning indeholde den samme observation flere gange? Hvad skal du gøre for at gentage præcis den samme tilfældige udvælgelse?
-
-[**Problem 11: Fra betingelse til kategori**]{#problem-11 .problem-label}
-
-Brug `cars` fra problem 6. Tilføj kolonnen `fartgruppe` med `ifelse()`, så rækker med `speed > 15` får værdien `"hurtig"`, og de øvrige får `"langsom"`. Tæl rækkerne i hver kategori. Hvorfor passer `ifelse()` til opgaven?
 
 ## Klar til næste kapitel?
 

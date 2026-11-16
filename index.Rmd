@@ -30,7 +30,7 @@ if (knitr::is_latex_output()) {
   knitr::opts_chunk$set(out.width = "\\linewidth", out.height = NULL, message = FALSE)
   knitr::opts_hooks$set(out.width = function(options) {
     options$out.height <- NULL
-    options$out.width <- if (grepl("logo", paste(options$code, collapse = " "))) {
+    options$out.width <- if (grepl("logo", paste(options$label, options$code, collapse = " "))) {
       "0.18\\linewidth"
     } else {
       "0.9\\linewidth"
@@ -56,7 +56,7 @@ Denne hjemmeside er kursusnotaterne til de indskrevne studerende i 2026/27 studi
 
 Kurset er opdelt i 12 emner. Vi lægger kursusnotaterne ud før hvert emne, helst et par dage i forvejen, så du kan forberede dig. Notaterne indeholder forklaringer, kodeeksempler, videoer og problemstillinger. Du kan se videoerne og prøve koden inden undervisningen. Når vi mødes, arbejder vi videre med problemstillingerne, og der er tid til at stille spørgsmål.
 
-Start med [Grundlæggende R](#baser), og fortsæt med [Grundlæggende statistik i base R](#statistik).
+Start med [Grundlæggende R](#baser), og fortsæt med [Grundlæggende statistik i base R](#statistik) og [Introduktion til R Markdown](#rmarkdown).
 
 ## Bedømmelse {-}
 

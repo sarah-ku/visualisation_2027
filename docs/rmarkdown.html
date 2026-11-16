@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 3 Introduktion til R Markdown | Analyse og visualisering af biologiske datasæt – 2027</title>
+  <meta name="description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 3 Introduktion til R Markdown | Analyse og visualisering af biologiske datasæt – 2027" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://sarah-ku.github.io/visualisation_2027/plots/ai_cover.jpeg" />
+  <meta property="og:description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 3 Introduktion til R Markdown | Analyse og visualisering af biologiske datasæt – 2027" />
+  
+  <meta name="twitter:description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  <meta name="twitter:image" content="https://sarah-ku.github.io/visualisation_2027/plots/ai_cover.jpeg" />
+
+
+
+<meta name="date" content="2026-11-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistik.html?v=3410a1729d3a.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css?v=c0d91e173a0f" type="text/css" />
+<link rel="stylesheet" href="assets/downloads.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./?v=50f2477af9d8.html">Visualisering_2027</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=50f2477af9d8.html"><i class="fa fa-check"></i>Lidt om kurset</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=50f2477af9d8.html#outline"><i class="fa fa-check"></i>Kursets opbygning</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=50f2477af9d8.html#bed%C3%B8mmelse"><i class="fa fa-check"></i>Bedømmelse</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=50f2477af9d8.html#bare-lidt-om-underviserne"><i class="fa fa-check"></i>Lidt om underviserne</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html"><i class="fa fa-check"></i><b>1</b> Grundlæggende R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#l%C3%A6ringsm%C3%A5l-og-forberedelse"><i class="fa fa-check"></i><b>1.1</b> Læringsmål og videoer</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#s%C3%A5dan-bruger-du-materialerne"><i class="fa fa-check"></i><b>1.1.1</b> Sådan bruger du materialerne</a></li>
+<li class="chapter" data-level="1.1.2" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#videoer"><i class="fa fa-check"></i><b>1.1.2</b> Videoer</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#rstudio-skriv-kode-som-du-kan-k%C3%B8re-igen"><i class="fa fa-check"></i><b>1.2</b> RStudio: skriv kode, som du kan køre igen</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#rstudio"><i class="fa fa-check"></i><b>1.2.1</b> De forskellige paneler i RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#objekter-giv-en-v%C3%A6rdi-et-navn"><i class="fa fa-check"></i><b>1.3</b> Objekter i R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#r-udf%C3%B8rer-instruktioner-i-den-r%C3%A6kkef%C3%B8lge-du-k%C3%B8rer-dem"><i class="fa fa-check"></i><b>1.3.1</b> R kører koden i rækkefølge</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#vektorer-og-funktioner"><i class="fa fa-check"></i><b>1.4</b> Vektorer og funktioner</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#en-vektor-indeholder-flere-v%C3%A6rdier"><i class="fa fa-check"></i><b>1.4.1</b> En vektor indeholder flere værdier</a></li>
+<li class="chapter" data-level="1.4.2" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#funktioner-har-input-og-giver-et-resultat"><i class="fa fa-check"></i><b>1.4.2</b> Funktioner har input og giver et resultat</a></li>
+<li class="chapter" data-level="1.4.3" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#find-hj%C3%A6lp"><i class="fa fa-check"></i><b>1.4.3</b> Find hjælp</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#dataframes-en-tabel-med-observationer-og-variabler"><i class="fa fa-check"></i><b>1.5</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#f%C3%A5-overblik-f%C3%B8r-du-regner"><i class="fa fa-check"></i><b>1.5.1</b> Overblik over dataframen</a></li>
+<li class="chapter" data-level="1.5.2" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#datatyper-tal-tekst-logik-og-kategorier"><i class="fa fa-check"></i><b>1.5.2</b> Datatyper</a></li>
+<li class="chapter" data-level="1.5.3" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#hent-en-kolonne-med"><i class="fa fa-check"></i><b>1.5.3</b> Hent en kolonne med <code>$</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#udv%C3%A6lg-v%C3%A6rdier-r%C3%A6kker-og-kolonner"><i class="fa fa-check"></i><b>1.6</b> Udvælgelse</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#positioner-i-en-vektor"><i class="fa fa-check"></i><b>1.6.1</b> Positioner i en vektor</a></li>
+<li class="chapter" data-level="1.6.2" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#to-dimensioner-i-en-dataframe"><i class="fa fa-check"></i><b>1.6.2</b> To dimensioner i en dataframe</a></li>
+<li class="chapter" data-level="1.6.3" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#en-betingelse-giver-true-eller-false"><i class="fa fa-check"></i><b>1.6.3</b> En betingelse giver <code>TRUE</code> eller <code>FALSE</code></a></li>
+<li class="chapter" data-level="1.6.4" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#ifelse-og-if-forskellige-opgaver"><i class="fa fa-check"></i><b>1.6.4</b> Brug betingelser med <code>ifelse()</code> og <code>if</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#manglende-v%C3%A6rdier"><i class="fa fa-check"></i><b>1.7</b> Manglende værdier</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#manglende-v%C3%A6rdier-i-en-udv%C3%A6lgelse"><i class="fa fa-check"></i><b>1.7.1</b> Manglende værdier i en udvælgelse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#hvor-kommer-data-fra"><i class="fa fa-check"></i><b>1.8</b> Hvor kommer data fra?</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#indbyggede-datas%C3%A6t"><i class="fa fa-check"></i><b>1.8.1</b> Indbyggede datasæt</a></li>
+<li class="chapter" data-level="1.8.2" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#tilfaeldig-udvaelgelse"><i class="fa fa-check"></i><b>1.8.2</b> Tilfældig udvælgelse med <code>sample()</code></a></li>
+<li class="chapter" data-level="1.8.3" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#arbejdsmappen-og-relative-filstier"><i class="fa fa-check"></i><b>1.8.3</b> Arbejdsmappen og relative filstier</a></li>
+<li class="chapter" data-level="1.8.4" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#gem-og-indl%C3%A6s-en-csv-fil"><i class="fa fa-check"></i><b>1.8.4</b> Gem og indlæs en CSV-fil</a></li>
+<li class="chapter" data-level="1.8.5" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#skilletegn-og-decimaltal"><i class="fa fa-check"></i><b>1.8.5</b> Skilletegn og decimaltal</a></li>
+<li class="chapter" data-level="1.8.6" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#import%C3%A9r-data-fra-excel"><i class="fa fa-check"></i><b>1.8.6</b> Importér data fra Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#dit-f%C3%B8rste-plot-i-base-r"><i class="fa fa-check"></i><b>1.9</b> Dit første plot i base R</a></li>
+<li class="chapter" data-level="1.10" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#r-pakker"><i class="fa fa-check"></i><b>1.10</b> R-pakker</a></li>
+<li class="chapter" data-level="1.11" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#n%C3%A5r-koden-ikke-virker"><i class="fa fa-check"></i><b>1.11</b> Når koden ikke virker</a></li>
+<li class="chapter" data-level="1.12" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#baser-problemer"><i class="fa fa-check"></i><b>1.12</b> Problemstillinger</a>
+<ul>
+<li class="chapter" data-level="1.12.1" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#%C3%B8velser-til-videoerne"><i class="fa fa-check"></i><b>1.12.1</b> Øvelser til videoerne</a></li>
+<li class="chapter" data-level="1.12.2" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#saml-det-du-har-l%C3%A6rt"><i class="fa fa-check"></i><b>1.12.2</b> Øvelser til hele emnet</a></li>
+</ul></li>
+<li class="chapter" data-level="1.13" data-path="baser.html"><a href="baser.html?v=2a1aeb83ab93.html#klar-til-n%C3%A6ste-kapitel"><i class="fa fa-check"></i><b>1.13</b> Klar til næste kapitel?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html"><i class="fa fa-check"></i><b>2</b> Grundlæggende statistik i base R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#l%C3%A6ringsm%C3%A5l-og-videoer"><i class="fa fa-check"></i><b>2.1</b> Læringsmål og videoer</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#s%C3%A5dan-bruger-du-kapitlet"><i class="fa fa-check"></i><b>2.1.1</b> Sådan bruger du kapitlet</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-videoer"><i class="fa fa-check"></i><b>2.1.2</b> Videoer</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#fra-biologisk-sp%C3%B8rgsm%C3%A5l-til-observationer"><i class="fa fa-check"></i><b>2.2</b> Population og stikprøve</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#antal-r%C3%A6kker-er-ikke-altid-antal-uafh%C3%A6ngige-observationer"><i class="fa fa-check"></i><b>2.2.1</b> Antal rækker er ikke altid antal uafhængige observationer</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-beskriv"><i class="fa fa-check"></i><b>2.3</b> Databeskrivelse</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#gennemsnit-og-median-to-m%C3%A5l-for-centrum"><i class="fa fa-check"></i><b>2.3.1</b> Gennemsnit og median</a></li>
+<li class="chapter" data-level="2.3.2" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#sammenlign-grupper-med-et-boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Sammenlign grupper med et boxplot</a></li>
+<li class="chapter" data-level="2.3.3" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#varians-og-standardafvigelse-hvor-forskellige-er-observationerne"><i class="fa fa-check"></i><b>2.3.3</b> Varians og standardafvigelse</a></li>
+<li class="chapter" data-level="2.3.4" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#ekstra-kvartiler-og-interkvartilafstand"><i class="fa fa-check"></i><b>2.3.4</b> Kvartiler og interkvartilafstand</a></li>
+<li class="chapter" data-level="2.3.5" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#det-samme-for-flere-grupper-med-tapply"><i class="fa fa-check"></i><b>2.3.5</b> <code>tapply()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#fordelinger-og-de-f%C3%B8rste-statistiske-figurer"><i class="fa fa-check"></i><b>2.4</b> Fordelinger</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#normalfordelingen-er-en-model"><i class="fa fa-check"></i><b>2.4.1</b> Normalfordelingen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-usikkerhed"><i class="fa fa-check"></i><b>2.5</b> Usikkerhed på gennemsnit</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#standardafvigelse-og-standardfejl"><i class="fa fa-check"></i><b>2.5.1</b> Standardafvigelse og standardfejl</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-hypoteser"><i class="fa fa-check"></i><b>2.6</b> Hypoteser og p-værdier</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#hvad-fort%C3%A6ller-en-p-v%C3%A6rdi"><i class="fa fa-check"></i><b>2.6.1</b> Hvad fortæller en p-værdi?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-et-gennemsnit"><i class="fa fa-check"></i><b>2.7</b> Ét gennemsnit mod en reference</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#hvad-fort%C3%A6ller-t-v%C3%A6rdien"><i class="fa fa-check"></i><b>2.7.1</b> Hvad fortæller t-værdien?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-welch"><i class="fa fa-check"></i><b>2.8</b> T-test: to uafhængige grupper</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#s%C3%A5dan-l%C3%A6ser-du-outputtet"><i class="fa fa-check"></i><b>2.8.1</b> Sådan læser du outputtet</a></li>
+<li class="chapter" data-level="2.8.2" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#hvad-skal-vi-unders%C3%B8ge-f%C3%B8r-testen"><i class="fa fa-check"></i><b>2.8.2</b> Se de enkelte observationer</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-parret"><i class="fa fa-check"></i><b>2.9</b> T-test til parrede målinger</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#se-fordelingen-af-%C3%A6ndringerne"><i class="fa fa-check"></i><b>2.9.1</b> Se fordelingen af ændringerne</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-andre-metoder"><i class="fa fa-check"></i><b>2.10</b> Chi-i-anden-test</a></li>
+<li class="chapter" data-level="2.11" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-problemer"><i class="fa fa-check"></i><b>2.11</b> Problemstillinger</a></li>
+<li class="chapter" data-level="2.12" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-regression"><i class="fa fa-check"></i><b>2.12</b> Korrelation og simpel lineær regression</a>
+<ul>
+<li class="chapter" data-level="2.12.1" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#se-sammenh%C3%A6ngen-f%C3%B8r-du-beregner-et-tal"><i class="fa fa-check"></i><b>2.12.1</b> Se sammenhængen før du beregner et tal</a></li>
+<li class="chapter" data-level="2.12.2" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#en-regressionslinje-giver-en-%C3%A6ndring-i-responsens-enhed"><i class="fa fa-check"></i><b>2.12.2</b> En regressionslinje giver en ændring i responsens enhed</a></li>
+<li class="chapter" data-level="2.12.3" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#residualer-og-r2"><i class="fa fa-check"></i><b>2.12.3</b> Residualer og <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="2.12.4" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#stats-regressionsantagelser"><i class="fa fa-check"></i><b>2.12.4</b> Antagelser for lineær regression</a></li>
+<li class="chapter" data-level="2.12.5" data-path="statistik.html"><a href="statistik.html?v=3410a1729d3a.html#opgave-til-n%C3%A6ste-undervisningsgang-om-r-markdown"><i class="fa fa-check"></i><b>2.12.5</b> Opgave til næste undervisningsgang om R Markdown</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html"><i class="fa fa-check"></i><b>3</b> Introduktion til R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#inledning-til-kapitlet"><i class="fa fa-check"></i><b>3.1</b> Inledning til kapitlet</a></li>
+<li class="chapter" data-level="3.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#hvad-er-r-markdown"><i class="fa fa-check"></i><b>3.2</b> Hvad er R Markdown?</a></li>
+<li class="chapter" data-level="3.3" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#installere-r-markdown"><i class="fa fa-check"></i><b>3.3</b> Installere R Markdown</a></li>
+<li class="chapter" data-level="3.4" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#videodemonstrationer"><i class="fa fa-check"></i><b>3.4</b> Videodemonstrationer</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-video-1"><i class="fa fa-check"></i><b>3.4.1</b> Video 1</a></li>
+<li class="chapter" data-level="3.4.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-video-2"><i class="fa fa-check"></i><b>3.4.2</b> Video 2</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#opret-et-nyt-dokument-i-r-markdown"><i class="fa fa-check"></i><b>3.5</b> Opret et nyt dokument i R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#yaml"><i class="fa fa-check"></i><b>3.5.1</b> YAML</a></li>
+<li class="chapter" data-level="3.5.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#globale-muligheder"><i class="fa fa-check"></i><b>3.5.2</b> Globale muligheder</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#skriv-og-formatere-tekst"><i class="fa fa-check"></i><b>3.6</b> Skriv og formatere tekst</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#headers"><i class="fa fa-check"></i><b>3.6.1</b> Headers</a></li>
+<li class="chapter" data-level="3.6.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#tilf%C3%B8je-en-liste"><i class="fa fa-check"></i><b>3.6.2</b> Tilføje en liste</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#knitte-kode"><i class="fa fa-check"></i><b>3.7</b> Knitte kode</a></li>
+<li class="chapter" data-level="3.8" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#kode-chunks"><i class="fa fa-check"></i><b>3.8</b> Kode chunks</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#knit-l%C3%B8bende-f%C3%B8r-at-undg%C3%A5-problemer"><i class="fa fa-check"></i><b>3.8.1</b> Knit løbende før at undgå problemer</a></li>
+<li class="chapter" data-level="3.8.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#chunk-indstillinger"><i class="fa fa-check"></i><b>3.8.2</b> Chunk indstillinger</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#r-beregninger-inden-for-teksten-i-dokumentet-inline-code"><i class="fa fa-check"></i><b>3.9</b> R beregninger inden for teksten i dokumentet (‘inline code’)</a></li>
+<li class="chapter" data-level="3.10" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#working-directory"><i class="fa fa-check"></i><b>3.10</b> Working directory</a></li>
+<li class="chapter" data-level="3.11" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#matematik"><i class="fa fa-check"></i><b>3.11</b> Matematik</a></li>
+<li class="chapter" data-level="3.12" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#hyppigt-forekommende-fejl"><i class="fa fa-check"></i><b>3.12</b> Hyppigt forekommende fejl</a></li>
+<li class="chapter" data-level="3.13" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#problemstillinger"><i class="fa fa-check"></i><b>3.13</b> Problemstillinger</a></li>
+<li class="chapter" data-level="3.14" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#forberedelse-af-n%C3%A6ste-emnet-og-lektionen"><i class="fa fa-check"></i><b>3.14</b> Forberedelse af næste emnet og lektionen</a></li>
+<li class="chapter" data-level="3.15" data-path="rmarkdown.html"><a href="rmarkdown.html?v=44c92e79b29e.html#ekstra-information"><i class="fa fa-check"></i><b>3.15</b> Ekstra information</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org/" target="_blank" rel="noopener">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./?v=50f2477af9d8.html">Analyse og visualisering af biologiske datasæt – 2027</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmarkdown" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Kapitel 3</span> Introduktion til R Markdown<a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="plots/hex-rmarkdown.png" alt="" width="20%" height="20%" /></p>
+<p>“Du kan aldrig krydse havet, før du har modet til at miste synet af kysten.” – Christopher Columbus</p>
+<div id="inledning-til-kapitlet" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Inledning til kapitlet<a href="rmarkdown.html?v=44c92e79b29e.html#inledning-til-kapitlet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I dag starter vi med <code>R Markdown</code>. Emnet er kort og er designet til at hjælpe dig med at komme i gang med R Markdown i praksis. Notaterne inkluderer også nogle ekstra muligheder, så du kan indrette dit dokument efter eget ønske. Der er to videoer tilgængelige - den ene er en “quick-start guide” til at komme i gang, og den anden viser en simpel lineær regression i R Markdown. Hvis du ikke har brug for en genopfriskning, kan du stadig udforske mere af funktionaliteten i R Markdown.</p>
+<p>Efter quizzerne og problemstillingerne er der en worksheet, hvor du kan øve dig yderligere med de typer opgaver vi vil se i workshopperne. Fra næste gang skifter vi emnet til visualiseringer i ggplot2, men vi fortsætter med at anvender R Markdown igennem hele kurset.</p>
+<div class="checklist">
+<p><strong>Tjekliste</strong></p>
+<ul>
+<li>Se <a href="rmarkdown.html?v=44c92e79b29e.html#videodemonstrationer">videoerne</a>.</li>
+<li>Lav <a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-problem-1">quizzen på Absalon (problem 1)</a>.</li>
+<li>Lav <a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-problem-2">problemstillingerne 2–10</a>.</li>
+<li>Læs <a href="statistik.html?v=3410a1729d3a.html#stats-regression">afsnit 2.12: Korrelation og simpel lineær regression</a>, og lav derefter <a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-problem-11">problem 11</a>.</li>
+<li>Lav <a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-problem-12">miniworkshoppen (problem 12)</a> på Absalon (<strong>uge47_miniworkshop_rmarkdown.Rmd</strong>).</li>
+</ul>
+</div>
+</div>
+<div id="hvad-er-r-markdown" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Hvad er R Markdown?<a href="rmarkdown.html?v=44c92e79b29e.html#hvad-er-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Markdown er en nem og fleksibel måde at arbejde med R under projekter for at dokumentere udviklingen af analysen. Her kan man kombinere R-kode, output og tekst i samme dokument og bygge et pænt HTML-dokument, som potentielt kan deles med andre. Vi anbefaler, at du bruger R Markdown til alle opgaver i kurset.</p>
+<div class="pin">
+<p><strong>OBS! Ved workshops og eksamen forventer vi, at du afleverer et HTML-dokument med din “knittede” kode fra din analyse.</strong></p>
+</div>
+</div>
+<div id="installere-r-markdown" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Installere R Markdown<a href="rmarkdown.html?v=44c92e79b29e.html#installere-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Markdown er, ligesom R, gratis og ‘open source’. Den fungerer indenfor RStudio and kan installeres ved at bruge den følgende kommando:</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb188-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
+</div>
+<div id="videodemonstrationer" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Videodemonstrationer<a href="rmarkdown.html?v=44c92e79b29e.html#videodemonstrationer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To videoer er tilgænglig som dækker emnet:</p>
+<div id="rmarkdown-video-1" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Video 1<a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-video-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Denne video viser dig, hvordan du:</p>
+<ul>
+<li>Opretter et nyt dokument i R Markdown.</li>
+<li>Skriver tekst i dokumentet.</li>
+<li>Bruger “knit” til at lave et HTML-dokument.</li>
+<li>Opretter og kører kodechunks.</li>
+</ul>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/702416505" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+<div id="rmarkdown-video-2" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Video 2<a href="rmarkdown.html?v=44c92e79b29e.html#rmarkdown-video-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Denne video viser dig en kort lineær regressionsanalyse samt:</p>
+<ul>
+<li>Hvordan man indlæser et datasæt og laver et plot af datasættet.</li>
+<li>En lynhurtig gennemgang af formlen for en ret linje.</li>
+<li>Hvordan man anvender funktionen <code>lm()</code> til at fitte en lineær model.</li>
+<li>Fortolkning af resultaterne af modellen og deres statistiske betydning.</li>
+</ul>
+<p>Den statistiske gennemgang til videoen ligger i <a href="statistik.html?v=3410a1729d3a.html#stats-regression">noterne om korrelation og simpel lineær regression</a>.</p>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/701240044" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div id="opret-et-nyt-dokument-i-r-markdown" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Opret et nyt dokument i R Markdown<a href="rmarkdown.html?v=44c92e79b29e.html#opret-et-nyt-dokument-i-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Man åbner et nyt R Markdown dokument i RStudio ved at klikke “File” &gt; “New File” &gt; “R Markdown…”. Alternativt kan man klikke på den grønne “+” knap i det øverste venstre hjørne af RStudio vinduet og vælge “R Markdown”.</p>
+<div class="float">
+<img src="plots/open_new_rmarkdown.png" alt="Hvordan man åbner et nyt R Markdown dokument" />
+<div class="figcaption">Hvordan man åbner et nyt R Markdown dokument</div>
+</div>
+<p>Derefter angiver man en titel (som kan ændres senere hvis nødvendigt) og specificerer, at outputtet skal være i HTML-format. I dette kursus arbejder vi kun med HTML-dokumenter, men der er også andre muligheder, som du er velkommen til at prøve (PDF/Word/Shiny osv.).</p>
+<div class="float">
+<img src="plots/create_new_rmarkdown.png" alt="Hvordan man åbne et nyt R Markdown dokument" />
+<div class="figcaption">Hvordan man åbne et nyt R Markdown dokument</div>
+</div>
+<!-- YAML Header: Controls certain output settings that apply to the entire document. -->
+<div id="yaml" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> YAML<a href="rmarkdown.html?v=44c92e79b29e.html#yaml" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Den første sektion af dokument skrives i hvad der kaldes for ‘YAML’. (Dette står for ‘YAML Ain’t Markup Language’). YAML-sektionen bruges til at definere en række indstillinger og metadata for dokumentet, f.eks. titel, forfatter, dato og outputformat. Denne sektion indrammes typisk af tre bindestreger (—) øverst og nederst:</p>
+<div class="float">
+<img src="plots/YAML.png" alt="YAML eksempel" />
+<div class="figcaption">YAML eksempel</div>
+</div>
+<p>I dette eksempel angiver vi titlen på rapporten som “test”, forfatterens navn, datoen og outputformatet (HTML-dokument). Du kan tilføje andre indstillinger og tilpasse outputformatet ved at ændre eller udvide YAML-headeren. I de fleste tilfælde nøjes vi dog med at bruge standard indstillinger. Hvis man gerne vil lære mere om de forskellige YAML muligheder, kan man finde mere information her:</p>
+<p><a href="https://bookdown.org/yihui/rmarkdown/html-document.html" class="uri">https://bookdown.org/yihui/rmarkdown/html-document.html</a></p>
+<p>Man kan også se en liste af muligheder her på dette såkaldt cheatsheet:</p>
+<p><a href="https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf</a></p>
+</div>
+<div id="globale-muligheder" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Globale muligheder<a href="rmarkdown.html?v=44c92e79b29e.html#globale-muligheder" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Derefter kan vi se følgende tekst:</p>
+<div class="float">
+<img src="plots/global_options.png" alt="Globale muligheder" />
+<div class="figcaption">Globale muligheder</div>
+</div>
+<p>Ved at bruge funktionen <code>opts_chunk$set()</code> kan du angive globale indstillinger, der styrer udseendet af det endelige dokument. I dette tilfælde er de fleste parametre sat til deres ‘default’ eller standardværdier (da de ikke er eksplicit angivet), og echo er den eneste parameter, der har en defineret værdi. Når echo er sat til <code>TRUE</code>, betyder det, at når du “knitter” din kode (processen der omdanner R Markdown-filen til et HTML-dokument, som beskrevet nedenfor), vil både den udførte kode og dens output blive vist i det endelige HTML-dokument.</p>
+<p>Funktionen <code>opts_chunk$set()</code> giver dig mulighed for at kontrollere adskillige aspekter af dit dokument på en global måde, såsom visning af advarsler og beskeder, cacheindstillinger og grafikindstillinger. For eksempel, advarsler og beskeder undertrykkes ved at sætte <code>warning = FALSE</code> og <code>message = FALSE</code> (Prøv venligst selv). Bemærk, at disse globale indstillinger kan overskrives for individuelle kodeblokke, hvis det er nødvendigt.</p>
+</div>
+</div>
+<div id="skriv-og-formatere-tekst" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Skriv og formatere tekst<a href="rmarkdown.html?v=44c92e79b29e.html#skriv-og-formatere-tekst" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Her er nogle muligheder for at formatere tekst i projekter, opgaverne eller rapporter:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb189-1" tabindex="-1"></a><span class="sc">*</span>italic<span class="sc">*</span>   <span class="er">**</span>bold<span class="sc">**</span></span>
+<span id="cb189-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb189-2" tabindex="-1"></a></span>
+<span id="cb189-3"><a href="rmarkdown.html?v=44c92e79b29e.html#cb189-3" tabindex="-1"></a>_italic_   __bold__</span></code></pre></div>
+<p><em>italic</em> <strong>bold</strong></p>
+<p><em>italic</em> <strong>bold</strong></p>
+<div id="headers" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Headers<a href="rmarkdown.html?v=44c92e79b29e.html#headers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Man kan også tilføje sektioner:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb190-1" tabindex="-1"></a><span class="co"># Header 1</span></span>
+<span id="cb190-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb190-2" tabindex="-1"></a></span>
+<span id="cb190-3"><a href="rmarkdown.html?v=44c92e79b29e.html#cb190-3" tabindex="-1"></a><span class="do">## Header 2</span></span>
+<span id="cb190-4"><a href="rmarkdown.html?v=44c92e79b29e.html#cb190-4" tabindex="-1"></a></span>
+<span id="cb190-5"><a href="rmarkdown.html?v=44c92e79b29e.html#cb190-5" tabindex="-1"></a><span class="do">### Header 3</span></span></code></pre></div>
+<div class="float">
+<img src="plots/header_eksempel.png" alt="Caption for the picture." />
+<div class="figcaption">Caption for the picture.</div>
+</div>
+</div>
+<div id="tilføje-en-liste" class="section level3 hasAnchor" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Tilføje en liste<a href="rmarkdown.html?v=44c92e79b29e.html#tilf%C3%B8je-en-liste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb191-1" tabindex="-1"></a><span class="sc">*</span> Item <span class="dv">1</span></span>
+<span id="cb191-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb191-2" tabindex="-1"></a><span class="sc">*</span> Item <span class="dv">2</span></span>
+<span id="cb191-3"><a href="rmarkdown.html?v=44c92e79b29e.html#cb191-3" tabindex="-1"></a>    <span class="sc">+</span> Item <span class="dv">2</span>a</span>
+<span id="cb191-4"><a href="rmarkdown.html?v=44c92e79b29e.html#cb191-4" tabindex="-1"></a>    <span class="sc">+</span> Item <span class="dv">2</span>b</span></code></pre></div>
+<ul>
+<li>Item 1</li>
+<li>Item 2
+<ul>
+<li>Item 2a</li>
+<li>Item 2b</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="knitte-kode" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Knitte kode<a href="rmarkdown.html?v=44c92e79b29e.html#knitte-kode" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Man anvender <em>Knit</em> til at gemme R Markdown-filen i HTML-format. Når du trykker på <em>Knit</em>-knappen, bliver alle kodeblokke i filen udført og et HTML-dokument bygget. Bemærk, at <strong>koden udføres på ny hver gang du knitter</strong>, uafhængig af indholdet i dit nuværende RStudio-arbejdsområde / workspace. Det betyder, at hvis du f.eks. har indlæst pakken <code>tidyverse</code> i dit RStudio-arbejdsområde, men har glemt at inkludere <code>library(tidyverse)</code> eksplicit i begyndelsen af dit R Markdown-dokument, vil du modtage en fejlmeddelelse, hvis du bruger funktioner fra tidyverse andre steder i dokumentet.</p>
+</div>
+<div id="kode-chunks" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Kode chunks<a href="rmarkdown.html?v=44c92e79b29e.html#kode-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Du skriver R kode inden for såkaldte “chunks” i R Markdown-dokumenter. Du kan oprette en ny kodeblok på flere måder - enten ved at klikke på knappen <em>Insert a new code chunk</em> øverst i RStudio, eller ved at trykke på <em>Cmd+Option+I</em> på tastaturet (hvis du bruger en Mac) eller <em>Ctrl+Alt+I</em> (hvis du bruger Windows). Det er værd at huske denne shortcut/genvej, da det kan spare meget tid i fremtiden!</p>
+<p>Her er et eksempel af en kodechunk:</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb192-1" tabindex="-1"></a><span class="co"># This is a chunk, let&#39;s write som R code</span></span>
+<span id="cb192-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb192-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb192-3"><a href="rmarkdown.html?v=44c92e79b29e.html#cb192-3" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>For at køre en chunk skal du trykke på den grønne pil øverst i højre hjørne af selve chunken (der hedder <em>Run Current Chunk</em> når du holder musen over den). Resultatet er printed lige under chunken.</p>
+<p>Bemærk, at når du arbejder med dit R Markdown dokument, er det generelt hurtigere at bruge den grønne pil / <em>Run Current Chunk</em> i stedet for at knitte hele dokumentet hver gang man vil køre kode. Det skyldes, at du her kun kører den enkelte chunk i stedet for hele dokumentet på ny (herunder indlæsning af pakker og eventuelle store filer), som er tilfældet med <em>Knit</em>.</p>
+<div id="knit-løbende-før-at-undgå-problemer" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Knit løbende før at undgå problemer<a href="rmarkdown.html?v=44c92e79b29e.html#knit-l%C3%B8bende-f%C3%B8r-at-undg%C3%A5-problemer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Som en del af længere opgaver er det god praksis at sikre løbende at man kan bygge et HTML-dokument ved at knitte. Dette gælder selv hvis man kører chunks lokalt, mens man udvikler kode. Med andre ord, skal man sørge for at man ikke få alvorlige fejlmeddelelser som forhindrer koden i at blive knittet.</p>
+<div class="pin">
+<p><strong>Det er vores ansvar at sikre, at vores kode fungerer i sin helhed, og at vi kan bygge et HTML-dokument med f.eks. løsningerne til problemstillingerne.</strong></p>
+</div>
+</div>
+<div id="chunk-indstillinger" class="section level3 hasAnchor" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Chunk indstillinger<a href="rmarkdown.html?v=44c92e79b29e.html#chunk-indstillinger" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I R Markdown er der mange muligheder for at styre hver enkelt chunk i et dokument. Hvordan skal R håndtere koden med hensyn til evaluering og præsentation (især med hensyn til tabeller og plots) af en bestemt chunk i dokumentet? Det afhænger meget af, hvem man gerne vil viser dokumentet. For eksempel, i de nuværende kursusnotater vil vi gerne have generelt, at man ser al koden (en global indstilling). Men nogle gange er fokuset anderledes - f.eks. en chunk, der viser kode som skal ikke køre, eller en andern plotstørrelse i en bestemt chunk. En chunk med indstillingen <code>eval=FALSE</code> ser f.eks. sådan ud (fjern # symbolet).</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb194-1" tabindex="-1"></a><span class="co">#```{r,eval=FALSE}</span></span>
+<span id="cb194-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb194-2" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb194-3"><a href="rmarkdown.html?v=44c92e79b29e.html#cb194-3" tabindex="-1"></a><span class="co">#```</span></span></code></pre></div>
+<p>Her kan man finde en oversigt af mange muligheder (sektionen “Embed code with knitr syntax”):</p>
+<p><a href="https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf</a></p>
+<p>Her er seks yderligere og populære muligheder:</p>
+<ul>
+<li><code>include = FALSE</code>
+<ul>
+<li>forhindrer både kode og resultater at blive vist i den endelige fil. R Markdown kører stadig koden i kodeblokken og resultaterne kan bruges af andre kodeblokke.</li>
+</ul></li>
+<li><code>echo = FALSE</code>
+<ul>
+<li>forhindrer koden men ikke resultaterne at blive vist i den endelige fil. Dette er en nyttig måde at integrere figurer på.</li>
+</ul></li>
+<li><code>message = FALSE</code>
+<ul>
+<li>forhindrer beskeder genereret af koden at blive vist i den endelige fil.</li>
+</ul></li>
+<li><code>warning = FALSE</code>
+<ul>
+<li>forhindrer advarsler genereret af koden at blive vist i den endelige fil.</li>
+</ul></li>
+<li><code>fig.cap = "..."</code>
+<ul>
+<li>tilføjer en billedtekst til grafiske resultater.</li>
+</ul></li>
+<li><code>eval = FALSE</code>
+<ul>
+<li>evaluerer ikke koden.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="r-beregninger-inden-for-teksten-i-dokumentet-inline-code" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> R beregninger inden for teksten i dokumentet (‘inline code’)<a href="rmarkdown.html?v=44c92e79b29e.html#r-beregninger-inden-for-teksten-i-dokumentet-inline-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I nogle tilfælde ønsker man at køre R koden “inline”, det vil sige som en del af teksten, f.eks. inden for en sætning. Dette gøres ved at skrive på følgende måde:</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb195-1" tabindex="-1"></a>Her er min <span class="st">`</span><span class="at">kode</span><span class="st">`</span></span></code></pre></div>
+<p>Ovenstående ser sådan ud, når det er skrevet direkte inden for teksten:</p>
+<p>Her er min <code>kode</code>.</p>
+<p>I dette tilfælde, er der ikke noget R kode, der blev kørt. Hvis man vil køre R kode inden for teksten, skriver man f.eks.:</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb196-1" tabindex="-1"></a>Det gennemsnitlige antal af observationer er <span class="st">`</span><span class="at">r mean(c(5,7,4,6,3,3))</span><span class="st">`</span></span></code></pre></div>
+<p>Ovenstående ser sådan ud, når det er skrevet direkte inden for teksten:</p>
+<p>Det gennemsnitlige antal observationer er 4.6666667.</p>
+<p>OBS! Hvis man glemmer ‘r’, bliver koden ikke kørt:</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb197-1" tabindex="-1"></a>Det gennemsnitlige antal af observationer er <span class="st">`</span><span class="at">mean(c(5,7,4,6,3,3))</span><span class="st">`</span></span></code></pre></div>
+<p>giver:</p>
+<p>Det gennemsnitlige antal af observationer er <code>mean(c(5,7,4,6,3,3))</code></p>
+<p>At bruge kode inline kan være en stor fordel, når man gerne vil referere til forskellige statistike beregninger man har udført i R (f.eks. en middelværdi eller p-værdi). Hvis man skriver eller kopierer et tal direkte så bliver beregningerne inden for teksten ikke opdateret når datasættet eller analysemetoden ændre sig. Man risikerer at have en fejl i den endelige fil. Beregninger er til gengæld automatisk opdateret ved at bruge inline code.</p>
+</div>
+<div id="working-directory" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Working directory<a href="rmarkdown.html?v=44c92e79b29e.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bemærk at måden man sætter en working directory er ænderledes i R Markdown i forhold til base-R. Hvis man bruger <code>setwd()</code> i en chunk, sætter man ens working directory kun i den pågældende chunk.</p>
+<p>I R Markdown er standarden (default) at din working directory er mappen, hvor du gemmer din <code>.Rmd</code> fil. Hvis du vil bruge en anden working directory, kan du tilføje <code>knitr::opts_knit$set(root.dir = '/tmp')</code> til dine globale indstillinger øverst i din fil. Ændr venligst <code>'/tmp'</code> til din ønskede mappe.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb198-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb198-1" tabindex="-1"></a><span class="in">```{r, setup, include=FALSE}</span></span>
+<span id="cb198-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb198-2" tabindex="-1"></a><span class="in">knitr::opts_knit$set(root.dir = &#39;/tmp&#39;)</span></span>
+<span id="cb198-3"><a href="rmarkdown.html?v=44c92e79b29e.html#cb198-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+</div>
+<div id="matematik" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> Matematik<a href="rmarkdown.html?v=44c92e79b29e.html#matematik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Man kan også skrive matematiske formler (LaTeX) i R Markdown - f.eks. vil <code>$\int_0^5 x^2 dx$</code> se ud som <span class="math inline">\(\int_0^5 x^2 dx\)</span> i dit HTML-dokument. Vi forventer absolut ikke, at I lærer LaTeX, men det er brugbar - f.eks. en retlinjet ligning er <code>$y = 3.4x + 2.1$</code> og vil blive oversat til <span class="math inline">\(y = 3.4x + 2.1\)</span> eller en hypotese: <code>$H0: \mu = 0$</code> vil blive oversat til <span class="math inline">\(H0: \mu = 0\)</span>.</p>
+</div>
+<div id="hyppigt-forekommende-fejl" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> Hyppigt forekommende fejl<a href="rmarkdown.html?v=44c92e79b29e.html#hyppigt-forekommende-fejl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Vi tilføjer også aspekter, der opstå under kurset:</p>
+<div class="pin">
+<ul>
+<li>Hvis du installerer en pakke, husk at slet <code>install.packages(pakkenavn)</code> fra din <code>.Rmd</code>-fil.</li>
+<li>Hvis du bruger en pakke, husk at indlæse den i selve fil <code>library(pakkenavn)</code>.</li>
+<li>Når du udvikler din kode er det en god idé at ofte knit din fil til HTML-formatet.</li>
+<li>Hvis du får en <code>execution error</code> kan det være, at du har en fejl i beregninger af din inline kode.</li>
+</ul>
+</div>
+</div>
+<div id="problemstillinger" class="section level2 hasAnchor" number="3.13">
+<h2><span class="header-section-number">3.13</span> Problemstillinger<a href="rmarkdown.html?v=44c92e79b29e.html#problemstillinger" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span id="rmarkdown-problem-1" class="problem-label"><strong>Problem 1</strong></span></p>
+<p>Der er en kort <strong>quiz</strong> i Absalon, som hedder “Quiz - R Markdown”.</p>
+<p><span id="rmarkdown-problem-2" class="problem-label"><strong>Problem 2</strong></span></p>
+<p>Opret et nyt R Markdown-dokument i RStudio. Prøv at lave en liste og nogle overskrifter i forskellige størrelser.</p>
+<p><span id="rmarkdown-problem-3" class="problem-label"><strong>Problem 3</strong></span></p>
+<p>Klik nu på <code>Knit</code>-knappen og kontroller at et HTML-dokument vises på din skærm.</p>
+<p><span id="rmarkdown-problem-4" class="problem-label"><strong>Problem 4</strong></span></p>
+<p>Rediger titlen (som er en del af din YAML-header øverst i din fil) - ændre dokumentnavnet “My first R Markdown document” og klik på <code>Knit</code> igen for at se ændringen i dit HTML-dokument.</p>
+<p><span id="rmarkdown-problem-5" class="problem-label"><strong>Problem 5</strong></span></p>
+<p>Opret en ny R code chunk / kodeblok og tilføj noget kode, for eksempel:</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb199-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="co">#make a sample of normally distributed data</span></span>
+<span id="cb199-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb199-2" tabindex="-1"></a><span class="fu">plot</span>(x)</span></code></pre></div>
+<ul>
+<li>Brug <em>Cmd+Option+I</em> på Mac eller <em>Ctrl+Alt+I</em> på Windows og Linux for at oprette en chunk.</li>
+<li>Klik på den grønne pil.</li>
+<li>Prøv også at køre en linje ad gangen med <em>CMD+Enter</em> eller <em>CTRL+Enter</em>.</li>
+<li>Lav flere chunks med forskellige typer kode efter eget valg.</li>
+<li>Klik på <code>Knit</code> og bemærk, at det tager længere tid at <code>Knit</code> hver gang du ændrer noget, end når du bare kører chunks separat indenfor dit dokument.</li>
+</ul>
+<p><span id="rmarkdown-problem-6" class="problem-label"><strong>Problem 6</strong></span></p>
+<p>Klik på “hjul”-knappen i øverste højre hjørne af en af dine chunks og prøv at ændre de forskellige chunk-indstillinger. Klik på <code>Knit</code> for at se, hvad der sker.</p>
+<p><span id="rmarkdown-problem-7" class="problem-label"><strong>Problem 7</strong></span></p>
+<p>Hver gang du knitter, laver du et HTML-dokument. Prøv nu at lave en anden type dokument i stedet for - erstat f.eks. <code>html_document</code> med <code>word_document</code> i YAML (toppen af din <code>.Rmd</code> fil).</p>
+<ul>
+<li>Se her for endnu flere muligheder: <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html" class="uri">https://bookdown.org/yihui/rmarkdown/output-formats.html</a></li>
+</ul>
+<p><span id="rmarkdown-problem-8" class="problem-label"><strong>Problem 8</strong></span></p>
+<p>Tilføj følgende chunk til dit dokument og klik på <code>Knit</code>. Få du en fejlmeddelelse?</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb200-1" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb200-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb200-2" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">6</span>)</span></code></pre></div>
+<p>Bemærk, at du får en fejlmeddelelse, fordi du har endnu ikke indlæst den nødvendige pakke for at få koden til at virke. Det kan ske, selvom du måske har indlæst pakken i “Console” eller i fanebladet “Packages”.</p>
+<ul>
+<li>Prøv først at køre “library(tidyverse)” i konsolen og derefter forsøge at knitte dit dokument igen - du får stadig en fejlmeddelelse.</li>
+<li>Tilføj <code>library(tidyverse)</code> <strong>øverst i din chunk</strong>. Nu skulle dit dokument kunne knittes.</li>
+</ul>
+<p><span id="rmarkdown-problem-9" class="problem-label"><strong>Problem 9</strong></span></p>
+<p>Hvis du skiftede til Word i problem 7, så skift tilbage til HTML ved at sætte <code>output: html_document</code> i YAML-headeren.</p>
+<p>Erstat linjen <code>output: html_document</code> med følgende i din YAML metadata øverst i din <code>.Rmd</code> fil:</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb201-1"><a href="rmarkdown.html?v=44c92e79b29e.html#cb201-1" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb201-2"><a href="rmarkdown.html?v=44c92e79b29e.html#cb201-2" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb201-3"><a href="rmarkdown.html?v=44c92e79b29e.html#cb201-3" tabindex="-1"></a><span class="at">    </span><span class="fu">code_folding</span><span class="kw">:</span><span class="at"> hide</span></span></code></pre></div>
+<ul>
+<li>Klik på <code>Knit</code> og se hvad der sker.</li>
+<li>Erstat <code>hide</code> med <code>show</code> og se forskellen.</li>
+</ul>
+<p><span id="rmarkdown-problem-10" class="problem-label"><strong>Problem 10</strong></span></p>
+<p>Brug <code>$ $</code> til at skrive en ligning ind i teksten i din <code>.Rmd</code> fil. Prøv for eksempel <code>$\bar{x}_{i} = \frac{1}{n}\sum_{i=1}^{n} x_{i}$</code> og knitte dit dokument for at tjekke, om du får formlen til middelværdien.</p>
+<p><span id="rmarkdown-problem-11" class="problem-label"><strong>Problem 11: Korrelation og simpel lineær regression</strong></span></p>
+<p>Lav <a href="statistik.html?v=3410a1729d3a.html#problem-8-korrelation-er-ikke-hele-historien">problem 9 i statistiknoternes afsnit 2.12.5</a>. Prøv at besvare opgaven i et R Markdown-dokument. Brug R-kodeblokke til beregninger og figurer, og skriv dine forklaringer som tekst mellem kodeblokkene.</p>
+<p><span id="rmarkdown-problem-12" class="problem-label"><strong>Problem 12: Miniworkshop</strong></span></p>
+<p>På Absalon har vi lagt en R Markdown (<code>.Rmd</code>) fil med navnet <code>uge47_miniworkshop_rmarkdown.Rmd</code>, som du kan bruge til at starte med R Markdown-baserede opgaver. Det kombinerer koncepter fra det forudgående kapitel om grundlæggende ting i R og statistik.</p>
+<p>Hent både <code>uge47_miniworkshop_rmarkdown.Rmd</code> og <code>sbp_height_data.txt</code> fra Absalon, og gem dem i samme mappe.</p>
+</div>
+<div id="forberedelse-af-næste-emnet-og-lektionen" class="section level2 hasAnchor" number="3.14">
+<h2><span class="header-section-number">3.14</span> Forberedelse af næste emnet og lektionen<a href="rmarkdown.html?v=44c92e79b29e.html#forberedelse-af-n%C3%A6ste-emnet-og-lektionen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Husk at sende os mulige spørgsmål, som vi kan svare enten direkte eller i den næste forelæsning. Næste gang begynder vi at arbejde med R pakken <code>ggplot2</code>, der bruges til at lave høj kvalitet visualiseringer fra datasæt.</p>
+</div>
+<div id="ekstra-information" class="section level2 hasAnchor" number="3.15">
+<h2><span class="header-section-number">3.15</span> Ekstra information<a href="rmarkdown.html?v=44c92e79b29e.html#ekstra-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Her er en ‘quick tour’ <a href="https://rmarkdown.rstudio.com/authoring_quick_tour.html" class="uri">https://rmarkdown.rstudio.com/authoring_quick_tour.html</a></p></li>
+<li><p>Nyttig R Markdown Cheatsheet: Du kan finde den ved at klikke i RStudio: <em>Help &gt; Cheatsheets &gt; R Markdown Cheat Sheet</em>.</p></li>
+</ul>
+
+</div>
+</div>
+<script src="assets/downloads.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistik.html?v=3410a1729d3a.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js?v=c5d1340a9646"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["visualisation_2027.pdf", "Alle kursusnotater (PDF)"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 # Give each published revision of a course chapter its own browser cache entry.
 version_chapter_links <- function(html_dir, html_files) {
-  chapters <- intersect(c("baser", "statistik"), tools::file_path_sans_ext(basename(html_files)))
+  chapters <- intersect(c("index", "baser", "statistik", "rmarkdown"),
+                        tools::file_path_sans_ext(basename(html_files)))
   if (!length(chapters)) return(invisible(NULL))
 
   revisions <- substr(tools::md5sum(file.path(html_dir, paste0(chapters, ".html"))), 1L, 12L)
@@ -26,6 +27,10 @@ version_chapter_links <- function(html_dir, html_files) {
   style_revision <- substr(tools::md5sum(file.path(html_dir, "assets", "style.css")), 1L, 12L)
   for (file in html_files) {
     html <- readLines(file, warn = FALSE, encoding = "UTF-8")
+    if ("index" %in% chapters) {
+      html <- gsub('href="./"', paste0('href="./?v=', revisions[match("index", chapters)], '.html"'),
+                   html, fixed = TRUE)
+    }
     for (i in seq_along(chapters)) {
       html <- gsub(patterns[i], targets[i], html, perl = TRUE)
     }
@@ -39,7 +44,7 @@ version_chapter_links <- function(html_dir, html_files) {
 
 # Rebuild the website, the complete PDF, and one PDF per published topic.
 render_course <- function() {
-  packages <- c("bookdown", "qpdf", "jsonlite", "xml2")
+  packages <- c("bookdown", "qpdf", "jsonlite", "xml2", "vembedr")
   missing <- packages[!vapply(packages, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing)) {
     stop("Install the required R packages first: install.packages(c(",

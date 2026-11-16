@@ -3,6 +3,7 @@ rmd_files:
   - index.Rmd
   - 00-baser.Rmd
   - 01-statistik.Rmd
+  - 01-rmark_v1.Rmd
 delete_merged_file: true
 output_dir: "docs"
 language:

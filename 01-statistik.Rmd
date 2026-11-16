@@ -926,7 +926,7 @@ Får du de samme gruppegennemsnit og den samme p-værdi som i b)?
 
 ## Korrelation og simpel lineær regression {#stats-regression}
 
-**[Dette afsnit hører til næste undervisningsgang om R Markdown.]{style="color: #b42318;"}**
+**[Dette afsnit hører til næste undervisningsgang om R Markdown.]{style="color: #b42318;"}** Se [kapitel 3 om R Markdown](#rmarkdown).
 
 Afsnittet ligger her sammen med de andre statistiske metoder. I undervisningen bruger vi simpel lineær regression som eksempel på, hvordan du samler kode, resultater og fortolkning i en rapport.
 

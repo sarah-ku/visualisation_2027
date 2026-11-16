@@ -14,5 +14,9 @@
   "statistik.html": {
     "path": "pdf/statistik.pdf",
     "title": "Kapitel 2 Grundlæggende statistik i base R"
+  },
+  "rmarkdown.html": {
+    "path": "pdf/rmarkdown.pdf",
+    "title": "Kapitel 3 Introduktion til R Markdown"
   }
 }

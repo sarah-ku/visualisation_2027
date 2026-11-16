@@ -4,12 +4,12 @@ Course notes for the 2026/27 academic year, using the same R Bookdown / GitBook 
 
 Website: https://sarah-ku.github.io/visualisation_2027/
 
-Published topics: **Lidt om kurset**, **Grundlæggende R**, and **Grundlæggende statistik i base R**.
+Published topics: **Lidt om kurset**, **Grundlæggende R**, **Grundlæggende statistik i base R**, and **Introduktion til R Markdown**.
 
 ## Edit and publish
 
 1. Open `visualisation_2027.Rproj` in RStudio.
-2. Edit `index.Rmd` (introduction), `00-baser.Rmd` (base R), or `01-statistik.Rmd` (statistics). Styling lives in `assets/style.css`.
+2. Edit `index.Rmd` (introduction), `00-baser.Rmd` (base R), `01-statistik.Rmd` (statistics), or `01-rmark_v1.Rmd` (R Markdown). Styling lives in `assets/style.css`.
 3. Render the site from the R console:
 
    ```r
@@ -23,7 +23,7 @@ GitHub Pages publishes `main` → `/docs`. It serves the rendered HTML; editing 
 If the required R packages are missing, install them once:
 
 ```r
-install.packages(c("bookdown", "rmarkdown", "knitr", "png", "tidyverse", "qpdf"))
+install.packages(c("bookdown", "rmarkdown", "knitr", "png", "tidyverse", "qpdf", "vembedr"))
 ```
 
 RStudio includes Pandoc, which is also required for rendering. PDF generation also needs XeLaTeX. If you do not already have a LaTeX installation, install TinyTeX once and restart RStudio:

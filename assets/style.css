@@ -56,7 +56,8 @@ h1, h2, h3, h4 {
 /* Sidebar formating --------------------------------------------*/
 /* from r-pkgs.org*/
 
-div.rstudio-tip, div.tip, div.checklist, div.pin, div.goals, div.hat, div.stop-think{
+div.rstudio-tip, div.tip, div.checklist, div.pin, div.goals, div.hat,
+div.stop-think, div.p-value-definition, div.hypotheses {
   border: 4px #aed6d963;
   border-style: dashed solid;
   padding: 1em;
@@ -96,18 +97,30 @@ div.hat {
   background-image: url("../images/divs/hat.png");
 }
 
-div.stop-think {
+div.stop-think,
+div.p-value-definition,
+div.hypotheses {
   position: relative;
   padding: 0.9em 1em 0.9em 3.6em;
   min-height: 0;
+}
+
+div.stop-think {
   border-color: #d9b779;
   background-color: #fff8e8;
   color: #49321b;
 }
 
-div.stop-think::before {
-  content: "?";
-  content: "?" / "";
+div.p-value-definition,
+div.hypotheses {
+  border-color: #b8a1da;
+  background-color: #f5f1ff;
+  color: #382852;
+}
+
+div.stop-think::before,
+div.p-value-definition::before,
+div.hypotheses::before {
   position: absolute;
   top: 50%;
   inset-inline-start: 0.6em;
@@ -117,14 +130,60 @@ div.stop-think::before {
   width: 1.4em;
   height: 1.4em;
   border-radius: 50%;
-  background-color: #f4dfb7;
-  color: #654117;
   font-size: 1.5em;
   font-weight: 700;
   line-height: 1;
 }
 
-.book .book-body .page-wrapper .page-inner section.normal div.stop-think > :last-child {
+div.stop-think::before {
+  content: "?";
+  content: "?" / "";
+  background-color: #f4dfb7;
+  color: #654117;
+}
+
+.stop-think-answer > summary {
+  width: fit-content;
+  padding: 0.2em 0.6em;
+  border: 1px solid #b28645;
+  border-radius: 0.35em;
+  background-color: #f4dfb7;
+  color: #49321b;
+  font-size: 0.9em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.stop-think-answer > summary:focus-visible {
+  outline: 2px solid #654117;
+  outline-offset: 2px;
+}
+
+.stop-think-answer[open] > summary {
+  margin-block-end: 0.5em;
+}
+
+div.p-value-definition::before,
+div.hypotheses::before {
+  background-color: #e9defa;
+  color: #4d3274;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+div.p-value-definition::before {
+  content: "p";
+  content: "p" / "";
+}
+
+div.hypotheses::before {
+  content: "H";
+  content: "H" / "";
+}
+
+.book .book-body .page-wrapper .page-inner section.normal div.stop-think > :last-child,
+.book .book-body .page-wrapper .page-inner section.normal div.p-value-definition > :last-child,
+.book .book-body .page-wrapper .page-inner section.normal div.hypotheses > :last-child {
   margin-bottom: 0;
 }
 

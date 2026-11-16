@@ -56,6 +56,8 @@ Denne hjemmeside er kursusnotaterne til de indskrevne studerende i 2026/27 studi
 
 Kurset er opdelt i 12 emner. Vi lægger kursusnotaterne ud før hvert emne, helst et par dage i forvejen, så du kan forberede dig. Notaterne indeholder forklaringer, kodeeksempler, videoer og problemstillinger. Du kan se videoerne og prøve koden inden undervisningen. Når vi mødes, arbejder vi videre med problemstillingerne, og der er tid til at stille spørgsmål.
 
+Start med [Grundlæggende R](#baser), og fortsæt med [Grundlæggende statistik i base R](#statistik).
+
 ## Bedømmelse {-}
 
 * **15 % løbende bedømmelse.** Den løbende bedømmelse bygger på workshopopgaver, hvor I giver hinanden feedback via modulet FruitsFeedback på Absalon. Der er afsat undervisningsgange til at arbejde med opgaverne, og du kan gøre dem færdige hjemme, hvis du har brug for mere tid. Quizzerne bruges til at tjekke din forståelse undervejs og tæller ikke med i karakteren.

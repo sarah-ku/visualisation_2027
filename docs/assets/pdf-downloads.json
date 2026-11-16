@@ -10,5 +10,9 @@
   "baser.html": {
     "path": "pdf/baser.pdf",
     "title": "Kapitel 1 Grundlæggende R"
+  },
+  "statistik.html": {
+    "path": "pdf/statistik.pdf",
+    "title": "Kapitel 2 Grundlæggende statistik i base R"
   }
 }

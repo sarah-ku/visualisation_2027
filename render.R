@@ -1,11 +1,12 @@
-# Give each published revision of the base R page its own browser cache entry.
-version_baser_links <- function(html_dir, html_files) {
-  chapter <- file.path(html_dir, "baser.html")
-  if (!file.exists(chapter)) return(invisible(NULL))
+# Give each published revision of a course chapter its own browser cache entry.
+version_chapter_links <- function(html_dir, html_files) {
+  chapters <- intersect(c("baser", "statistik"), tools::file_path_sans_ext(basename(html_files)))
+  if (!length(chapters)) return(invisible(NULL))
 
-  revision <- substr(tools::md5sum(chapter), 1L, 12L)
+  revisions <- substr(tools::md5sum(file.path(html_dir, paste0(chapters, ".html"))), 1L, 12L)
+  patterns <- paste0('href="', chapters, '\\.html(?=[#"])')
   # The .html suffix keeps GitBook's keyboard search navigation working.
-  target <- paste0('href="baser.html?v=', revision, '.html')
+  targets <- paste0('href="', chapters, '.html?v=', revisions, '.html')
 
   # GitBook uses href to highlight and toggle the current chapter in the
   # sidebar. Read the link with its version from the entry for this data-path.
@@ -22,11 +23,16 @@ version_baser_links <- function(html_dir, html_files) {
   writeLines(lines, script, useBytes = TRUE)
 
   script_revision <- substr(tools::md5sum(script), 1L, 12L)
+  style_revision <- substr(tools::md5sum(file.path(html_dir, "assets", "style.css")), 1L, 12L)
   for (file in html_files) {
     html <- readLines(file, warn = FALSE, encoding = "UTF-8")
-    html <- gsub('href="baser\\.html(?=[#"])', target, html, perl = TRUE)
+    for (i in seq_along(chapters)) {
+      html <- gsub(patterns[i], targets[i], html, perl = TRUE)
+    }
     html <- sub('plugin-bookdown.js"', paste0('plugin-bookdown.js?v=', script_revision, '"'),
                 html, fixed = TRUE)
+    html <- sub('href="assets/style.css"',
+                paste0('href="assets/style.css?v=', style_revision, '"'), html, fixed = TRUE)
     writeLines(html, file, useBytes = TRUE)
   }
 }
@@ -105,7 +111,7 @@ render_course <- function() {
   file.copy(c("assets/downloads.js", "assets/downloads.css"), file.path(html_dir, "assets"), overwrite = TRUE)
   jsonlite::write_json(manifest, file.path(html_dir, "assets/pdf-downloads.json"),
                        auto_unbox = TRUE, pretty = TRUE)
-  version_baser_links(html_dir, html_files)
+  version_chapter_links(html_dir, html_files)
   # Publish generated files only after every PDF and link has been built.
   # Merge into docs/ so uploaded materials such as PDFs and datasets survive.
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)

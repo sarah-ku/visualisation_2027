@@ -938,4 +938,4 @@ rundede <- round(c("4.26", "5.83"), digits = 1)
 
 ## Klar til næste kapitel?
 
-Du er klar til at arbejde med statistik, når du kan oprette en dataframe, hente en kolonne, vælge en gruppe observationer og forklare, hvad `NA` betyder. Du skal ikke kunne alle funktionerne udenad. I næste kapitel bruger vi disse redskaber til at beskrive biologiske data, forstå variation og vurdere, hvor sikkert en stikprøve kan besvare et spørgsmål.
+Du er klar til at arbejde med statistik, når du kan oprette en dataframe, hente en kolonne, vælge en gruppe observationer og forklare, hvad `NA` betyder. Du skal ikke kunne alle funktionerne udenad. I [næste kapitel om grundlæggende statistik](#statistik) bruger vi disse redskaber til at beskrive biologiske data, forstå variation og vurdere, hvor sikkert en stikprøve kan besvare et spørgsmål.

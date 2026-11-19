@@ -67,7 +67,6 @@ stats-problemer
 stats-regression
 se-sammenhængen-før-du-beregner-et-tal
 en-regressionslinje-giver-en-ændring-i-responsens-enhed
-residualer-og-r2
 stats-regressionsantagelser
 opgave-til-næste-undervisningsgang-om-r-markdown
 rmarkdown

@@ -930,9 +930,11 @@ Får du de samme gruppegennemsnit og den samme p-værdi som i b)?
 
 Afsnittet ligger her sammen med de andre statistiske metoder. I undervisningen bruger vi simpel lineær regression som eksempel på, hvordan du samler kode, resultater og fortolkning i en rapport.
 
-### Se sammenhængen før du beregner et tal
+### Sammenhænge {#se-sammenhængen-før-du-beregner-et-tal}
 
-Datasættet `trees` indeholder målinger af 31 træer. Ifølge [R's dokumentation](https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/trees.html) er variablen `Girth` trods sit navn **diameter i tommer**, `Height` er højde i fod, og `Volume` er volumen i kubikfod. Ét punkt i figuren er ét træ.
+Datasættet `trees` indeholder målinger af 31 træer. Ifølge [R's dokumentation](https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/trees.html) er variablen `Girth` trods sit navn **diameter i tommer**, `Height` er højde i fod, og `Volume` er volumen i kubikfod.
+
+I det følgende laver vi et punktplot med diameter på x-aksen og volumen på y-aksen. Hvert punkt i figuren er ét træ.
 
 ```{r stats-trees, fig.width=6, fig.height=4}
 data("trees")
@@ -941,63 +943,195 @@ plot(trees$Girth, trees$Volume,
      main = "Diameter og volumen af 31 træer", pch = 19)
 ```
 
-**Pearsons korrelation**, $r$, beskriver styrken og retningen af en lineær sammenhæng. Den ligger mellem $-1$ og $1$. Et positivt fortegn betyder, at større værdier af den ene variabel typisk følges af større værdier af den anden. En værdi tæt på nul betyder, at der er svag eller ingen *lineær* sammenhæng; der kan stadig være en tydelig kurvet sammenhæng.
+**Pearsons korrelation**, $r$, beskriver styrken og retningen af en lineær sammenhæng mellem to numeriske variabler. Den ligger mellem $-1$ og $+1$.
 
-```{r stats-correlation, results="hold"}
+::: {.correlation-summary style="border: 4px #b8a1da; border-style: dashed solid; padding: 0.9em 1em; margin: 1em 0; background-color: #f5f1ff; color: #382852;"}
+- Et positivt fortegn betyder, at større værdier af den ene variabel typisk følges af større værdier af den anden.
+- Et negativt fortegn betyder, at større værdier af den ene variabel typisk følges af mindre værdier af den anden.
+- En værdi tæt på nul betyder, at der er svag eller ingen *lineær* sammenhæng. Der kan stadig være en tydelig kurvet sammenhæng.
+:::
+
+Jo tættere korrelationen ligger på $-1$ eller $+1$, desto stærkere er den lineære sammenhæng. I R beregner vi Pearsons korrelation med funktionen `cor()`.
+
+```{r stats-correlation}
 cor(trees$Girth, trees$Volume)
+```
+
+Korrelationen er cirka 0,97. Det viser en stærk positiv lineær sammenhæng i stikprøven, hvor træer med større diameter typisk også har større volumen.
+
+Vi kan også bruge `cor.test()` til at teste, om korrelationen i populationen er forskellig fra nul.
+
+::: {.hypotheses}
+- **Nulhypotesen** ($H_0$) er, at korrelationen mellem diameter og volumen er 0 i populationen.
+- **Det tosidede alternativ** ($H_1$) er, at korrelationen mellem diameter og volumen er forskellig fra 0 i populationen.
+:::
+
+Vi giver funktionen de to variabler og vælger Pearsons metode med `method = "pearson"`. Som standard udfører `cor.test()` en tosidet test.
+
+```{r stats-correlation-test}
 cor.test(trees$Girth, trees$Volume, method = "pearson")
 ```
 
-`cor()` beregner korrelationen i de observerede data. `cor.test()` undersøger blandt andet nulhypotesen om nul populationskorrelation. Selve korrelationskoefficienten kan beregnes uden en normalitetsantagelse; den klassiske test og dens interval kræver yderligere modelantagelser, typisk uafhængige observationspar fra en bivariat normalfordeling. Ekstreme punkter og krumning kan gøre en enkelt korrelationskoefficient misvisende.
+Under `sample estimates` genfinder vi korrelationen på cirka 0,97. P-værdien er mindre end $2,2 \cdot 10^{-16}$ og dermed langt under 0,05. Under testens antagelser giver resultatet grundlag for at afvise nulhypotesen ved et signifikansniveau på 5 %. Fortegnet på korrelationen viser, at sammenhængen er positiv.
 
-Korrelation dokumenterer ikke i sig selv en årsagssammenhæng. For eksempel kan to mål begge hænge sammen med en tredje egenskab, som alder eller størrelse. Her er diameter og volumen også geometrisk forbundne størrelser.
+Det er vigtigt at understrege, at en signifikant korrelation ikke nødvendigvis betyder, at der er en årsagssammenhæng. For eksempel kan to mål begge hænge sammen med en tredje egenskab, som alder eller størrelse.
 
-### En regressionslinje giver en ændring i responsens enhed
+::: {.stop-think}
+**Stop og tænk 5:** I en tænkt undersøgelse finder vi en signifikant positiv korrelation mellem børns skostørrelse og læsefærdigheder. Kan vi konkludere, at større fødder gør børn bedre til at læse? Hvilken tredje variabel kan forklare sammenhængen?
 
-I simpel lineær regression beskriver vi den forventede værdi af en numerisk **respons** $Y$ ud fra en **prædiktor** $X$:
+```{=html}
+<details class="stop-think-answer">
+<summary>Vis svar</summary>
+```
+
+**Svar:** Børnenes alder kan være en fælles forklaring. Ældre børn har typisk både større fødder og bedre læsefærdigheder. Korrelationen alene giver derfor ikke grundlag for at konkludere, at større fødder forbedrer læsningen.
+
+```{=html}
+</details>
+```
+:::
+
+### Simpel lineær regression {#en-regressionslinje-giver-en-ændring-i-responsens-enhed}
+
+Er du ny til simpel lineær regression? Se først [video 2 i kapitlet om R Markdown](#rmarkdown-video-2), som introducerer metoden og viser, hvordan du bruger den i R.
+
+I simpel lineær regression beskriver vi den forventede værdi af en numerisk **respons** $Y$ ud fra én **prædiktor** $X$. Her er volumen responsen, som vi vil forudsige, og diameter er prædiktoren, som vi bruger til at forudsige den.
 
 $$
 Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i.
 $$
 
-$\beta_0$ er linjens skæring med y-aksen, og $\beta_1$ er dens hældning. $\varepsilon_i$ beskriver afvigelsen omkring den forventede linje. Vi tilpasser modellen med `lm()`, som står for *linear model*:
+Indekset $i$ angiver det enkelte træ.
 
-```{r stats-linear-model, fig.width=6, fig.height=4}
+- **$\beta_0$ er skæringen med y-aksen.** Den angiver den forventede værdi af $Y$, når $X = 0$.
+- **$\beta_1$ er hældningen.** Når $X$ stiger med én enhed, ændres den forventede værdi af $Y$ med $\beta_1$ enheder. En positiv hældning betyder, at den forventede $Y$-værdi stiger, og en negativ hældning betyder, at den falder.
+- **$\varepsilon_i$ er fejlleddet.** Det beskriver, hvor meget observation $i$ afviger fra populationens forventede linje. Figuren nedenfor viser den samme idé med en linje tilpasset vores data. Her kaldes den lodrette forskel mellem en observation og den tilpassede linje for en **residual**.
+
+Den blå linje beskriver den forudsagte volumen ved hver diameter. Punkterne er de observerede træer. Den orange afstand fremhæver residualen for ét træ, hvor den observerede volumen ligger over linjens forudsigelse.
+
+```{r stats-linear-model-residual-figure, echo=FALSE, fig.width=6, fig.height=3.8, out.width="85%", fig.align="center", fig.alt="De 31 træer med en blå regressionslinje. For et træ med diameter 20,6 tommer viser en orange lodret pil residualen fra den tilpassede volumen på cirka 67,4 til den observerede volumen på 77 kubikfod."}
+local({
+  fit <- lm(Volume ~ Girth, data = trees)
+  fitted_volume <- fitted(fit)
+  selected <- which.max(residuals(fit))
+  selected_x <- trees$Girth[selected]
+  selected_y <- trees$Volume[selected]
+  selected_fit <- fitted_volume[selected]
+
+  plot(trees$Girth, trees$Volume, pch = 19, col = "#727b80",
+       xlab = "Diameter (tommer)", ylab = "Volumen (kubikfod)",
+       xlim = c(7, 24), ylim = c(0, 88), xaxs = "i", yaxs = "i")
+  segments(trees$Girth, trees$Volume, trees$Girth, fitted_volume,
+           col = "#d5dade")
+  abline(fit, col = "blue", lwd = 2)
+  points(trees$Girth, trees$Volume, pch = 19, col = "#727b80")
+  arrows(selected_x, selected_fit, selected_x, selected_y,
+         code = 3, length = 0.07, angle = 20, col = "#b85726", lwd = 2)
+  points(selected_x, selected_y, pch = 19, col = "#b85726", cex = 1.1)
+  points(selected_x, selected_fit, pch = 21, bg = "white", col = "blue", lwd = 1.5)
+  text(selected_x - 0.2, selected_y + 5, "Observeret", pos = 2, cex = 0.8)
+  text(selected_x + 0.25, selected_fit - 2, "Tilpasset", pos = 4, cex = 0.8)
+  text(selected_x - 0.3, (selected_y + selected_fit) / 2,
+       "Residual", pos = 2, col = "#b85726", cex = 0.85)
+})
+```
+
+For at finde en forudsagt værdi vælger vi en værdi på x-aksen, går lodret op til linjen og læser derefter den tilsvarende værdi på y-aksen. Ved en diameter på **15 tommer** giver linjen en forudsagt volumen på cirka **39 kubikfod**.
+
+```{r stats-linear-model-prediction-figure, echo=FALSE, fig.width=6, fig.height=3.8, out.width="85%", fig.align="center", fig.alt="En diameter på 15 tommer følges med en orange pil fra x-aksen op til den blå regressionslinje og derfra vandret til y-aksen. Den forudsagte volumen er cirka 39 kubikfod."}
+local({
+  fit <- lm(Volume ~ Girth, data = trees)
+  selected_x <- 15
+  predicted_y <- unname(predict(fit, newdata = data.frame(Girth = selected_x)))
+
+  plot(trees$Girth, trees$Volume, pch = 19, col = "#b2b9bd",
+       xlab = "Diameter (tommer)", ylab = "Volumen (kubikfod)",
+       xlim = c(7, 22.5), ylim = c(0, 84), xaxs = "i", yaxs = "i")
+  abline(fit, col = "blue", lwd = 2)
+  arrows(selected_x, 0, selected_x, predicted_y,
+         length = 0.09, angle = 20, col = "#b85726", lwd = 2, lty = 2)
+  arrows(selected_x, predicted_y, 7, predicted_y,
+         length = 0.09, angle = 20, col = "#b85726", lwd = 2, lty = 2)
+  points(selected_x, predicted_y, pch = 21, bg = "#b85726", col = "#b85726", cex = 1.3)
+  text(selected_x + 0.15, 5, "15 tommer", pos = 4, col = "#b85726", cex = 0.85)
+  text(7.4, predicted_y + 5, "Forudsagt volumen 39,0", pos = 4,
+       col = "#b85726", cex = 0.85)
+})
+```
+
+**Tilpas modellen i R med `lm()`**
+
+Vi kan tilpasse en simpel lineær regression med funktionen `lm()`, som står for *linear model*. I modellens formel skriver vi først den **afhængige variabel**, altså den respons, vi vil forudsige. Derefter kommer tegnet `~`, kaldet en tilde, og så den **uafhængige variabel**, også kaldet prædiktoren. I simpel lineær regression bruger vi én prædiktor.
+
+Her betyder `Volume ~ Girth`, at vi vil forudsige volumen ud fra diameter. Med `data = trees` angiver vi, hvilket datasæt variablerne findes i. Vi gemmer den tilpassede model som `model` og bruger `summary()` til at få en oversigt over resultatet.
+
+```{r stats-linear-model}
 model <- lm(Volume ~ Girth, data = trees)
 summary(model)
-coef(model)
-
-plot(trees$Girth, trees$Volume,
-     xlab = "Diameter (tommer)", ylab = "Volumen (kubikfod)",
-     main = "En foreløbig lineær beskrivelse", pch = 19)
-abline(model, col = "blue", lwd = 2)
 ```
 
-`Volume ~ Girth` angiver volumen som respons og diameter som prædiktor. Hældningen er `r round(coef(model)[2], 2)` kubikfod pr. tomme: Inden for denne lineære model er en diameter, der er én tomme større, forbundet med en forventet volumen, der er cirka `r round(coef(model)[2], 2)` kubikfod større. Det er ikke en påstand om, at vi har ændret træets diameter i et kontrolleret forsøg.
+**Vigtigste output**
 
-Skæringen er den modellerede volumen ved diameter nul. Nul ligger uden for det observerede diameterinterval, og skæringen har derfor ikke en nyttig biologisk fortolkning her. Vi bør være varsomme med **ekstrapolation**, hvor modellen bruges langt uden for de observerede værdier.
+- **Skæringen** findes under `Estimate` i rækken `(Intercept)` og er cirka -36,94. Det er modellens forudsagte volumen ved diameter 0.
+- **Hældningen** findes under `Estimate` i rækken `Girth` og er cirka 5,07. For hver tomme diameteren stiger, stiger den forventede volumen med cirka 5,07 kubikfod.
+- **P-værdien** under `Pr(>|t|)` i `Girth`-rækken er mindre end $2 \cdot 10^{-16}$. Under modellens antagelser er hældningen dermed statistisk signifikant ved 5 %-niveauet.
+- [**`Multiple R-squared`**]{#residualer-og-r2} er cirka 0,935. Det betyder, at den tilpassede linje gør rede for cirka 93,5 % af variationen i de observerede volumener omkring deres gennemsnit. I simpel lineær regression med en skæring er $R^2$ kvadratet på Pearsons korrelation, her $0,967^2 \approx 0,935$.
 
-### Residualer og $R^2$
-
-En **residual** er den observerede værdi minus modellens tilpassede værdi. $R^2$ sammenholder modellens kvadrerede residualer med den variation, der er omkring det samlede gennemsnit:
+Med de estimerede koefficienter fra outputtet bliver linjens ligning
 
 $$
-R^2 = 1 - \frac{\sum_i (y_i-\widehat{y}_i)^2}
-                  {\sum_i (y_i-\bar{y})^2}.
+\widehat{Y} = -36{,}9435 + 5{,}0659 \cdot X.
 $$
 
-Tælleren er den variation, der er tilbage efter modellens tilpasning. Nævneren er variationen omkring ét samlet gennemsnit. For almindelig mindste-kvadraters-regression med en skæring beskriver $R^2$ derfor, hvor stor en andel af denne variation i de observerede responsværdier modellen gør rede for. Det er ikke andelen af observationer, der er “korrekte”, og heller ikke en garanti for god forudsigelse af nye data.
+Her er $\widehat{Y}$ den forudsagte volumen i kubikfod, og $X$ er diameteren i tommer. Ved at sætte $X = 15$ ind får vi cirka 39 kubikfod, som i figuren ovenfor.
 
-```{r stats-rsquared}
-summary(model)$r.squared
-head(residuals(model))
+En forudsigelse beskriver modellens forventede volumen ved den valgte diameter. Et enkelt træs faktiske volumen kan ligge over eller under linjen. Vi bør desuden være varsomme med **ekstrapolation**, hvor vi bruger modellen langt uden for de observerede diametre på 8,3–20,6 tommer.
+
+### Antagelser {#stats-regressionsantagelser}
+
+::: {.correlation-assumptions style="border: 4px #b8a1da; border-style: dashed solid; padding: 0.9em 1em; margin: 1em 0; background-color: #f5f1ff; color: #382852;"}
+**Korrelationstesten forudsætter**
+
+- De enkelte træer er uafhængige observationer.
+- Begge variabler hver for sig er normalfordelte.
+- Sammenhængen er omtrent lineær, og målingerne har nogenlunde samme spredning omkring en ret linje.
+:::
+
+Vi undersøger de to fordelinger med **Q–Q-plot**. `qqnorm()` sammenligner de sorterede målinger med, hvad vi ville forvente under en normalfordeling, og `qqline()` tegner en referencelinje. Hvis punkterne ligger nogenlunde langs linjen, er fordelingen forenelig med en normalfordeling. Systematisk krumning eller enkelte punkter langt fra linjen kan pege på afvigelser fra antagelsen.
+
+```{r stats-correlation-qq, eval=knitr::is_html_output(), fig.width=3.7, fig.height=3.4, fig.show="hold", out.width="49%", fig.alt=c("Normal-Q-Q-plot af diameter for 31 træer med en referencelinje.", "Normal-Q-Q-plot af volumen for 31 træer med en referencelinje.")}
+qqnorm(trees$Girth, main = "Diameter", pch = 19,
+       xlab = "Normalfordelingens kvantiler", ylab = "Diameter (tommer)")
+qqline(trees$Girth, col = "blue")
+
+qqnorm(trees$Volume, main = "Volumen", pch = 19,
+       xlab = "Normalfordelingens kvantiler", ylab = "Volumen (kubikfod)")
+qqline(trees$Volume, col = "blue")
 ```
 
-### Antagelser for lineær regression {#stats-regressionsantagelser}
+```{r stats-correlation-qq-pdf, echo=FALSE, eval=knitr::is_latex_output(), fig.width=7.4, fig.height=3.4}
+par(mfrow = c(1, 2))
+qqnorm(trees$Girth, main = "Diameter", pch = 19,
+       xlab = "Normalfordelingens kvantiler", ylab = "Diameter (tommer)")
+qqline(trees$Girth, col = "blue")
+qqnorm(trees$Volume, main = "Volumen", pch = 19,
+       xlab = "Normalfordelingens kvantiler", ylab = "Volumen (kubikfod)")
+qqline(trees$Volume, col = "blue")
+par(mfrow = c(1, 1))
+```
 
-Vi antager, at den forventede sammenhæng mellem diameter og volumen følger en ret linje, og at fejlene omkring linjen er uafhængige og har nogenlunde samme spredning ved alle diametre. Til de sædvanlige t-tests og konfidensintervaller antager vi også, at fejlene ved en given diameter er tilnærmelsesvis normalfordelte.
+Vi vurderer Q–Q-plottene sammen med punktplottet ovenfor. Q–Q-plottene viser hver variabels fordeling, mens punktplottet viser, om sammenhængen er nogenlunde retlinjet. **Ekstreme punkter og krumning kan gøre en enkelt korrelationskoefficient misvisende.** Derfor skal vi se på figurerne, også når korrelationen er høj og p-værdien lille.
 
-Vi vurderer uafhængighed ud fra, hvordan data blev indsamlet. I residualplottet ser vi efter mønstre og undersøger, om spredningen er nogenlunde ens på tværs af de tilpassede værdier.
+I vores data ligger især de største volumener over referencelinjen, og punktplottet viser tegn på krumning. Det giver anledning til at være varsom med testens normalitetsantagelse og med at beskrive hele sammenhængen med ét tal.
+
+::: {.regression-assumptions style="border: 4px #b8a1da; border-style: dashed solid; padding: 0.9em 1em; margin: 1em 0; background-color: #f5f1ff; color: #382852;"}
+**Simpel lineær regression forudsætter**
+
+- De enkelte træer er uafhængige observationer.
+- Den forventede sammenhæng mellem diameter og volumen er lineær.
+- Fejlene omkring linjen har nogenlunde samme spredning ved alle diametre.
+- Residualerne er tilnærmelsesvis normalfordelte. Det undersøger vi med Q–Q-plottet nedenfor.
+:::
 
 ```{r stats-regression-residuals, fig.width=6, fig.height=4}
 plot(model, which = 1)
@@ -1015,10 +1149,23 @@ Det andet plot er et normal-Q-Q-plot af residualerne. Punkter tæt på den rette
 
 [**Problem 9**]{#problem-8-korrelation-er-ikke-hele-historien .problem-label}
 
-::: {.problem-parts}
-**a)** Brug `trees` til at tegne diameter mod volumen og beregne Pearsons korrelation.
+Dataframen indeholder fiktive data for 24 laboratoriemus. Hver række repræsenterer én mus. `kropsvaegt` er kropsvægten i gram, og `nyrevaegt` er vægten af musens højre nyre i milligram. Kør koden for at oprette datasættet.
 
-**b)** Tilpas `lm(Volume ~ Girth, data = trees)`. Find hældning og $R^2$, og forklar begge med ord og de relevante enheder.
+```{r stats-exercise-mouse-data, eval=FALSE}
+mus <- data.frame(
+  kropsvaegt = c(20.1, 21.0, 21.4, 22.2, 22.8, 23.4, 23.9, 24.3,
+                 24.9, 25.4, 25.8, 26.2, 26.8, 27.3, 27.9, 28.4,
+                 29.0, 29.5, 30.2, 30.8, 31.5, 32.0, 32.6, 33.4),
+  nyrevaegt = c(124, 143, 138, 129, 160, 151, 140, 162,
+                150, 139, 166, 162, 183, 160, 158, 186,
+                178, 176, 167, 193, 192, 183, 205, 194)
+)
+```
+
+::: {.problem-parts}
+**a)** Brug `mus` til at tegne kropsvægt på x-aksen og nyrevægt på y-aksen og beregne Pearsons korrelation.
+
+**b)** Tilpas `lm(nyrevaegt ~ kropsvaegt, data = mus)`. Find hældning og $R^2$, og forklar begge med ord og de relevante enheder.
 
 **c)** Se residualplottet. Hvorfor er et højt $R^2$ ikke nok til at erklære modellen passende?
 

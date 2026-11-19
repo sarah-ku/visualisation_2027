@@ -360,7 +360,7 @@ Brug `$ $` til at skrive en ligning ind i teksten i din `.Rmd` fil. Prøv for ek
 
 [**Problem 11: Korrelation og simpel lineær regression**]{#rmarkdown-problem-11 .problem-label}
 
-Lav [problem 9 i statistiknoternes afsnit 2.12.5](#problem-8-korrelation-er-ikke-hele-historien). Prøv at besvare opgaven i et R Markdown-dokument. Brug R-kodeblokke til beregninger og figurer, og skriv dine forklaringer som tekst mellem kodeblokkene.
+Lav [problem 9 i statistiknoternes afsnit 2.12.4](#problem-8-korrelation-er-ikke-hele-historien). Prøv at besvare opgaven i et R Markdown-dokument. Brug R-kodeblokke til beregninger og figurer, og skriv dine forklaringer som tekst mellem kodeblokkene.
 
 [**Problem 12: Miniworkshop**]{#rmarkdown-problem-12 .problem-label}
 

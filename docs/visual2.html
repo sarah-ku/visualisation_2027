@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 5 Visualisering - ggplot2 dag 2 | Analyse og visualisering af biologiske datasæt – 2027</title>
+  <meta name="description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 5 Visualisering - ggplot2 dag 2 | Analyse og visualisering af biologiske datasæt – 2027" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://sarah-ku.github.io/visualisation_2027/plots/ai_cover.jpeg" />
+  <meta property="og:description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 5 Visualisering - ggplot2 dag 2 | Analyse og visualisering af biologiske datasæt – 2027" />
+  
+  <meta name="twitter:description" content="Course materials for Analyse og visualisering af biologiske datasæt 2027" />
+  <meta name="twitter:image" content="https://sarah-ku.github.io/visualisation_2027/plots/ai_cover.jpeg" />
+
+
+
+<meta name="date" content="2026-11-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visual1.html?v=1799f1dc2376.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css?v=c0d91e173a0f" type="text/css" />
+<link rel="stylesheet" href="assets/downloads.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./?v=1f04e8a29a81.html">Visualisering_2027</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=1f04e8a29a81.html"><i class="fa fa-check"></i>Lidt om kurset</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=1f04e8a29a81.html#outline"><i class="fa fa-check"></i>Kursets opbygning</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=1f04e8a29a81.html#bed%C3%B8mmelse"><i class="fa fa-check"></i>Bedømmelse</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html?v=1f04e8a29a81.html#bare-lidt-om-underviserne"><i class="fa fa-check"></i>Lidt om underviserne</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html"><i class="fa fa-check"></i><b>1</b> Grundlæggende R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#l%C3%A6ringsm%C3%A5l-og-forberedelse"><i class="fa fa-check"></i><b>1.1</b> Læringsmål og videoer</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#s%C3%A5dan-bruger-du-materialerne"><i class="fa fa-check"></i><b>1.1.1</b> Sådan bruger du materialerne</a></li>
+<li class="chapter" data-level="1.1.2" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#videoer"><i class="fa fa-check"></i><b>1.1.2</b> Videoer</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#rstudio-skriv-kode-som-du-kan-k%C3%B8re-igen"><i class="fa fa-check"></i><b>1.2</b> RStudio: skriv kode, som du kan køre igen</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#rstudio"><i class="fa fa-check"></i><b>1.2.1</b> De forskellige paneler i RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#objekter-giv-en-v%C3%A6rdi-et-navn"><i class="fa fa-check"></i><b>1.3</b> Objekter i R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#r-udf%C3%B8rer-instruktioner-i-den-r%C3%A6kkef%C3%B8lge-du-k%C3%B8rer-dem"><i class="fa fa-check"></i><b>1.3.1</b> R kører koden i rækkefølge</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#vektorer-og-funktioner"><i class="fa fa-check"></i><b>1.4</b> Vektorer og funktioner</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#en-vektor-indeholder-flere-v%C3%A6rdier"><i class="fa fa-check"></i><b>1.4.1</b> En vektor indeholder flere værdier</a></li>
+<li class="chapter" data-level="1.4.2" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#funktioner-har-input-og-giver-et-resultat"><i class="fa fa-check"></i><b>1.4.2</b> Funktioner har input og giver et resultat</a></li>
+<li class="chapter" data-level="1.4.3" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#find-hj%C3%A6lp"><i class="fa fa-check"></i><b>1.4.3</b> Find hjælp</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#dataframes-en-tabel-med-observationer-og-variabler"><i class="fa fa-check"></i><b>1.5</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#f%C3%A5-overblik-f%C3%B8r-du-regner"><i class="fa fa-check"></i><b>1.5.1</b> Overblik over dataframen</a></li>
+<li class="chapter" data-level="1.5.2" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#datatyper-tal-tekst-logik-og-kategorier"><i class="fa fa-check"></i><b>1.5.2</b> Datatyper</a></li>
+<li class="chapter" data-level="1.5.3" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#hent-en-kolonne-med"><i class="fa fa-check"></i><b>1.5.3</b> Hent en kolonne med <code>$</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#udv%C3%A6lg-v%C3%A6rdier-r%C3%A6kker-og-kolonner"><i class="fa fa-check"></i><b>1.6</b> Udvælgelse</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#positioner-i-en-vektor"><i class="fa fa-check"></i><b>1.6.1</b> Positioner i en vektor</a></li>
+<li class="chapter" data-level="1.6.2" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#to-dimensioner-i-en-dataframe"><i class="fa fa-check"></i><b>1.6.2</b> To dimensioner i en dataframe</a></li>
+<li class="chapter" data-level="1.6.3" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#en-betingelse-giver-true-eller-false"><i class="fa fa-check"></i><b>1.6.3</b> En betingelse giver <code>TRUE</code> eller <code>FALSE</code></a></li>
+<li class="chapter" data-level="1.6.4" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#ifelse-og-if-forskellige-opgaver"><i class="fa fa-check"></i><b>1.6.4</b> Brug betingelser med <code>ifelse()</code> og <code>if</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#manglende-v%C3%A6rdier"><i class="fa fa-check"></i><b>1.7</b> Manglende værdier</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#manglende-v%C3%A6rdier-i-en-udv%C3%A6lgelse"><i class="fa fa-check"></i><b>1.7.1</b> Manglende værdier i en udvælgelse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#hvor-kommer-data-fra"><i class="fa fa-check"></i><b>1.8</b> Hvor kommer data fra?</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#indbyggede-datas%C3%A6t"><i class="fa fa-check"></i><b>1.8.1</b> Indbyggede datasæt</a></li>
+<li class="chapter" data-level="1.8.2" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#tilfaeldig-udvaelgelse"><i class="fa fa-check"></i><b>1.8.2</b> Tilfældig udvælgelse med <code>sample()</code></a></li>
+<li class="chapter" data-level="1.8.3" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#arbejdsmappen-og-relative-filstier"><i class="fa fa-check"></i><b>1.8.3</b> Arbejdsmappen og relative filstier</a></li>
+<li class="chapter" data-level="1.8.4" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#gem-og-indl%C3%A6s-en-csv-fil"><i class="fa fa-check"></i><b>1.8.4</b> Gem og indlæs en CSV-fil</a></li>
+<li class="chapter" data-level="1.8.5" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#skilletegn-og-decimaltal"><i class="fa fa-check"></i><b>1.8.5</b> Skilletegn og decimaltal</a></li>
+<li class="chapter" data-level="1.8.6" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#import%C3%A9r-data-fra-excel"><i class="fa fa-check"></i><b>1.8.6</b> Importér data fra Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#dit-f%C3%B8rste-plot-i-base-r"><i class="fa fa-check"></i><b>1.9</b> Dit første plot i base R</a></li>
+<li class="chapter" data-level="1.10" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#r-pakker"><i class="fa fa-check"></i><b>1.10</b> R-pakker</a></li>
+<li class="chapter" data-level="1.11" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#n%C3%A5r-koden-ikke-virker"><i class="fa fa-check"></i><b>1.11</b> Når koden ikke virker</a></li>
+<li class="chapter" data-level="1.12" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#baser-problemer"><i class="fa fa-check"></i><b>1.12</b> Problemstillinger</a>
+<ul>
+<li class="chapter" data-level="1.12.1" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#%C3%B8velser-til-videoerne"><i class="fa fa-check"></i><b>1.12.1</b> Øvelser til videoerne</a></li>
+<li class="chapter" data-level="1.12.2" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#saml-det-du-har-l%C3%A6rt"><i class="fa fa-check"></i><b>1.12.2</b> Øvelser til hele emnet</a></li>
+</ul></li>
+<li class="chapter" data-level="1.13" data-path="baser.html"><a href="baser.html?v=59beaf197185.html#klar-til-n%C3%A6ste-kapitel"><i class="fa fa-check"></i><b>1.13</b> Klar til næste kapitel?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html"><i class="fa fa-check"></i><b>2</b> Grundlæggende statistik i base R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#l%C3%A6ringsm%C3%A5l-og-videoer"><i class="fa fa-check"></i><b>2.1</b> Læringsmål og videoer</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#s%C3%A5dan-bruger-du-kapitlet"><i class="fa fa-check"></i><b>2.1.1</b> Sådan bruger du kapitlet</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-videoer"><i class="fa fa-check"></i><b>2.1.2</b> Videoer</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#fra-biologisk-sp%C3%B8rgsm%C3%A5l-til-observationer"><i class="fa fa-check"></i><b>2.2</b> Population og stikprøve</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#antal-r%C3%A6kker-er-ikke-altid-antal-uafh%C3%A6ngige-observationer"><i class="fa fa-check"></i><b>2.2.1</b> Antal rækker er ikke altid antal uafhængige observationer</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-beskriv"><i class="fa fa-check"></i><b>2.3</b> Databeskrivelse</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#gennemsnit-og-median-to-m%C3%A5l-for-centrum"><i class="fa fa-check"></i><b>2.3.1</b> Gennemsnit og median</a></li>
+<li class="chapter" data-level="2.3.2" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#sammenlign-grupper-med-et-boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Sammenlign grupper med et boxplot</a></li>
+<li class="chapter" data-level="2.3.3" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#varians-og-standardafvigelse-hvor-forskellige-er-observationerne"><i class="fa fa-check"></i><b>2.3.3</b> Varians og standardafvigelse</a></li>
+<li class="chapter" data-level="2.3.4" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#ekstra-kvartiler-og-interkvartilafstand"><i class="fa fa-check"></i><b>2.3.4</b> Kvartiler og interkvartilafstand</a></li>
+<li class="chapter" data-level="2.3.5" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#det-samme-for-flere-grupper-med-tapply"><i class="fa fa-check"></i><b>2.3.5</b> <code>tapply()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#fordelinger-og-de-f%C3%B8rste-statistiske-figurer"><i class="fa fa-check"></i><b>2.4</b> Fordelinger</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#normalfordelingen-er-en-model"><i class="fa fa-check"></i><b>2.4.1</b> Normalfordelingen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-usikkerhed"><i class="fa fa-check"></i><b>2.5</b> Usikkerhed på gennemsnit</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#standardafvigelse-og-standardfejl"><i class="fa fa-check"></i><b>2.5.1</b> Standardafvigelse og standardfejl</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-hypoteser"><i class="fa fa-check"></i><b>2.6</b> Hypoteser og p-værdier</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#hvad-fort%C3%A6ller-en-p-v%C3%A6rdi"><i class="fa fa-check"></i><b>2.6.1</b> Hvad fortæller en p-værdi?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-et-gennemsnit"><i class="fa fa-check"></i><b>2.7</b> Ét gennemsnit mod en reference</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#hvad-fort%C3%A6ller-t-v%C3%A6rdien"><i class="fa fa-check"></i><b>2.7.1</b> Hvad fortæller t-værdien?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-welch"><i class="fa fa-check"></i><b>2.8</b> T-test: to uafhængige grupper</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#s%C3%A5dan-l%C3%A6ser-du-outputtet"><i class="fa fa-check"></i><b>2.8.1</b> Sådan læser du outputtet</a></li>
+<li class="chapter" data-level="2.8.2" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#hvad-skal-vi-unders%C3%B8ge-f%C3%B8r-testen"><i class="fa fa-check"></i><b>2.8.2</b> Se de enkelte observationer</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-parret"><i class="fa fa-check"></i><b>2.9</b> T-test til parrede målinger</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#se-fordelingen-af-%C3%A6ndringerne"><i class="fa fa-check"></i><b>2.9.1</b> Se fordelingen af ændringerne</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-andre-metoder"><i class="fa fa-check"></i><b>2.10</b> Chi-i-anden-test</a></li>
+<li class="chapter" data-level="2.11" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-problemer"><i class="fa fa-check"></i><b>2.11</b> Problemstillinger</a></li>
+<li class="chapter" data-level="2.12" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-regression"><i class="fa fa-check"></i><b>2.12</b> Korrelation og simpel lineær regression</a>
+<ul>
+<li class="chapter" data-level="2.12.1" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#se-sammenh%C3%A6ngen-f%C3%B8r-du-beregner-et-tal"><i class="fa fa-check"></i><b>2.12.1</b> Sammenhænge</a></li>
+<li class="chapter" data-level="2.12.2" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#en-regressionslinje-giver-en-%C3%A6ndring-i-responsens-enhed"><i class="fa fa-check"></i><b>2.12.2</b> Simpel lineær regression</a></li>
+<li class="chapter" data-level="2.12.3" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#stats-regressionsantagelser"><i class="fa fa-check"></i><b>2.12.3</b> Antagelser</a></li>
+<li class="chapter" data-level="2.12.4" data-path="statistik.html"><a href="statistik.html?v=628e85ccde44.html#opgave-til-n%C3%A6ste-undervisningsgang-om-r-markdown"><i class="fa fa-check"></i><b>2.12.4</b> Opgave til næste undervisningsgang om R Markdown</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html"><i class="fa fa-check"></i><b>3</b> Introduktion til R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#inledning-til-kapitlet"><i class="fa fa-check"></i><b>3.1</b> Inledning til kapitlet</a></li>
+<li class="chapter" data-level="3.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#hvad-er-r-markdown"><i class="fa fa-check"></i><b>3.2</b> Hvad er R Markdown?</a></li>
+<li class="chapter" data-level="3.3" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#installere-r-markdown"><i class="fa fa-check"></i><b>3.3</b> Installere R Markdown</a></li>
+<li class="chapter" data-level="3.4" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#videodemonstrationer"><i class="fa fa-check"></i><b>3.4</b> Videodemonstrationer</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#rmarkdown-video-1"><i class="fa fa-check"></i><b>3.4.1</b> Video 1</a></li>
+<li class="chapter" data-level="3.4.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#rmarkdown-video-2"><i class="fa fa-check"></i><b>3.4.2</b> Video 2</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#opret-et-nyt-dokument-i-r-markdown"><i class="fa fa-check"></i><b>3.5</b> Opret et nyt dokument i R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#yaml"><i class="fa fa-check"></i><b>3.5.1</b> YAML</a></li>
+<li class="chapter" data-level="3.5.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#globale-muligheder"><i class="fa fa-check"></i><b>3.5.2</b> Globale muligheder</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#skriv-og-formatere-tekst"><i class="fa fa-check"></i><b>3.6</b> Skriv og formatere tekst</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#headers"><i class="fa fa-check"></i><b>3.6.1</b> Headers</a></li>
+<li class="chapter" data-level="3.6.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#tilf%C3%B8je-en-liste"><i class="fa fa-check"></i><b>3.6.2</b> Tilføje en liste</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#knitte-kode"><i class="fa fa-check"></i><b>3.7</b> Knitte kode</a></li>
+<li class="chapter" data-level="3.8" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#kode-chunks"><i class="fa fa-check"></i><b>3.8</b> Kode chunks</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#knit-l%C3%B8bende-f%C3%B8r-at-undg%C3%A5-problemer"><i class="fa fa-check"></i><b>3.8.1</b> Knit løbende før at undgå problemer</a></li>
+<li class="chapter" data-level="3.8.2" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#chunk-indstillinger"><i class="fa fa-check"></i><b>3.8.2</b> Chunk indstillinger</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#r-beregninger-inden-for-teksten-i-dokumentet-inline-code"><i class="fa fa-check"></i><b>3.9</b> R beregninger inden for teksten i dokumentet (‘inline code’)</a></li>
+<li class="chapter" data-level="3.10" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#working-directory"><i class="fa fa-check"></i><b>3.10</b> Working directory</a></li>
+<li class="chapter" data-level="3.11" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#matematik"><i class="fa fa-check"></i><b>3.11</b> Matematik</a></li>
+<li class="chapter" data-level="3.12" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#hyppigt-forekommende-fejl"><i class="fa fa-check"></i><b>3.12</b> Hyppigt forekommende fejl</a></li>
+<li class="chapter" data-level="3.13" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#problemstillinger"><i class="fa fa-check"></i><b>3.13</b> Problemstillinger</a></li>
+<li class="chapter" data-level="3.14" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#forberedelse-af-n%C3%A6ste-emnet-og-lektionen"><i class="fa fa-check"></i><b>3.14</b> Forberedelse af næste emnet og lektionen</a></li>
+<li class="chapter" data-level="3.15" data-path="rmarkdown.html"><a href="rmarkdown.html?v=b7970b85f275.html#ekstra-information"><i class="fa fa-check"></i><b>3.15</b> Ekstra information</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html"><i class="fa fa-check"></i><b>4</b> Visualisering - ggplot2 dag 1</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#l%C3%A6ringsm%C3%A5l-og-videoer-1"><i class="fa fa-check"></i><b>4.1</b> Læringsmål og videoer</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#hvad-er-ggplot2"><i class="fa fa-check"></i><b>4.1.1</b> Hvad er <strong>ggplot2</strong>?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#brugen-af-materialerne"><i class="fa fa-check"></i><b>4.1.2</b> Brugen af materialerne</a></li>
+<li class="chapter" data-level="4.1.3" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#videoressourcer"><i class="fa fa-check"></i><b>4.1.3</b> Videoressourcer</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#transition-fra-base-r-til-ggplot2"><i class="fa fa-check"></i><b>4.2</b> Transition fra base R til ggplot2</a></li>
+<li class="chapter" data-level="4.3" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#vores-f%C3%B8rste-ggplot"><i class="fa fa-check"></i><b>4.3</b> Vores første ggplot</a></li>
+<li class="chapter" data-level="4.4" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#lidt-om-ggplot2"><i class="fa fa-check"></i><b>4.4</b> Lidt om ggplot2</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#syntax"><i class="fa fa-check"></i><b>4.4.1</b> Syntax</a></li>
+<li class="chapter" data-level="4.4.2" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#hvad-betyder-egentlig-grammar-of-graphics"><i class="fa fa-check"></i><b>4.4.2</b> Hvad betyder egentlig grammar of graphics?</a></li>
+<li class="chapter" data-level="4.4.3" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#global-versus-lokal-%C3%A6stetik"><i class="fa fa-check"></i><b>4.4.3</b> Global versus lokal æstetik</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#specificere-etiketter-og-titel"><i class="fa fa-check"></i><b>4.5</b> Specificere etiketter og titel</a></li>
+<li class="chapter" data-level="4.6" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#%C3%A6ndre-farver"><i class="fa fa-check"></i><b>4.6</b> Ændre farver</a></li>
+<li class="chapter" data-level="4.7" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#%C3%A6ndre-tema"><i class="fa fa-check"></i><b>4.7</b> Ændre tema</a></li>
+<li class="chapter" data-level="4.8" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#forskellige-geoms"><i class="fa fa-check"></i><b>4.8</b> Forskellige geoms</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#boxplot-geom_boxplot"><i class="fa fa-check"></i><b>4.8.1</b> Boxplot (<code>geom_boxplot()</code>)</a></li>
+<li class="chapter" data-level="4.8.2" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#barplot-geom_bar"><i class="fa fa-check"></i><b>4.8.2</b> Barplot (<code>geom_bar</code>)</a></li>
+<li class="chapter" data-level="4.8.3" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#histogram-geom_histogram"><i class="fa fa-check"></i><b>4.8.3</b> Histogram (<code>geom_histogram</code>)</a></li>
+<li class="chapter" data-level="4.8.4" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#density-geom_density"><i class="fa fa-check"></i><b>4.8.4</b> Density (<code>geom_density</code>)</a></li>
+<li class="chapter" data-level="4.8.5" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#line-plot-geom_line"><i class="fa fa-check"></i><b>4.8.5</b> Line plot (<code>geom_line()</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#troubleshooting"><i class="fa fa-check"></i><b>4.9</b> Troubleshooting</a></li>
+<li class="chapter" data-level="4.10" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#problemstillinger-1"><i class="fa fa-check"></i><b>4.10</b> Problemstillinger</a></li>
+<li class="chapter" data-level="4.11" data-path="visual1.html"><a href="visual1.html?v=1799f1dc2376.html#n%C3%A6ste-gang"><i class="fa fa-check"></i><b>4.11</b> Næste gang</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html"><i class="fa fa-check"></i><b>5</b> Visualisering - ggplot2 dag 2</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#l%C3%A6ringsm%C3%A5l-og-videoer-2"><i class="fa fa-check"></i><b>5.1</b> Læringsmål og videoer</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#videoressourcer-1"><i class="fa fa-check"></i><b>5.1.1</b> Videoressourcer</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#koordinatsystemer"><i class="fa fa-check"></i><b>5.2</b> Koordinatsystemer</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#zoom-coord_cartesian-expand_limits"><i class="fa fa-check"></i><b>5.2.1</b> Zoom (<code>coord_cartesian()</code>, <code>expand_limits()</code>)</a></li>
+<li class="chapter" data-level="5.2.2" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#transformering-af-akserne-log-sqrt-osv.-scale_x_continuous"><i class="fa fa-check"></i><b>5.2.2</b> Transformering af akserne – log, sqrt osv. (<code>scale_x_continuous()</code>)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#spejl-koordinater-coord_flip"><i class="fa fa-check"></i><b>5.2.3</b> Spejl koordinater (<code>coord_flip()</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#mere-om-farver-og-punktformer"><i class="fa fa-check"></i><b>5.3</b> Mere om farver og punktformer</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#automatiske-farver"><i class="fa fa-check"></i><b>5.3.1</b> Automatiske farver</a></li>
+<li class="chapter" data-level="5.3.2" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#manuelle-farver"><i class="fa fa-check"></i><b>5.3.2</b> Manuelle farver</a></li>
+<li class="chapter" data-level="5.3.3" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#punktformer"><i class="fa fa-check"></i><b>5.3.3</b> Punktformer</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#annotationer-geom_text"><i class="fa fa-check"></i><b>5.4</b> Annotationer (<code>geom_text()</code>)</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#tilf%C3%B8jelse-af-etiketter-direkte-p%C3%A5-plottet"><i class="fa fa-check"></i><b>5.4.1</b> Tilføjelse af etiketter direkte på plottet</a></li>
+<li class="chapter" data-level="5.4.2" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#pakken-ggrepel-til-at-tilf%C3%B8je-tekstetiketter"><i class="fa fa-check"></i><b>5.4.2</b> Pakken <code>ggrepel</code> til at tilføje tekstetiketter</a></li>
+<li class="chapter" data-level="5.4.3" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#tilf%C3%B8jelse-af-rektangler-i-interesseomr%C3%A5der-annotate"><i class="fa fa-check"></i><b>5.4.3</b> Tilføjelse af rektangler i interesseområder (<code>annotate()</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#adskille-plots-med-facets-facet_grid-facet_wrap"><i class="fa fa-check"></i><b>5.5</b> Adskille plots med facets (<code>facet_grid()</code> / <code>facet_wrap()</code>)</a></li>
+<li class="chapter" data-level="5.6" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#gem-dit-plot"><i class="fa fa-check"></i><b>5.6</b> Gem dit plot</a></li>
+<li class="chapter" data-level="5.7" data-path="visual2.html"><a href="visual2.html?v=c99553d58c6c.html#problemstillinger-2"><i class="fa fa-check"></i><b>5.7</b> Problemstillinger</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org/" target="_blank" rel="noopener">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./?v=1f04e8a29a81.html">Analyse og visualisering af biologiske datasæt – 2027</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visual2" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Kapitel 5</span> Visualisering - ggplot2 dag 2<a href="visual2.html?v=c99553d58c6c.html#visual2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="plots/ggplot2_logo.jpeg" alt="" width="25%" height="25%" /></p>
+<div id="læringsmål-og-videoer-2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Læringsmål og videoer<a href="visual2.html?v=c99553d58c6c.html#l%C3%A6ringsm%C3%A5l-og-videoer-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I dette kapitel udvider du værktøjskassen af kommandoer i pakken <strong>ggplot2</strong>, så du kan opnå større fleksibilitet i dine visualiseringer. Jeg anbefaler, at du bruger notaterne som en reference, samtidig med at du arbejder med problemstillingerne.</p>
+<div class="goals">
+<p>Du skal være i stand til at:</p>
+<ul>
+<li>Arbejde fleksibelt med koordinatsystemer – transformere, modificere og spejle (“flip”) x- og y-aksen.</li>
+<li>Udvide brugen af farver og punktformer.</li>
+<li>Tilføje tekst direkte på plottet ved hjælp af <code>geom_text()</code> og <code>geom_text_repel()</code>.</li>
+<li>Bruge <code>facet_grid()</code> eller <code>facet_wrap()</code> til at opdele plots efter en kategorisk variabel.</li>
+</ul>
+</div>
+<div class="checklist">
+<p>Tjekliste til Kapitel 5: ggplot2 (dag 2)</p>
+<ul>
+<li>Se videoerne</li>
+<li>Kig igennem kursusnotaterne</li>
+<li>Lav quiz “ggplot2 - dag 2”</li>
+<li>Lav problemstillingerne</li>
+</ul>
+</div>
+<div id="videoressourcer-1" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Videoressourcer<a href="visual2.html?v=c99553d58c6c.html#videoressourcer-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Video 1: Koordinatsystemer</li>
+</ul>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/544201985" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<ul>
+<li>Video 2: Farver og punktformer</li>
+</ul>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/544218153" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<ul>
+<li>Video 3: Etiketter (labels) – <code>geom_text()</code> og <code>geom_text_repel()</code></li>
+</ul>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/939254856" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<ul>
+<li>Video 4: Facets</li>
+</ul>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/704140333" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div id="koordinatsystemer" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Koordinatsystemer<a href="visual2.html?v=c99553d58c6c.html#koordinatsystemer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Her arbejder vi videre med koordinater i pakken <strong>ggplot2</strong>.</p>
+<div id="zoom-coord_cartesian-expand_limits" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Zoom (<code>coord_cartesian()</code>, <code>expand_limits()</code>)<a href="visual2.html?v=c99553d58c6c.html#zoom-coord_cartesian-expand_limits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Man kan bruge funktionen <code>coord_cartesian()</code> til at zoome ind på et bestemt område i plottet. <strong>Inden i</strong> <code>coord_cartesian()</code> angives <code>xlim</code> og <code>ylim</code>, som specificerer de nedre og øvre grænser langs henholdsvis x-aksen og y-aksen. Man kan også bruge <code>xlim()</code> og <code>ylim()</code> uden <code>coord_cartesian()</code>, men i så fald bliver de punkter, som ligger uden for de angivne grænser, fjernet fra datasættet (og R giver en advarsel). Med <code>coord_cartesian()</code> beholder man til gengæld samtlige data, og man får derfor ingen advarsel.</p>
+<p>Nedenfor kan I se vores oprindelige scatter plot:</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="visual2.html?v=c99553d58c6c.html#cb246-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width,<span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb246-2"><a href="visual2.html?v=c99553d58c6c.html#cb246-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb246-3"><a href="visual2.html?v=c99553d58c6c.html#cb246-3" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-86-1.png" alt="" width="480" /></p>
+<p>Og her anvender jeg funktionen <code>coord_cartesian()</code> samt <code>xlim</code> og <code>ylim</code> til at zoome ind på det udvalgte område på plottet:</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="visual2.html?v=c99553d58c6c.html#cb247-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width,<span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb247-2"><a href="visual2.html?v=c99553d58c6c.html#cb247-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb247-3"><a href="visual2.html?v=c99553d58c6c.html#cb247-3" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">6</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">2.2</span>,<span class="fl">4.5</span>)) <span class="sc">+</span></span>
+<span id="cb247-4"><a href="visual2.html?v=c99553d58c6c.html#cb247-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-87-1.png" alt="" width="480" /></p>
+<p>Du kan også zoome ud ved at bruge <code>expand_limits()</code> – for eksempel hvis du gerne vil have punkterne <span class="math inline">\(x = 0\)</span> og <span class="math inline">\(y = 0\)</span> (<code>c(0,0)</code> eller origo) med i selve plottet:</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="visual2.html?v=c99553d58c6c.html#cb248-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width,<span class="at">col=</span>Species)) <span class="sc">+</span></span>
+<span id="cb248-2"><a href="visual2.html?v=c99553d58c6c.html#cb248-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb248-3"><a href="visual2.html?v=c99553d58c6c.html#cb248-3" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb248-4"><a href="visual2.html?v=c99553d58c6c.html#cb248-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-88-1.png" alt="" width="480" /></p>
+<p>Det kan være brugbart i situationer, hvor man for eksempel har flere etiketter omkring punkterne i selve plottet, som bedre kan ses, hvis man giver lidt ekstra plads.</p>
+</div>
+<div id="transformering-af-akserne-log-sqrt-osv.-scale_x_continuous" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Transformering af akserne – log, sqrt osv. (<code>scale_x_continuous()</code>)<a href="visual2.html?v=c99553d58c6c.html#transformering-af-akserne-log-sqrt-osv.-scale_x_continuous" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nogle gange kan det være svært at visualisere visse variable på grund af deres fordeling. Hvis der er mange outliers i en variabel, vil de fleste punkter samle sig i et lille område i plottet. Transformering af x-aksen og/eller y-aksen med enten <code>log</code> eller <code>sqrt</code> er en populær tilgang til at visualisere dataene på en mere informativ måde:</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="visual2.html?v=c99553d58c6c.html#cb249-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width,<span class="at">col=</span>Species)) <span class="sc">+</span></span>
+<span id="cb249-2"><a href="visual2.html?v=c99553d58c6c.html#cb249-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb249-3"><a href="visual2.html?v=c99553d58c6c.html#cb249-3" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb249-4"><a href="visual2.html?v=c99553d58c6c.html#cb249-4" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb249-5"><a href="visual2.html?v=c99553d58c6c.html#cb249-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-89-1.png" alt="" width="480" /></p>
+<p>Man kan også prøve at bruge <code>"sqrt"</code> i stedet for <code>"log2"</code>.</p>
+<p>Det er dog vigtigt at bemærke, at dette adskiller sig fra at transformere selve de data, som bruges i plottet. Man kan for eksempel opnå det samme resultat ved at ændre datasættet, før man anvender <code>ggplot2</code>. Her behøver man ikke at bruge <code>scale_x_continuous(trans = "log2")</code>, men bemærk, at tallene på akserne da afspejler de transformerede data og ikke de oprindelige værdier. Valget afhænger af, hvad man gerne vil opnå med analysen af dataene.</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="visual2.html?v=c99553d58c6c.html#cb250-1" tabindex="-1"></a>iris<span class="sc">$</span>Sepal.Length <span class="ot">&lt;-</span> <span class="fu">log2</span>(iris<span class="sc">$</span>Sepal.Length)</span>
+<span id="cb250-2"><a href="visual2.html?v=c99553d58c6c.html#cb250-2" tabindex="-1"></a>iris<span class="sc">$</span>Sepal.Width <span class="ot">&lt;-</span> <span class="fu">log2</span>(iris<span class="sc">$</span>Sepal.Width)</span>
+<span id="cb250-3"><a href="visual2.html?v=c99553d58c6c.html#cb250-3" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width,<span class="at">col=</span>Species)) <span class="sc">+</span></span>
+<span id="cb250-4"><a href="visual2.html?v=c99553d58c6c.html#cb250-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb250-5"><a href="visual2.html?v=c99553d58c6c.html#cb250-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-90-1.png" alt="" width="480" /></p>
+</div>
+<div id="spejl-koordinater-coord_flip" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Spejl koordinater (<code>coord_flip()</code>)<a href="visual2.html?v=c99553d58c6c.html#spejl-koordinater-coord_flip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vi kan bruge <code>coord_flip()</code> til at bytte om på x-aksen og y-aksen (hvilket svarer til at dreje plottet 90 grader). Se følgende eksempel, hvor jeg først opretter variablen <code>Sepal.Group</code>, laver et barplot og anvender <code>coord_flip()</code> for at få søjlerne til at ligge vandret:</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="visual2.html?v=c99553d58c6c.html#cb251-1" tabindex="-1"></a><span class="co">#Sepal.Group defineret som i går</span></span>
+<span id="cb251-2"><a href="visual2.html?v=c99553d58c6c.html#cb251-2" tabindex="-1"></a>iris<span class="sc">$</span>Sepal.Group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(iris<span class="sc">$</span>Sepal.Length<span class="sc">&gt;</span><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length),<span class="st">&quot;Long&quot;</span>,<span class="st">&quot;Short&quot;</span>)</span>
+<span id="cb251-3"><a href="visual2.html?v=c99553d58c6c.html#cb251-3" tabindex="-1"></a></span>
+<span id="cb251-4"><a href="visual2.html?v=c99553d58c6c.html#cb251-4" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Species,<span class="at">fill=</span>Sepal.Group)) <span class="sc">+</span> </span>
+<span id="cb251-5"><a href="visual2.html?v=c99553d58c6c.html#cb251-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;count&quot;</span>,<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb251-6"><a href="visual2.html?v=c99553d58c6c.html#cb251-6" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb251-7"><a href="visual2.html?v=c99553d58c6c.html#cb251-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-91-1.png" alt="" width="480" /></p>
+<p>Man kan ændre rækkefølgen af de tre <code>Species</code> ved at bruge funktionen <code>scale_x_discrete()</code> og angive den nye rækkefølge med indstillingen <code>limits</code>:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="visual2.html?v=c99553d58c6c.html#cb252-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Species,<span class="at">fill=</span>Sepal.Group)) <span class="sc">+</span> </span>
+<span id="cb252-2"><a href="visual2.html?v=c99553d58c6c.html#cb252-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;count&quot;</span>,<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb252-3"><a href="visual2.html?v=c99553d58c6c.html#cb252-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb252-4"><a href="visual2.html?v=c99553d58c6c.html#cb252-4" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;virginica&quot;</span>, <span class="st">&quot;versicolor&quot;</span>,<span class="st">&quot;setosa&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb252-5"><a href="visual2.html?v=c99553d58c6c.html#cb252-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-92-1.png" alt="" width="480" /></p>
+</div>
+</div>
+<div id="mere-om-farver-og-punktformer" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Mere om farver og punktformer<a href="visual2.html?v=c99553d58c6c.html#mere-om-farver-og-punktformer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der er flere måder at specificere farver på i <code>ggplot2</code>. Man kan nøjes med den automatiske løsning, som er hurtig (og effektiv i mange situationer), eller man kan bruge den manuelle løsning, som tager lidt længere tid at kode, men er brugbar, hvis man gerne vil lave et plot til præsentation for andre.</p>
+<div id="automatiske-farver" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Automatiske farver<a href="visual2.html?v=c99553d58c6c.html#automatiske-farver" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Her er den nemme løsning, hvor vi anvender automatisk farvelægning ved at benytte <code>colour=Species</code> inden i <code>aes()</code>:</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="visual2.html?v=c99553d58c6c.html#cb253-1" tabindex="-1"></a><span class="co">#automatisk løsning</span></span>
+<span id="cb253-2"><a href="visual2.html?v=c99553d58c6c.html#cb253-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width, <span class="at">colour=</span>Species)) <span class="sc">+</span></span>
+<span id="cb253-3"><a href="visual2.html?v=c99553d58c6c.html#cb253-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb253-4"><a href="visual2.html?v=c99553d58c6c.html#cb253-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-93-1.png" alt="" width="480" /></p>
+</div>
+<div id="manuelle-farver" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Manuelle farver<a href="visual2.html?v=c99553d58c6c.html#manuelle-farver" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hvis man foretrækker at bruge sine egne farver, kan man gøre det ved at benytte funktionen <code>scale_colour_manual()</code>. Her angiver man stadig <code>colour=Species</code> inden i <code>aes()</code>, men man specificerer farverne for de forskellige arter i <code>scale_colour_manual()</code> med indstillingen <code>values</code>:</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="visual2.html?v=c99553d58c6c.html#cb254-1" tabindex="-1"></a><span class="co">#manuelt løsning</span></span>
+<span id="cb254-2"><a href="visual2.html?v=c99553d58c6c.html#cb254-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width, <span class="at">colour=</span>Species)) <span class="sc">+</span></span>
+<span id="cb254-3"><a href="visual2.html?v=c99553d58c6c.html#cb254-3" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;pink&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb254-4"><a href="visual2.html?v=c99553d58c6c.html#cb254-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb254-5"><a href="visual2.html?v=c99553d58c6c.html#cb254-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-94-1.png" alt="" width="480" /></p>
+<p>En fantastisk pakke er <code>RColorBrewer</code>. Pakken indeholder mange forskellige farvepaletter (“colour palettes”), det vil sige grupper af farver, der passer godt sammen. Man kan derfor slippe for selv at sammensætte en farvekombination, der passer til plottet. Nogle af farvepaletterne tager også hensyn til farveblindhed, eller om man ønsker en farvegradient eller et sæt diskrete farver, som tydeligt adskiller sig fra hinanden.</p>
+<p>I følgende eksempel indlæser jeg pakken <code>RColorBrewer</code> og anvender funktionen <code>scale_colour_brewer()</code> med indstillingen <code>palette="Set1"</code>:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="visual2.html?v=c99553d58c6c.html#cb255-1" tabindex="-1"></a><span class="co">#install.packages(&quot;RColorBrewer&quot;)</span></span>
+<span id="cb255-2"><a href="visual2.html?v=c99553d58c6c.html#cb255-2" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb255-3"><a href="visual2.html?v=c99553d58c6c.html#cb255-3" tabindex="-1"></a></span>
+<span id="cb255-4"><a href="visual2.html?v=c99553d58c6c.html#cb255-4" tabindex="-1"></a><span class="co">#manuelt løsning</span></span>
+<span id="cb255-5"><a href="visual2.html?v=c99553d58c6c.html#cb255-5" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width, <span class="at">colour=</span>Species)) <span class="sc">+</span></span>
+<span id="cb255-6"><a href="visual2.html?v=c99553d58c6c.html#cb255-6" tabindex="-1"></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb255-7"><a href="visual2.html?v=c99553d58c6c.html#cb255-7" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb255-8"><a href="visual2.html?v=c99553d58c6c.html#cb255-8" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-95-1.png" alt="" width="480" /></p>
+<p>Bemærk, at både <code>scale_color_manual()</code> og <code>scale_color_brewer()</code> bruges til at sætte farver på punkter og linjer, hvorimod man ved boxplots eller barplots bruger <code>scale_fill_manual()</code> eller <code>scale_fill_brewer()</code> til at sætte farver på de udfyldte områder. I følgende eksempel vil jeg gerne sætte farver på de udfyldte områder i et boxplot:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="visual2.html?v=c99553d58c6c.html#cb256-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Species,<span class="at">y=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb256-2"><a href="visual2.html?v=c99553d58c6c.html#cb256-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb256-3"><a href="visual2.html?v=c99553d58c6c.html#cb256-3" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Set2&quot;</span>)  <span class="sc">+</span> </span>
+<span id="cb256-4"><a href="visual2.html?v=c99553d58c6c.html#cb256-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-96-1.png" alt="" width="480" /></p>
+<p>Her er en oversigt over de fire funktioner:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Funktion</th>
+<th>Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>scale_fill_manual(values=c("firebrick3","blue"))</code></td>
+<td>Bruges til manuelle farver i forbindelse med boxplots og barplots mv.</td>
+</tr>
+<tr class="even">
+<td><code>scale_color_manual(values=c("darkorchid","cyan4"))</code></td>
+<td>Bruges til manuelle farver i forbindelse med punkter og linjer mv.</td>
+</tr>
+<tr class="odd">
+<td><code>scale_fill_brewer(palette="Dark2")</code></td>
+<td>Bruger farvepaletter fra <code>RColorBrewer</code> i forbindelse med boxplots, barplots mv.</td>
+</tr>
+<tr class="even">
+<td><code>scale_color_brewer(palette="Set1")</code></td>
+<td>Bruger farvepaletter fra <code>RColorBrewer</code> i forbindelse med punkter og linjer mv.</td>
+</tr>
+</tbody>
+</table>
+<p>Der er også andre muligheder, hvis man har behov for dem – for eksempel kan man søge efter <code>scale_fill_gradient()</code> til kontinuerte data.</p>
+<p><strong><em>Farver i RColorBrewer</em></strong></p>
+<p>Her er en nyttig reference, der viser de forskellige farvepaletter i pakken <code>RColorBrewer</code>.</p>
+<div class="float">
+<img src="plots/rcolorbrewer.png" alt="Mulige colour palettes i RColorBrewer" />
+<div class="figcaption">Mulige colour palettes i RColorBrewer</div>
+</div>
+</div>
+<div id="punktformer" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Punktformer<a href="visual2.html?v=c99553d58c6c.html#punktformer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ligesom man kan lave forskellige farver, kan man også lave forskellige punktformer. Vi starter med den automatiske løsning, ligesom vi gjorde med farver. Når det er en variabel, vi angiver, skal variabelnavnet skrives inden i <code>aes()</code>. <code>shape</code> er en parameter, der er specifik for <code>geom_point()</code>. Derfor vælger vi at skrive en ny <code>aes()</code> inden i <code>geom_point()</code> i stedet for inden i funktionen <code>ggplot()</code>. Husk, at man i funktionen <code>ggplot()</code> specificerer globale parametre, der gælder for hele plottet, mens man i funktionen <code>geom_point()</code> angiver parametre, der kun gælder for <code>geom_point()</code>. Se følgende eksempel:</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="visual2.html?v=c99553d58c6c.html#cb257-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb257-2"><a href="visual2.html?v=c99553d58c6c.html#cb257-2" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Set2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb257-3"><a href="visual2.html?v=c99553d58c6c.html#cb257-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb257-4"><a href="visual2.html?v=c99553d58c6c.html#cb257-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-97-1.png" alt="" width="480" /></p>
+<p>Nu har vi både en farve og en punktform til hver art i variablen <code>Species</code>.</p>
+<p><strong><em>Indstil punktform manuelt</em></strong></p>
+<p>Hvis vi ikke bryder os om de tre automatiske punktformer, kan vi ændre dem ved at bruge <code>scale_shape_manual()</code>. Her vælger vi for eksempel <code>values=c(1,2,3)</code>, og i referencen nedenfor kan du se sammenhængen mellem de numeriske værdier og punktformerne, så du kan vælge dine favoritter.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="visual2.html?v=c99553d58c6c.html#cb258-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">colour=</span>Species)) <span class="sc">+</span></span>
+<span id="cb258-2"><a href="visual2.html?v=c99553d58c6c.html#cb258-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb258-3"><a href="visual2.html?v=c99553d58c6c.html#cb258-3" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Set2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb258-4"><a href="visual2.html?v=c99553d58c6c.html#cb258-4" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb258-5"><a href="visual2.html?v=c99553d58c6c.html#cb258-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-98-1.png" alt="" width="480" /></p>
+<p><strong><em>Reference for punktformer</em></strong></p>
+<p>Her er referencetabellen for forskellige punktformer i <code>ggplot2</code>:</p>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-99-1.png" alt="" width="384" /></p>
+</div>
+</div>
+<div id="annotationer-geom_text" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Annotationer (<code>geom_text()</code>)<a href="visual2.html?v=c99553d58c6c.html#annotationer-geom_text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tilføjelse-af-etiketter-direkte-på-plottet" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Tilføjelse af etiketter direkte på plottet<a href="visual2.html?v=c99553d58c6c.html#tilf%C3%B8jelse-af-etiketter-direkte-p%C3%A5-plottet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Man kan bruge <code>geom_text()</code> til at tilføje tekst til punkterne direkte på plottet. Her kan man angive, hvad teksten skal være – i dette tilfælde specificerer vi navnene på bilerne fra datasættet <code>mtcars</code>. Plottet er et scatter plot mellem variablerne <code>mpg</code> og <code>wt</code>.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="visual2.html?v=c99553d58c6c.html#cb259-1" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb259-2"><a href="visual2.html?v=c99553d58c6c.html#cb259-2" tabindex="-1"></a></span>
+<span id="cb259-3"><a href="visual2.html?v=c99553d58c6c.html#cb259-3" tabindex="-1"></a>mtcars<span class="sc">$</span>my_labels <span class="ot">&lt;-</span> <span class="fu">row.names</span>(mtcars) <span class="co">#take row names and set as a variable</span></span>
+<span id="cb259-4"><a href="visual2.html?v=c99553d58c6c.html#cb259-4" tabindex="-1"></a></span>
+<span id="cb259-5"><a href="visual2.html?v=c99553d58c6c.html#cb259-5" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars,<span class="fu">aes</span>(<span class="at">x=</span>mpg,<span class="at">y=</span>wt)) <span class="sc">+</span> </span>
+<span id="cb259-6"><a href="visual2.html?v=c99553d58c6c.html#cb259-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb259-7"><a href="visual2.html?v=c99553d58c6c.html#cb259-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>my_labels)) <span class="sc">+</span> </span>
+<span id="cb259-8"><a href="visual2.html?v=c99553d58c6c.html#cb259-8" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-100-1.png" alt="" width="384" /></p>
+<p>For at gøre det nemmere at læse kan man også fjerne selve punkterne:</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="visual2.html?v=c99553d58c6c.html#cb260-1" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars,<span class="fu">aes</span>(<span class="at">x=</span>mpg,<span class="at">y=</span>wt)) <span class="sc">+</span> </span>
+<span id="cb260-2"><a href="visual2.html?v=c99553d58c6c.html#cb260-2" tabindex="-1"></a>  <span class="co">#geom_point() +</span></span>
+<span id="cb260-3"><a href="visual2.html?v=c99553d58c6c.html#cb260-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>my_labels)) <span class="sc">+</span> </span>
+<span id="cb260-4"><a href="visual2.html?v=c99553d58c6c.html#cb260-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-101-1.png" alt="" width="384" /></p>
+<p>Teksten på plottet kan stadig være svær at læse. En god løsning er at bruge R-pakken <code>ggrepel</code>, som vist i følgende eksempel:</p>
+</div>
+<div id="pakken-ggrepel-til-at-tilføje-tekstetiketter" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Pakken <code>ggrepel</code> til at tilføje tekstetiketter<a href="visual2.html?v=c99553d58c6c.html#pakken-ggrepel-til-at-tilf%C3%B8je-tekstetiketter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="visual2.html?v=c99553d58c6c.html#cb261-1" tabindex="-1"></a><span class="co">#install.packages(&quot;ggrepel&quot;) #installere hvis nødvendeigt</span></span></code></pre></div>
+<p>For at anvende pakken <code>ggrepel</code> på datasættet <code>mtcars</code> skal man blot erstatte <code>geom_text()</code> med <code>geom_text_repel()</code>:</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="visual2.html?v=c99553d58c6c.html#cb262-1" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb262-2"><a href="visual2.html?v=c99553d58c6c.html#cb262-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars,<span class="fu">aes</span>(<span class="at">x=</span>mpg,<span class="at">y=</span>wt)) <span class="sc">+</span> </span>
+<span id="cb262-3"><a href="visual2.html?v=c99553d58c6c.html#cb262-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb262-4"><a href="visual2.html?v=c99553d58c6c.html#cb262-4" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>my_labels)) <span class="sc">+</span> </span>
+<span id="cb262-5"><a href="visual2.html?v=c99553d58c6c.html#cb262-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-103-1.png" alt="" width="384" /></p>
+<p>Nu kan vi se, at der ikke er nogen etiketter, som ligger oven i hinanden, fordi <code>geom_text_repel()</code> placerer dem tæt på deres tilhørende punkter uden overlap. Ved nogle punkter har funktionen også tilføjet en forbindelseslinje for at gøre det tydeligt, hvilket punkt teksten refererer til.</p>
+<p>Vi har dog fået en advarsel i ovenstående kode. Hvis vi vil undgå denne advarsel, kan vi f.eks. specificere <code>max.overlaps = 20</code>:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="visual2.html?v=c99553d58c6c.html#cb263-1" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb263-2"><a href="visual2.html?v=c99553d58c6c.html#cb263-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars,<span class="fu">aes</span>(<span class="at">x=</span>mpg,<span class="at">y=</span>wt)) <span class="sc">+</span> </span>
+<span id="cb263-3"><a href="visual2.html?v=c99553d58c6c.html#cb263-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb263-4"><a href="visual2.html?v=c99553d58c6c.html#cb263-4" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>my_labels),<span class="at">max.overlaps =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb263-5"><a href="visual2.html?v=c99553d58c6c.html#cb263-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-104-1.png" alt="" width="480" /></p>
+<p>Nu kan du se, at du ikke længere får en advarsel, og der er tilføjet tekst til alle punkterne.</p>
+</div>
+<div id="tilføjelse-af-rektangler-i-interesseområder-annotate" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Tilføjelse af rektangler i interesseområder (<code>annotate()</code>)<a href="visual2.html?v=c99553d58c6c.html#tilf%C3%B8jelse-af-rektangler-i-interesseomr%C3%A5der-annotate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hvis man gerne vil fremhæve et bestemt område i plottet, kan man bruge funktionen <code>annotate()</code>. Prøv selv at regne ud, hvad indstillingerne inden i <code>annotate()</code> betyder i det følgende eksempel:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="visual2.html?v=c99553d58c6c.html#cb264-1" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars,<span class="fu">aes</span>(<span class="at">x=</span>mpg,<span class="at">y=</span>wt)) <span class="sc">+</span> </span>
+<span id="cb264-2"><a href="visual2.html?v=c99553d58c6c.html#cb264-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb264-3"><a href="visual2.html?v=c99553d58c6c.html#cb264-3" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>my_labels)) <span class="sc">+</span></span>
+<span id="cb264-4"><a href="visual2.html?v=c99553d58c6c.html#cb264-4" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;rect&quot;</span>,<span class="at">xmin=</span><span class="dv">18</span>,<span class="at">xmax=</span><span class="dv">23</span>,<span class="at">ymin=</span><span class="fl">2.5</span>,<span class="at">ymax=</span><span class="dv">3</span>,<span class="at">alpha=</span><span class="fl">0.2</span>,<span class="at">fill=</span><span class="st">&quot;orange&quot;</span>) <span class="sc">+</span></span>
+<span id="cb264-5"><a href="visual2.html?v=c99553d58c6c.html#cb264-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-105-1.png" alt="" width="384" /></p>
+<p>Man kan også benytte den samme funktion til at tilføje tekst på et bestemt sted:</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="visual2.html?v=c99553d58c6c.html#cb265-1" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars,<span class="fu">aes</span>(<span class="at">x=</span>mpg,<span class="at">y=</span>wt)) <span class="sc">+</span> </span>
+<span id="cb265-2"><a href="visual2.html?v=c99553d58c6c.html#cb265-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb265-3"><a href="visual2.html?v=c99553d58c6c.html#cb265-3" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>my_labels)) <span class="sc">+</span></span>
+<span id="cb265-4"><a href="visual2.html?v=c99553d58c6c.html#cb265-4" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;rect&quot;</span>,<span class="at">xmin=</span><span class="dv">18</span>,<span class="at">xmax=</span><span class="dv">23</span>,<span class="at">ymin=</span><span class="fl">2.5</span>,<span class="at">ymax=</span><span class="dv">3</span>,<span class="at">alpha=</span><span class="fl">0.2</span>,<span class="at">fill=</span><span class="st">&quot;orange&quot;</span>) <span class="sc">+</span></span>
+<span id="cb265-5"><a href="visual2.html?v=c99553d58c6c.html#cb265-5" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="at">x=</span><span class="dv">25</span>,<span class="at">y=</span><span class="fl">2.75</span>,<span class="at">label=</span><span class="st">&quot;Cars of interest&quot;</span>,<span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb265-6"><a href="visual2.html?v=c99553d58c6c.html#cb265-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-106-1.png" alt="" width="384" /></p>
+</div>
+</div>
+<div id="adskille-plots-med-facets-facet_grid-facet_wrap" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Adskille plots med facets (<code>facet_grid()</code> / <code>facet_wrap()</code>)<a href="visual2.html?v=c99553d58c6c.html#adskille-plots-med-facets-facet_grid-facet_wrap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En stor fordel ved <code>ggplot2</code> er muligheden for at bruge funktionerne <code>facet_grid()</code> og <code>facet_wrap()</code> til at opdele værdierne af en kategorisk variabel over flere delplots. I følgende kode får vi et density plot, hvor de tre kurver, der tilhører de tre arter, ligger oven på hinanden i det samme plot:</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="visual2.html?v=c99553d58c6c.html#cb266-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb266-2"><a href="visual2.html?v=c99553d58c6c.html#cb266-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb266-3"><a href="visual2.html?v=c99553d58c6c.html#cb266-3" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-108-1.png" alt="" width="480" /></p>
+<p>Med funktionerne <code>facet_grid()</code> og <code>facet_wrap()</code> bruger vi <code>~</code> (tilde) til at angive, hvordan vi gerne vil visualisere de forskellige delplots. Vi angiver, om vi ønsker at opdele dem over rækker (variablerne til venstre for <code>~</code>) eller over kolonner (variablerne til højre for <code>~</code>).</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="visual2.html?v=c99553d58c6c.html#cb267-1" tabindex="-1"></a><span class="co">#notrun</span></span>
+<span id="cb267-2"><a href="visual2.html?v=c99553d58c6c.html#cb267-2" tabindex="-1"></a><span class="fu">variable</span>(s) to split into row<span class="sc">-</span>wise plots <span class="sc">~</span> <span class="fu">variables</span>(s) to split into column<span class="sc">-</span>wise plots</span></code></pre></div>
+<p>Det ovenstående density plot af <code>Sepal.Length</code> kan adskilles efter <code>Species</code>, således at man får tre plots i hver sin kolonne (ét for hver af de tre arter) ved hjælp af <code>facet_grid()</code>-funktionen:</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="visual2.html?v=c99553d58c6c.html#cb268-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb268-2"><a href="visual2.html?v=c99553d58c6c.html#cb268-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb268-3"><a href="visual2.html?v=c99553d58c6c.html#cb268-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>Species) <span class="sc">+</span> <span class="co">#split Species into different column-wise plots</span></span>
+<span id="cb268-4"><a href="visual2.html?v=c99553d58c6c.html#cb268-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-110-1.png" alt="" width="480" /></p>
+<p>Man kan også vælge at fordele plottene over rækkerne ved hjælp af <code>facet_grid()</code>. Her skal man dog huske at bruge et <code>.</code> efter <code>~</code> for at angive, at man kun vil adskille plots over rækkerne, mens man til gengæld kan udelade <code>.</code>, hvis man kun vil adskille over kolonner som i det foregående eksempel:</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="visual2.html?v=c99553d58c6c.html#cb269-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb269-2"><a href="visual2.html?v=c99553d58c6c.html#cb269-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb269-3"><a href="visual2.html?v=c99553d58c6c.html#cb269-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Species<span class="sc">~</span>.) <span class="sc">+</span> <span class="co">#split Species into different column-wise plots</span></span>
+<span id="cb269-4"><a href="visual2.html?v=c99553d58c6c.html#cb269-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-111-1.png" alt="" width="480" /></p>
+<p>Her angives <code>Sepal.Group ~ Species</code>, hvilket betyder, at plottene bliver adskilt efter både <code>Sepal.Group</code> og <code>Species</code> – <code>Sepal.Group</code> over rækkerne og <code>Species</code> over kolonnerne – ved hjælp af <code>facet_grid()</code>-funktionen:</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="visual2.html?v=c99553d58c6c.html#cb270-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb270-2"><a href="visual2.html?v=c99553d58c6c.html#cb270-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb270-3"><a href="visual2.html?v=c99553d58c6c.html#cb270-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Sepal.Group<span class="sc">~</span>Species) <span class="sc">+</span> <span class="co">#split Species into different column-wise plots</span></span>
+<span id="cb270-4"><a href="visual2.html?v=c99553d58c6c.html#cb270-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-113-1.png" alt="" width="480" /></p>
+<p>Bemærk forskellen mellem <code>facet_grid()</code> og <code>facet_wrap()</code>:</p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="visual2.html?v=c99553d58c6c.html#cb271-1" tabindex="-1"></a><span class="co">#same plot, replace facet_grid with facet_wrap</span></span>
+<span id="cb271-2"><a href="visual2.html?v=c99553d58c6c.html#cb271-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb271-3"><a href="visual2.html?v=c99553d58c6c.html#cb271-3" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb271-4"><a href="visual2.html?v=c99553d58c6c.html#cb271-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Sepal.Group<span class="sc">~</span>Species) <span class="sc">+</span> </span>
+<span id="cb271-5"><a href="visual2.html?v=c99553d58c6c.html#cb271-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-114-1.png" alt="" width="480" /></p>
+<p>I <code>facet_grid()</code> er layoutet fastlåst som et gitter (“grid”). Vi får således 6 plots i et 2 x 3-gitter (2 niveauer for variablen <code>Sepal.Group</code> og 3 niveauer for variablen <code>Species</code>), og det sker, selvom den ene kombination ikke har nogen data – der findes altså ingen observationer, hvor <code>Species</code> er <code>"setosa"</code> og <code>Sepal.Group</code> er <code>"Long"</code>, men der vises et tomt plot alligevel for at bevare strukturen. Med <code>facet_wrap()</code> bliver plots uden data udeladt, og i dette tilfælde får man 5 plots i et bånd (“ribbon”).</p>
+<p>Med <code>facet_wrap()</code> kan man også angive antallet af rækker og kolonner, man vil have til plottene. For eksempel kan man angive <code>nrow = 1</code> eller <code>ncol = 5</code> for at få alle fem plots på én række:</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="visual2.html?v=c99553d58c6c.html#cb272-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb272-2"><a href="visual2.html?v=c99553d58c6c.html#cb272-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb272-3"><a href="visual2.html?v=c99553d58c6c.html#cb272-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Sepal.Group<span class="sc">~</span>Species,<span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb272-4"><a href="visual2.html?v=c99553d58c6c.html#cb272-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-115-1.png" alt="" width="624" /></p>
+<p>Til sidst kan det være, at vi gerne vil frigøre skalaen på y-aksen. På den måde har ikke alle plots de samme maksimale y-værdier, og de enkelte plots benytter i stedet deres egne værdier til at bestemme skalaen. Det kan være brugbart, hvis man sammenligner forskellige målinger. Vær dog opmærksom på, hvad der giver bedst mening – hvis man direkte vil sammenligne to plots, er det bedre, at de deler samme y-akseskala.</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="visual2.html?v=c99553d58c6c.html#cb273-1" tabindex="-1"></a><span class="co">#same plot, replace facet_grid with facet_wrap</span></span>
+<span id="cb273-2"><a href="visual2.html?v=c99553d58c6c.html#cb273-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">fill=</span>Species)) <span class="sc">+</span> </span>
+<span id="cb273-3"><a href="visual2.html?v=c99553d58c6c.html#cb273-3" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb273-4"><a href="visual2.html?v=c99553d58c6c.html#cb273-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Sepal.Group<span class="sc">~</span>Species,<span class="at">ncol =</span> <span class="dv">5</span>,<span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb273-5"><a href="visual2.html?v=c99553d58c6c.html#cb273-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-116-1.png" alt="" width="624" /></p>
+<p>Disse funktioner er meget brugbare, selvom de opnår stort set samme resultat. Der er dog små forskelle mellem dem, som er værd at huske.</p>
+</div>
+<div id="gem-dit-plot" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Gem dit plot<a href="visual2.html?v=c99553d58c6c.html#gem-dit-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Her bruger vi R Markdown til at lave en rapport, som indeholder vores plots. Men det kan også være, at man gerne vil gemme sit plot som en fil på computeren. Til det kan man bruge kommandoen <code>ggsave()</code>:</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="visual2.html?v=c99553d58c6c.html#cb274-1" tabindex="-1"></a><span class="fu">ggsave</span>(myplot, <span class="st">&quot;myplot.pdf&quot;</span>)</span></code></pre></div>
+<p>Figuren vil blive gemt i dit <em>working directory</em> (den mappe, hvor din <code>.Rmd</code>-fil ligger). Filtypen <code>.pdf</code> kan erstattes med andre formater, f.eks. <code>.png</code> eller <code>.jpeg</code>. Hvis man gerne vil redigere sit plot (f.eks. i Adobe Illustrator eller Inkscape), anbefaler jeg at gemme det som <code>.pdf</code>.</p>
+<p>Man kan også ændre højden og bredden på det gemte plot med <code>width</code> og <code>height</code>:</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="visual2.html?v=c99553d58c6c.html#cb275-1" tabindex="-1"></a><span class="fu">ggsave</span>(myplot, <span class="st">&quot;myplot.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">4</span>)</span></code></pre></div>
+</div>
+<div id="problemstillinger-2" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Problemstillinger<a href="visual2.html?v=c99553d58c6c.html#problemstillinger-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Problem 1</strong>) Lav quizzen “Quiz - ggplot2 dag 2”.</p>
+<hr />
+<p><strong>Problem 2</strong>) (<em>Øvelse med faktorer og plots</em>)</p>
+<p><strong>a</strong>) Åbn datasættet <code>mtcars</code> og lav et barplot:</p>
+<ul>
+<li>Brug variablen <code>cyl</code> på x-aksen og tilføj forskellige farver til de forskellige niveauer (dvs. factor levels) af <code>cyl</code>.</li>
+<li>Hvad kunne være et problem med måden, <code>cyl</code> er plottet på? Er farverne vist som forventet i plottet?</li>
+<li>Tjek x-aksen – variablen er numerisk, men bør fortolkes som en faktor.</li>
+<li>Lav variablen om til en faktor (eller skriv blot <code>as.factor(cyl)</code> i selve plottet) og lav dit plot igen.</li>
+</ul>
+<p><strong>b</strong>) Rediger nedenstående kode, så data fordeles baseret på <code>gear</code>:</p>
+<ul>
+<li>Opdel søjlerne ved at angive farver efter variablen <code>gear</code> i dit plot.</li>
+<li><code>gear</code>-søjlerne skal stå ved siden af hinanden (husk <code>position</code>-argumentet).</li>
+<li>Vær igen opmærksom på, hvordan R fortolker variablen.</li>
+</ul>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="visual2.html?v=c99553d58c6c.html#cb276-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb276-2"><a href="visual2.html?v=c99553d58c6c.html#cb276-2" tabindex="-1"></a>    <span class="at">data =</span> mtcars,</span>
+<span id="cb276-3"><a href="visual2.html?v=c99553d58c6c.html#cb276-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb276-4"><a href="visual2.html?v=c99553d58c6c.html#cb276-4" tabindex="-1"></a>        <span class="at">x =</span> cyl,</span>
+<span id="cb276-5"><a href="visual2.html?v=c99553d58c6c.html#cb276-5" tabindex="-1"></a>        <span class="at">fill =</span> mpg</span>
+<span id="cb276-6"><a href="visual2.html?v=c99553d58c6c.html#cb276-6" tabindex="-1"></a>      )</span>
+<span id="cb276-7"><a href="visual2.html?v=c99553d58c6c.html#cb276-7" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb276-8"><a href="visual2.html?v=c99553d58c6c.html#cb276-8" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;count&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb276-9"><a href="visual2.html?v=c99553d58c6c.html#cb276-9" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<hr />
+<p>I det følgende spørgsmål arbejder du med datasættet <code>Palmer Penguins</code>. Installer venligst pakken <code>palmerpenguins</code>, hvis du ikke har brugt den før.</p>
+<p>Databeskrivelse: <em>The palmerpenguins data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica.</em></p>
+<p><img src="plots/palmerpenguins.png" alt="" width="20%" /></p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="visual2.html?v=c99553d58c6c.html#cb277-1" tabindex="-1"></a><span class="co">#install.packages(&quot;palmerpenguins&quot;) #køre hvis ikke allerede installeret</span></span>
+<span id="cb277-2"><a href="visual2.html?v=c99553d58c6c.html#cb277-2" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb277-3"><a href="visual2.html?v=c99553d58c6c.html#cb277-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb277-4"><a href="visual2.html?v=c99553d58c6c.html#cb277-4" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb277-5"><a href="visual2.html?v=c99553d58c6c.html#cb277-5" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
+<pre><code>FALSE # A tibble: 6 × 8
+FALSE   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+FALSE   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+FALSE 1 Adelie  Torgersen           39.1          18.7               181        3750
+FALSE 2 Adelie  Torgersen           39.5          17.4               186        3800
+FALSE 3 Adelie  Torgersen           40.3          18                 195        3250
+FALSE 4 Adelie  Torgersen           NA            NA                  NA          NA
+FALSE 5 Adelie  Torgersen           36.7          19.3               193        3450
+FALSE 6 Adelie  Torgersen           39.3          20.6               190        3650
+FALSE # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<p>Brug venligst <code>?penguins</code> for at se flere detaljer om variabelnavnene.</p>
+<p><em>Vi skal starte med at rydde lidt op i datasættet. Brug til det formål <code>drop_na()</code> til at fjerne alle rækker med <code>NA</code>-værdier (manglende værdier) – her skal <code>tidyverse</code>-pakken være indlæst:</em></p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="visual2.html?v=c99553d58c6c.html#cb279-1" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(penguins)</span></code></pre></div>
+<hr />
+<p><strong>Problem 3</strong>) <em>Manuelle farver og punktformer</em></p>
+<p><strong>a</strong>) Lav et spredningsdiagram / scatter plot med <code>ggplot()</code>-funktionen:</p>
+<ul>
+<li><code>bill_length_mm</code> på x-aksen.</li>
+<li><code>bill_depth_mm</code> på y-aksen.</li>
+<li>Giv hver art (variablen <code>species</code>) sin egen farve.</li>
+<li>Sæt et tema.</li>
+</ul>
+<p><strong>b</strong>) Lav følgende ændringer til dit plot fra <strong>a</strong>):</p>
+<ul>
+<li>Ændr farverne manuelt – prøv at angive farver med <code>scale_color_manual()</code>.</li>
+<li>Brug forskellige punktformer til hver art i variablen <code>species</code>.</li>
+<li>Prøv at vælge punktformer fra listen (i kursusnotaterne) og specificer dem manuelt.</li>
+</ul>
+<hr />
+<p><strong>Problem 4</strong>) <em>Koordinatsystemer</em></p>
+<p>Tag udgangspunkt i ovenstående scatter plot fra <strong>3</strong>):</p>
+<p><strong>a</strong>) Brug <code>coord_cartesian()</code>, så kun pingviner med en næblængde (variablen <code>bill_length_mm</code>) mellem 40 og 50 og en næbdybde (variablen <code>bill_depth_mm</code>) mellem 16 og 19 er medtaget på plottet.
+<strong>b</strong>) Brug pakken <code>ggrepel</code> (husk at installere/indlæse den) og tilføj navnene på de forskellige øer som tekstetiketter / labels direkte på plottet.
+<strong>c</strong>) Lav en delmængde af datasættet <code>penguins</code> efter samme betingelser som i <strong>a</strong>) og brug din nye dataframe som parameteren <code>data</code> i <code>geom_text_repel()</code>-funktionen. Dette undgår, at der bliver plottet tekst for punkter uden for det område, der er angivet med <code>coord_cartesian()</code>.</p>
+<p><strong>Problem 5</strong>) <em>Histogram med facets</em></p>
+<p>Lav et histogram:</p>
+<ul>
+<li>Variablen <code>flipper_length_mm</code> på x-aksen.</li>
+<li>Anvend <code>facet_grid()</code> til at adskille dit plot i tre dele efter variablen <code>species</code>.</li>
+<li>Kombiner samtidig forskellige farver med hver art fra <code>species</code>-variablen.</li>
+<li>Ændr om nødvendigt parameteren <code>bins</code> til noget andet inden i <code>geom_histogram()</code>.</li>
+</ul>
+<p>Her er en mulig løsning:</p>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-130-1.png" alt="" width="576" /></p>
+<hr />
+<p><strong>Problem 6</strong>) <em>Density plot med facets</em></p>
+<p><strong>a)</strong> Lav et tæthetsdiagram / density plot af <code>body_mass_g</code>-variablen:</p>
+<ul>
+<li>Anvend funktionen <code>facet_grid()</code> til at lave tre plots – ét for hver art i variablen <code>species</code>.</li>
+<li>Brug også <code>fill</code> til at opdele hver af dine tre density-kurver efter variablen <code>sex</code> (dvs. du har stadig 3 plots, og hvert plot har to density-kurver).</li>
+<li>Gør dine density plots gennemsigtige.</li>
+<li>Skriv en sætning om forskellen i <code>body_mass_g</code> mellem hunner (“females”) og hanner (“males”).</li>
+</ul>
+<p><strong>b</strong>) Udbyg din <code>facet_grid()</code>-kode til at adskille plottene yderligere, således at du har en gitterstruktur (“grid”) med de forskellige øer (variablen <code>island</code>) på rækkerne og de tre arter (variablen <code>species</code>) på kolonnerne.</p>
+<p><strong>c</strong>) Kan du forklare, hvorfor der er tomme plots i dit gitter (“grid”)? Eksperimenter f.eks. med <code>facet_wrap()</code> i stedet for <code>facet_grid()</code> for at undersøge det.</p>
+<hr />
+<p><strong>Problem 7</strong>) <em>Koordinatsystemer</em></p>
+<p>Lav et søjlediagram / barplot af antallet for <code>species</code> opdelt efter <code>sex</code>:</p>
+<ul>
+<li><p>Anvend <code>coord_flip()</code> for at gøre plottet vandret (horisontalt).</p></li>
+<li><p>Vælg nogle farver – f.eks. <code>palette = "Accent"</code> fra <code>RColorBrewer</code>.</p></li>
+<li><p>Ændr rækkefølgen af de tre søjler, således at arten med flest observationer er øverst, og arten med færrest er nederst.</p></li>
+<li><p>Prøv også at tilføje <code>scale_y_reverse()</code> og kig på resultatet.</p></li>
+</ul>
+<p>Her er en mulig løsning:</p>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-136-1.png" alt="" width="480" /></p>
+<hr />
+<p><strong>Problem 8</strong>) Lav et boksplot / boxplot af <code>body_mass_g</code> opdelt efter <code>species</code>:</p>
+<ul>
+<li><p>Tilføj “jitter”-punkter oven på boksplottet.</p></li>
+<li><p>Specificer nogle farver manuelt til både boksene og punkterne (én farve til hver art).</p></li>
+<li><p>Giv plottet en passende titel og akseetiketter.</p></li>
+<li><p>Tilføj en ny variabel <code>island_binary</code> til <code>penguins</code>, som er <code>"Biscoe"</code>, hvis <code>island</code> er <code>'Biscoe'</code>, og <code>"not Biscoe"</code> hvis ikke.</p></li>
+<li><p>Adskil plottene ved at opdele efter <code>island_binary</code>.</p></li>
+<li><p>Ekstra: Prøv <code>?geom_violin</code> som erstatning for <code>geom_boxplot()</code>.</p></li>
+</ul>
+<hr />
+<p><strong>Problem 9</strong>) <em>Annotationer og linjer</em></p>
+<p><strong>a</strong>) Lav et spredningsdiagram / scatter plot af <code>bill_length_mm</code> mod <code>bill_depth_mm</code>:</p>
+<ul>
+<li>Anvend passende titel, etiketter og tema.</li>
+<li>Anvend forskellige farver for de tre <code>species</code>.</li>
+<li>Tjek funktionen <code>?annotate</code> og brug den med <code>geom = "text"</code> samt passende x- og y-akseværdier til at tilføje <code>species</code>-navne som tekst direkte på plottet (se eksemplet nedenfor).</li>
+<li>Udforsk, hvordan man gør teksten større, som i løsningen nedenfor.</li>
+<li>Fjern legenden med <code>show.legend = FALSE</code> inden i <code>geom_point()</code>.</li>
+</ul>
+<p>Her er en mulig løsning:</p>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-138-1.png" alt="" width="384" /></p>
+<p><strong>b</strong>) Vi vil gerne tilføje nogle lodrette og vandrette linjer til plottet, som viser gennemsnitsværdierne for variablerne for de tre arter:</p>
+<ul>
+<li>Først skal du bruge <code>tapply()</code> til at beregne de gennemsnitlige værdier for henholdsvis <code>bill_length_mm</code> og <code>bill_depth_mm</code> opdelt efter <code>species</code> (gem dem som <code>mean_length</code> og <code>mean_depth</code>).</li>
+<li>Brug <code>mean_length</code> og <code>mean_depth</code> til at tilføje linjer til plottet med den relevante funktion.</li>
+</ul>
+<p><strong>c</strong>) Kan du tilpasse linjerne, så deres farver matcher punkterne for den samme art (se løsningen nedenfor)? Der er sikkert mange måder at gøre det på, men hvis du har brug for et hint, kan du kigge nedenfor:</p>
+<ul>
+<li>Hint: Start med følgende dataframe, der bruger dine beregnede værdier:</li>
+</ul>
+<pre><code>##             species  mlength   mdepth
+## Adelie       Adelie 38.82397 18.34726
+## Chinstrap Chinstrap 48.83382 18.42059
+## Gentoo       Gentoo 47.56807 14.99664</code></pre>
+<ul>
+<li>Angiv parameteren <code>data</code> til at være ovenstående dataframe i <code>geom_vline()</code>, og brug lokal æstetik (<code>aes()</code>) til at angive parametre til linjerne.</li>
+<li>Gør det samme for <code>geom_hline()</code>.</li>
+<li>Specificer også stiplede (“dashed”) linjer.</li>
+</ul>
+<p>Her er en mulig løsning:</p>
+<p><img src="visualisation_2027_files/figure-html/unnamed-chunk-141-1.png" alt="" width="480" /></p>
+<hr />
+<p><strong>Problem 10</strong>) <em>Ekstra</em>: Kig på oversigten (“cheatsheet”) for <code>ggplot2</code> (klik på “Help” &gt; “Cheatsheets” og vælg den for <code>ggplot2</code>), og prøv nogle af de funktioner, som ikke er blevet dækket i kurset indtil videre! Vi vil gerne høre, hvis du finder noget meget nyttigt, som er blevet udeladt i notaterne.</p>
+
+</div>
+</div>
+<script src="assets/downloads.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visual1.html?v=1799f1dc2376.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js?v=c5d1340a9646"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["visualisation_2027.pdf", "Alle kursusnotater (PDF)"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

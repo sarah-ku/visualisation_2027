@@ -22,5 +22,9 @@
   "visual1.html": {
     "path": "pdf/visual1.pdf",
     "title": "Kapitel 4 Visualisering - ggplot2 dag 1"
+  },
+  "visual2.html": {
+    "path": "pdf/visual2.pdf",
+    "title": "Kapitel 5 Visualisering - ggplot2 dag 2"
   }
 }

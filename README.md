@@ -4,12 +4,12 @@ Course notes for the 2026/27 academic year, using the same R Bookdown / GitBook 
 
 Website: https://sarah-ku.github.io/visualisation_2027/
 
-Published topics: **Lidt om kurset**, **Grundlæggende R**, **Grundlæggende statistik i base R**, **Introduktion til R Markdown**, and **Visualisering - ggplot2 dag 1** (Kapitel 4).
+Published topics: **Lidt om kurset**, **Grundlæggende R**, **Grundlæggende statistik i base R**, **Introduktion til R Markdown**, **Visualisering - ggplot2 dag 1** (Kapitel 4), and **Visualisering - ggplot2 dag 2** (Kapitel 5).
 
 ## Edit and publish
 
 1. Open `visualisation_2027.Rproj` in RStudio.
-2. Edit `index.Rmd` (introduction), `00-baser.Rmd` (base R), `01-statistik.Rmd` (statistics), `01-rmark_v1.Rmd` (R Markdown), or `uge47_ggplot2_dag1.Rmd` (ggplot2 day 1). Styling lives in `assets/style.css`.
+2. Edit `index.Rmd` (introduction), `00-baser.Rmd` (base R), `01-statistik.Rmd` (statistics), `01-rmark_v1.Rmd` (R Markdown), `uge47_ggplot2_dag1.Rmd` (ggplot2 day 1), or `uge47_ggplot2_dag2.Rmd` (ggplot2 day 2). Styling lives in `assets/style.css`.
 3. Render the site from the R console:
 
    ```r
@@ -23,7 +23,7 @@ GitHub Pages publishes `main` → `/docs`. It serves the rendered HTML; editing 
 If the required R packages are missing, install them once:
 
 ```r
-install.packages(c("bookdown", "rmarkdown", "knitr", "png", "jpeg", "tidyverse", "qpdf", "vembedr"))
+install.packages(c("bookdown", "rmarkdown", "knitr", "png", "jpeg", "tidyverse", "RColorBrewer", "ggrepel", "palmerpenguins", "qpdf", "vembedr"))
 ```
 
 RStudio includes Pandoc, which is also required for rendering. PDF generation also needs XeLaTeX. If you do not already have a LaTeX installation, install TinyTeX once and restart RStudio:
@@ -46,7 +46,7 @@ The download icon at the top of the website offers **Alle kursusnotater (PDF)** 
 
 ## Add a chapter later
 
-Add the chapter's `.Rmd` source and its images, then append its filename to `rmd_files` in `_bookdown.yml` in the desired order. Rebuild and push as above. Only the explicitly listed chapters are included in the site and search.
+Add the chapter's `.Rmd` source and its images, then append its filename to `rmd_files` in `_bookdown.yml` in the desired order. Rebuild and push as above. Only the explicitly listed chapters are included in the site and search. The published course currently includes Kapitel 1–5 and the introduction; draft chapters 7 and 8 stay in the ignored local preview.
 
 ## One-time Pages setting
 

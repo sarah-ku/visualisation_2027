@@ -5,6 +5,7 @@ rmd_files:
   - 01-statistik.Rmd
   - 01-rmark_v1.Rmd
   - uge47_ggplot2_dag1.Rmd
+  - uge47_ggplot2_dag2.Rmd
 delete_merged_file: true
 output_dir: "docs"
 language:

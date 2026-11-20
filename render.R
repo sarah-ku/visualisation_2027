@@ -1,6 +1,6 @@
 # Give each published revision of a course chapter its own browser cache entry.
 version_chapter_links <- function(html_dir, html_files) {
-  chapters <- intersect(c("index", "baser", "statistik", "rmarkdown", "visual1"),
+  chapters <- intersect(c("index", "baser", "statistik", "rmarkdown", "visual1", "visual2"),
                         tools::file_path_sans_ext(basename(html_files)))
   if (!length(chapters)) return(invisible(NULL))
 
@@ -44,7 +44,8 @@ version_chapter_links <- function(html_dir, html_files) {
 
 # Rebuild the website, the complete PDF, and one PDF per published topic.
 render_course <- function() {
-  packages <- c("bookdown", "qpdf", "jsonlite", "xml2", "vembedr", "jpeg", "ggplot2", "tidyr")
+  packages <- c("bookdown", "qpdf", "jsonlite", "xml2", "vembedr", "jpeg", "ggplot2", "tidyr",
+                "RColorBrewer", "ggrepel", "png", "palmerpenguins", "tidyverse")
   missing <- packages[!vapply(packages, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing)) {
     stop("Install the required R packages first: install.packages(c(",

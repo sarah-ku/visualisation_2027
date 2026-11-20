@@ -18,5 +18,9 @@
   "rmarkdown.html": {
     "path": "pdf/rmarkdown.pdf",
     "title": "Kapitel 3 Introduktion til R Markdown"
+  },
+  "visual1.html": {
+    "path": "pdf/visual1.pdf",
+    "title": "Kapitel 4 Visualisering - ggplot2 dag 1"
   }
 }

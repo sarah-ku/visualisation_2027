@@ -1,6 +1,6 @@
 # Give each published revision of a course chapter its own browser cache entry.
 version_chapter_links <- function(html_dir, html_files) {
-  chapters <- intersect(c("index", "baser", "statistik", "rmarkdown"),
+  chapters <- intersect(c("index", "baser", "statistik", "rmarkdown", "visual1"),
                         tools::file_path_sans_ext(basename(html_files)))
   if (!length(chapters)) return(invisible(NULL))
 
@@ -44,7 +44,7 @@ version_chapter_links <- function(html_dir, html_files) {
 
 # Rebuild the website, the complete PDF, and one PDF per published topic.
 render_course <- function() {
-  packages <- c("bookdown", "qpdf", "jsonlite", "xml2", "vembedr")
+  packages <- c("bookdown", "qpdf", "jsonlite", "xml2", "vembedr", "jpeg", "ggplot2", "tidyr")
   missing <- packages[!vapply(packages, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing)) {
     stop("Install the required R packages first: install.packages(c(",
@@ -65,10 +65,12 @@ render_course <- function() {
   chapter_file <- paste0(book_name, ".chapter-pages")
   if (file.exists(chapter_file)) unlink(chapter_file)
 
-  # Shared setup applies to all topics; it resets format-specific options and
-  # the random seed so computed examples agree across the two formats.
+  # Use a fresh knit environment for each format so examples modified while
+  # rendering the PDF cannot leak into the HTML (for example, iris columns).
+  # Shared setup resets format-specific options and the random seed.
   pdf <- bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book",
-                               output_dir = stage, new_session = FALSE)
+                               output_dir = stage, new_session = FALSE,
+                               envir = new.env(parent = globalenv()))
   if (!file.exists(chapter_file)) {
     stop("The PDF did not record its chapter pages; no downloads were published.", call. = FALSE)
   }
@@ -79,7 +81,8 @@ render_course <- function() {
   }
 
   bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook",
-                        output_dir = html_dir, new_session = FALSE)
+                        output_dir = html_dir, new_session = FALSE,
+                        envir = new.env(parent = globalenv()))
   html_files <- list.files(html_dir, pattern = "\\.html$", full.names = TRUE)
   chapters <- list()
   for (html_file in html_files) {
